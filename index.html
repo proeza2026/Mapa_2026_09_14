@@ -1,0 +1,3291 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <title>Mapa de campo - PROEZA</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/leaflet-omnivore@0.3.4/leaflet-omnivore.min.js"></script>
+  <script src="https://unpkg.com/leaflet-rotate@0.2.8/dist/leaflet-rotate-src.js"></script>
+
+  <style>
+    html, body { height: 100%; margin: 0; font-family: Arial, sans-serif; }
+    #map { height: 100%; width: 100%; }
+
+
+    .btn-panel {
+      display: block;
+      position: absolute;
+      top: 86px;
+      left: 12px;
+      z-index: 1100;
+      background: white;
+      border: none;
+      border-radius: 8px;
+      padding: 9px 12px;
+      font-weight: bold;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.35);
+      cursor: pointer;
+    }
+
+    .logo-proeza {
+      position: absolute; top: 12px; right: 12px; z-index: 1000;
+      width: 92px; background: white; padding: 6px; border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.35);
+    }
+
+    .panel {
+      display: none;
+      position: absolute; top: 132px; left: 12px; z-index: 1000;
+      background: white; padding: 14px; border-radius: 12px;
+      box-shadow: 0 3px 12px rgba(0,0,0,0.35);
+      width: 350px; max-width: calc(100% - 30px); font-size: 13px;
+    }
+
+    .panel.panel-visible { display: block; }
+
+    .panel h3 { margin: 0 0 8px 0; font-size: 19px; color: #111; }
+
+    .resumen-linea { font-weight: bold; line-height: 1.28; }
+    .resumen-viviendas { color: #333; }
+    .resumen-plantacion { color: #f57c00; }
+    .resumen-poligonos { color: #e11b22; }
+    .resumen-ubicacion { color: #6a1b9a; }
+    .resumen-cocinas { color: #00897b; }
+
+    .buscador {
+      width: 100%; box-sizing: border-box; padding: 10px;
+      margin-top: 12px; border: 1px solid #aaa; border-radius: 7px;
+      font-size: 14px;
+    }
+
+    .botones { display: flex; gap: 6px; margin-top: 10px; flex-wrap: wrap; }
+
+    .boton {
+      border: none; border-radius: 7px; padding: 8px 10px;
+      font-weight: bold; cursor: pointer; color: #111; font-size: 13px;
+    }
+
+    .btn-viviendas { background: #fdd835; }
+    .btn-parcelas { background: #fb8c00; color: white; }
+    .btn-kml { background: #e11b22; color: white; }
+    .btn-kmlp { background: #6a1b9a; color: white; }
+    .btn-cocinas { background: #00897b; color: white; }
+
+    .boton:not(.boton-activo) {
+      background: #eeeeee !important;
+      color: #333 !important;
+    }
+
+    .resultados {
+      max-height: 180px; overflow-y: auto; margin-top: 8px;
+      border-top: 1px solid #ddd; display: none; background: #fff;
+    }
+
+    .item-resultado {
+      padding: 8px 4px; border-bottom: 1px solid #eee;
+      cursor: pointer; line-height: 1.35;
+    }
+
+    .item-resultado:hover { background: #f1f1f1; }
+
+    .resultado-titulo {
+      font-weight: bold;
+      margin-bottom: 3px;
+    }
+
+    .resultado-subtitulo {
+      font-size: 12px;
+      color: #444;
+      margin-bottom: 6px;
+    }
+
+    .acciones-resultado {
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap;
+      margin-top: 4px;
+    }
+
+    .btn-resultado {
+      border: none;
+      border-radius: 6px;
+      padding: 6px 8px;
+      font-weight: bold;
+      font-size: 12px;
+      cursor: pointer;
+    }
+
+    .btn-res-vivienda { background: #fdd835; color: #111; }
+    .btn-res-plantacion { background: #fb8c00; color: white; }
+    .btn-res-mantenimiento { background: #e11b22; color: white; }
+    .btn-res-cocina { background: #00897b; color: white; }
+
+
+    .popup-card {
+      min-width: 270px; max-width: 340px; color: #111;
+      font-size: 14px; line-height: 1.55;
+    }
+
+    .popup-card h3 {
+      margin: 6px 0 10px 0;
+      font-size: 18px; color: #111; line-height: 1.2;
+      text-transform: uppercase; border-bottom: 1px solid #ddd;
+      padding-bottom: 8px;
+    }
+
+    .popup-badge {
+      display: inline-block; padding: 4px 10px; border-radius: 14px;
+      font-weight: bold; margin-bottom: 4px; font-size: 13px;
+    }
+
+    .badge-vivienda { background: #fdd835; color: #111; }
+    .badge-parcela { background: #fb8c00; color: white; }
+    .badge-poligono { background: #e11b22; color: white; }
+    .badge-kmlp { background: #6a1b9a; color: white; }
+    .badge-cocina { background: #00897b; color: white; }
+
+    .popup-grid div { margin-bottom: 3px; }
+
+    .distancia-box {
+      margin-top: 8px;
+      padding: 8px;
+      background: #f1f8ff;
+      border-left: 4px solid #1a73e8;
+      border-radius: 6px;
+      font-size: 13px;
+      line-height: 1.35;
+    }
+
+    .btn-ruta, .btn-offline {
+      display: inline-block;
+      color: #ffffff !important;
+      padding: 10px 14px;
+      border-radius: 8px;
+      text-decoration: none !important;
+      font-weight: bold;
+      margin-top: 12px;
+      margin-right: 6px;
+      text-align: center;
+      font-size: 14px;
+    }
+
+    .btn-coordenadas {
+      display: inline-block;
+      color: #ffffff !important;
+      padding: 8px 10px;
+      border-radius: 8px;
+      text-decoration: none !important;
+      font-weight: bold;
+      margin-top: 12px;
+      margin-right: 6px;
+      text-align: center;
+      font-size: 15px;
+      line-height: 1;
+      min-width: 38px;
+    }
+
+    .btn-ruta { background: #1a73e8 !important; }
+    .btn-offline { background: #2e7d32 !important; }
+    .btn-coordenadas { background: #6d4c41 !important; border: none; cursor: pointer; }
+    .btn-visitado {
+      display: inline-block;
+      color: #ffffff !important;
+      padding: 9px 12px;
+      border-radius: 8px;
+      text-decoration: none !important;
+      font-weight: bold;
+      margin-top: 12px;
+      margin-right: 6px;
+      text-align: center;
+      font-size: 14px;
+      background: #43a047 !important;
+      border: none;
+      cursor: pointer;
+    }
+    .btn-visitado.visitado {
+      background: #1b5e20 !important;
+    }
+
+    .btn-ruta:visited, .btn-ruta:hover, .btn-ruta:active,
+    .btn-offline:visited, .btn-offline:hover, .btn-offline:active,
+    .btn-coordenadas:visited, .btn-coordenadas:hover, .btn-coordenadas:active,
+    .btn-visitado:visited, .btn-visitado:hover, .btn-visitado:active {
+      color: #ffffff !important; text-decoration: none !important;
+    }
+
+    .leaflet-popup-content-wrapper {
+      background: white !important; color: #111 !important;
+      border-radius: 12px; box-shadow: 0 4px 16px rgba(0,0,0,0.35);
+    }
+
+    .leaflet-popup-content { margin: 14px; }
+
+    .label-nombre {
+      background: rgba(255,255,255,0.92); border: 1px solid #555;
+      border-radius: 4px; padding: 2px 4px; font-size: 11px;
+      font-weight: bold; color: #111; white-space: nowrap;
+    }
+
+    .kml-label {
+      background: transparent; border: none; color: white;
+      font-size: 13px; font-weight: bold;
+      text-shadow: -1px -1px 2px #000, 1px -1px 2px #000, -1px 1px 2px #000, 1px 1px 2px #000;
+      text-align: center;
+    }
+
+
+    /* Optimización móvil: durante el giro/zoom se ocultan etiquetas para que rote más fluido */
+    #map.map-interacting .leaflet-tooltip {
+      display: none !important;
+    }
+
+    .mi-ubicacion-btn {
+      position: absolute;
+      right: 10px;
+      bottom: 18px;
+      z-index: 1000;
+      background: white;
+      border: none;
+      border-radius: 8px;
+      padding: 8px 10px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.35);
+      font-weight: bold;
+      font-size: 12px;
+      cursor: pointer;
+      white-space: nowrap;
+    }
+
+    .parcelas-establecidas-btn {
+      position: absolute;
+      right: 10px;
+      bottom: 58px;
+      z-index: 1000;
+      background: white;
+      border: none;
+      border-radius: 8px;
+      padding: 8px 10px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.35);
+      font-weight: bold;
+      font-size: 12px;
+      cursor: pointer;
+      color: #1b5e20;
+      white-space: nowrap;
+    }
+
+    .parcelas-establecidas-btn.activo {
+      background: #ffeb3b;
+      color: #111;
+    }
+
+
+    .norte-btn {
+      position: absolute;
+      right: 10px;
+      bottom: 98px;
+      z-index: 1000;
+      background: white;
+      border: none;
+      border-radius: 8px;
+      padding: 8px 10px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.35);
+      font-weight: bold;
+      font-size: 12px;
+      cursor: pointer;
+      white-space: nowrap;
+    }
+
+    .etiquetas-btn {
+      position: absolute;
+      right: 10px;
+      bottom: 138px;
+      z-index: 1000;
+      background: white;
+      border: none;
+      border-radius: 8px;
+      padding: 8px 10px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.35);
+      font-weight: bold;
+      font-size: 12px;
+      cursor: pointer;
+      white-space: nowrap;
+    }
+
+    .etiquetas-btn.inactivo {
+      background: #eeeeee;
+      color: #666;
+    }
+
+    @media (max-width: 600px) {
+      .logo-proeza { width: 70px; }
+      .btn-panel { display: block; }
+      .panel {
+        top: 132px;
+        left: 12px;
+        width: 300px;
+        max-height: 70vh;
+        overflow-y: auto;
+        font-size: 12px;
+      }
+      .panel h3 { font-size: 17px; }
+      .mi-ubicacion-btn {
+        right: 8px;
+        bottom: 18px;
+        padding: 7px 9px;
+        font-size: 11px;
+      }
+      .parcelas-establecidas-btn {
+        right: 8px;
+        bottom: 54px;
+        padding: 7px 9px;
+        font-size: 11px;
+      }
+      .norte-btn {
+        right: 8px;
+        bottom: 90px;
+        padding: 7px 9px;
+        font-size: 11px;
+      }
+      .etiquetas-btn {
+        right: 8px;
+        bottom: 126px;
+        padding: 7px 9px;
+        font-size: 11px;
+      }
+      .popup-card { min-width: 230px; max-width: 280px; }
+    }
+
+    /* PREPARACIÓN DE ZONA SIN CONEXIÓN - PRUEBA */
+    .offline-preparar-btn {width:100%;margin-top:10px;border:none;border-radius:8px;padding:10px 12px;background:#00695c;color:white;font-weight:bold;font-size:13px;cursor:pointer;}
+    .offline-selector {display:none;position:fixed;inset:0;z-index:1600;pointer-events:none;}
+    .offline-selector.activo {display:block;}
+    .offline-marco {position:absolute;left:18%;right:18%;top:18%;bottom:28%;border:4px solid #00a884;border-radius:10px;background:rgba(0,168,132,.10);box-shadow:0 0 0 9999px rgba(0,0,0,.30),0 0 0 2px rgba(255,255,255,.9) inset;pointer-events:none;}
+    .offline-handle{position:absolute;width:24px;height:24px;border-radius:50%;background:#00a884;border:3px solid white;box-shadow:0 2px 7px rgba(0,0,0,.45);pointer-events:auto;touch-action:none;z-index:4;}
+    .offline-handle-nw{left:-14px;top:-14px;cursor:nwse-resize;}
+    .offline-handle-ne{right:-14px;top:-14px;cursor:nesw-resize;}
+    .offline-handle-sw{left:-14px;bottom:-14px;cursor:nesw-resize;}
+    .offline-handle-se{right:-14px;bottom:-14px;cursor:nwse-resize;}
+    .offline-marco.ajustando{box-shadow:0 0 0 9999px rgba(0,0,0,.30),0 0 0 2px rgba(255,255,255,.9) inset,0 0 0 4px rgba(0,168,132,.20);}
+
+    .offline-panel {position:absolute;left:50%;bottom:18px;transform:translateX(-50%);width:min(430px,calc(100% - 24px));box-sizing:border-box;background:white;border-radius:14px;padding:13px;box-shadow:0 4px 18px rgba(0,0,0,.40);pointer-events:auto;color:#111;font-size:13px;}
+    .offline-panel h4 {margin:0 0 6px 0;font-size:16px;}
+    .offline-panel p {margin:4px 0 8px 0;line-height:1.35;}
+    .offline-estimacion {background:#eef8f5;border-left:4px solid #00897b;padding:8px;border-radius:6px;margin:8px 0;line-height:1.35;}
+    .offline-progreso {display:none;margin-top:8px;}
+    .offline-progreso.activo {display:block;}
+    .offline-barra-fondo {width:100%;height:10px;background:#e0e0e0;border-radius:999px;overflow:hidden;margin-top:5px;}
+    .offline-barra {width:0%;height:100%;background:#00897b;transition:width .15s linear;}
+    .offline-acciones {display:flex;gap:8px;margin-top:10px;}
+    .offline-acciones button {flex:1;border:none;border-radius:8px;padding:10px 12px;font-weight:bold;cursor:pointer;}
+    .btn-offline-descargar-zona {background:#00897b;color:white;}
+    .btn-offline-cancelar {background:#eee;color:#333;}
+    .btn-offline-descargar-zona:disabled,.btn-offline-cancelar:disabled {opacity:.55;cursor:default;}
+    @media (max-width:600px){.offline-marco{left:12%;right:12%;top:18%;bottom:34%;}.offline-panel{bottom:10px;font-size:12px;}}
+
+  
+    .offline-zonas-btn {
+      margin-top: 7px;
+      background: #37474f;
+    }
+
+    .offline-resumen-zonas {
+      margin-top: 6px;
+      font-size: 11px;
+      color: #555;
+      min-height: 14px;
+    }
+
+    .offline-gestor {
+      display: none;
+      position: fixed;
+      inset: 0;
+      z-index: 1800;
+      background: rgba(0,0,0,0.45);
+      align-items: center;
+      justify-content: center;
+      padding: 14px;
+      box-sizing: border-box;
+    }
+
+    .offline-gestor.activo {
+      display: flex;
+    }
+
+    .offline-gestor-card {
+      width: min(520px, 100%);
+      max-height: 82vh;
+      overflow-y: auto;
+      background: #fff;
+      border-radius: 14px;
+      padding: 14px;
+      box-shadow: 0 5px 24px rgba(0,0,0,0.42);
+      color: #111;
+    }
+
+    .offline-gestor-card h3 {
+      margin: 0 0 6px 0;
+      font-size: 18px;
+    }
+
+    .offline-gestor-info {
+      font-size: 12px;
+      line-height: 1.35;
+      color: #444;
+      margin-bottom: 10px;
+    }
+
+    .offline-zona-item {
+      border: 1px solid #d9e2e1;
+      border-radius: 10px;
+      padding: 10px;
+      margin-bottom: 9px;
+      background: #fafdfc;
+    }
+
+    .offline-zona-titulo {
+      font-weight: bold;
+      font-size: 14px;
+      margin-bottom: 4px;
+    }
+
+    .offline-zona-meta {
+      font-size: 12px;
+      line-height: 1.45;
+      color: #333;
+    }
+
+    .offline-zona-ok {
+      color: #1b5e20;
+      font-weight: bold;
+      margin-top: 5px;
+    }
+
+    .offline-zona-acciones {
+      display: flex;
+      gap: 7px;
+      flex-wrap: wrap;
+      margin-top: 8px;
+    }
+
+    .offline-zona-acciones button,
+    .offline-gestor-footer button {
+      border: none;
+      border-radius: 7px;
+      padding: 8px 10px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .offline-btn-ver {
+      background: #1976d2;
+      color: white;
+    }
+
+    .offline-btn-borrar {
+      background: #c62828;
+      color: white;
+    }
+
+    .offline-gestor-footer {
+      display: flex;
+      gap: 8px;
+      margin-top: 10px;
+      flex-wrap: wrap;
+    }
+
+    .offline-btn-cerrar {
+      background: #eeeeee;
+      color: #333;
+      flex: 1;
+    }
+
+    .offline-btn-borrar-todo {
+      background: #8e0000;
+      color: white;
+      flex: 1;
+    }
+
+    .offline-sin-zonas {
+      padding: 18px 8px;
+      text-align: center;
+      color: #555;
+      font-size: 13px;
+    }
+
+</style>
+</head>
+
+<body>
+
+<div id="map"></div>
+<img src="Logo PROEZA (1).png" class="logo-proeza" alt="Logo PROEZA">
+
+<button id="btnPanel" class="btn-panel" onclick="togglePanel()">☰ Capas / Info</button>
+
+<div class="panel">
+  <h3 id="tituloMapa">Mapa de campo 🗺️</h3>
+  <div><b>Campaña:</b> <span id="nombreCampania">Sin campaña</span></div>
+
+  <div id="resumen">Cargando datos...</div>
+
+  <input id="buscador" class="buscador" type="text" placeholder="Buscar por nombre, cédula o localidad">
+
+  <div class="botones">
+    <button id="btnViviendas" class="boton btn-viviendas boton-activo">🏠 Viviendas</button>
+    <button id="btnParcelas" class="boton btn-parcelas boton-activo">○ Plantación</button>
+    <button id="btnKML" class="boton btn-kml boton-activo">□ Polígono Mant.</button>
+    <button id="btnKMLP" class="boton btn-kmlp boton-activo">📍 Ubicación Mant.</button>
+    <button id="btnCocinas" class="boton btn-cocinas boton-activo">🔥 Cocinas</button>
+  </div>
+
+  <button id="btnPrepararOffline" class="offline-preparar-btn" type="button" onclick="activarSelectorOffline()">📥 Preparar zona sin conexión</button>
+
+  <button id="btnZonasDescargadas" class="offline-preparar-btn offline-zonas-btn" type="button" onclick="abrirZonasDescargadas()">🗂️ Zonas descargadas</button>
+
+  <div id="offlineResumenZonas" class="offline-resumen-zonas"></div>
+
+  <div id="resultados" class="resultados"></div>
+</div>
+
+<button class="mi-ubicacion-btn" onclick="centrarMiUbicacion()">📍 Ubicación</button>
+<button class="norte-btn" onclick="resetNorte()">🧭 Norte</button>
+<button id="btnEtiquetas" class="etiquetas-btn" onclick="toggleEtiquetas()">🏷️ Etiquetas</button>
+<button id="btnParcelasEstablecidas" class="parcelas-establecidas-btn" onclick="toggleParcelasEstablecidas()">🌿 Establecidas</button>
+
+
+<div id="offlineSelector" class="offline-selector">
+  <div id="offlineMarco" class="offline-marco">
+    <div class="offline-handle offline-handle-nw" data-handle="nw"></div>
+    <div class="offline-handle offline-handle-ne" data-handle="ne"></div>
+    <div class="offline-handle offline-handle-sw" data-handle="sw"></div>
+    <div class="offline-handle offline-handle-se" data-handle="se"></div>
+  </div>
+  <div class="offline-panel">
+    <h4>📥 Preparar zona sin conexión</h4>
+    <p>Mové y acercá el mapa hasta que el área de trabajo quede dentro del recuadro. Si necesitás cambiar su forma, arrastrá cualquiera de los cuatro puntos de las esquinas. Se descargarán el mapa satelital, el CSV y los KML necesarios para trabajar sin conexión.</p>
+    <div id="offlineEstimacion" class="offline-estimacion">Calculando zona…</div>
+    <div id="offlineProgreso" class="offline-progreso">
+      <div id="offlineTextoProgreso">Preparando descarga…</div>
+      <div class="offline-barra-fondo"><div id="offlineBarra" class="offline-barra"></div></div>
+    </div>
+    <div class="offline-acciones">
+      <button id="btnDescargarZona" class="btn-offline-descargar-zona" type="button" onclick="descargarZonaOffline()">Descargar zona</button>
+      <button id="btnCancelarOffline" class="btn-offline-cancelar" type="button" onclick="cancelarSelectorOffline()">Cancelar</button>
+    </div>
+  </div>
+</div>
+
+
+<div id="offlineGestor" class="offline-gestor">
+  <div class="offline-gestor-card">
+    <h3>🗂️ Zonas descargadas</h3>
+    <div id="offlineGestorInfo" class="offline-gestor-info"></div>
+    <div id="offlineListaZonas"></div>
+    <div class="offline-gestor-footer">
+      <button class="offline-btn-borrar-todo" type="button" onclick="eliminarTodasLasZonasOffline()">🗑️ Eliminar todas</button>
+      <button class="offline-btn-cerrar" type="button" onclick="cerrarZonasDescargadas()">Cerrar</button>
+    </div>
+  </div>
+</div>
+
+<script>
+  const params = new URLSearchParams(window.location.search);
+
+  const archivoCSV = params.get("csv") || "";
+  const archivoKML = params.get("kml") || "";
+  const archivoKMLP = params.get("kmlp") || "";
+  const archivoCocinas = params.get("cocinas") || "";
+  let archivoParcelasEstablecidas = params.get("parcelas") || "";
+
+  // API Google Sheets - Visitas de campo
+  const API_VISITAS_URL = "https://script.google.com/macros/s/AKfycbwe9jLeVxPx_RTRwEt_BHFIxutX_6vjd63F_t7JI0UojvX6-GkafPBwvKjUo4mg2hA5iw/exec";
+  const CAMPANIA = params.get("campania") || params.get("campaña") || params.get("campaign") || new Date().toISOString().slice(0, 10);
+
+  const ZOOM_ETIQUETA_KML = 16;
+  document.getElementById("nombreCampania").textContent = CAMPANIA || "Sin campaña";
+
+  // ============================================================
+  // DATOS ACTUALES VS OFFLINE
+  // ============================================================
+  // Con internet, CSV/KML se solicitan con un identificador único para
+  // evitar respuestas antiguas del navegador/CDN.
+  // El Service Worker guarda luego UNA SOLA copia canónica por archivo.
+  const FRESH_SESSION = Date.now().toString();
+
+  function esArchivoDatosLocal(url) {
+    try {
+      const u = new URL(url, window.location.href);
+      const path = u.pathname.toLowerCase();
+      return (
+        u.origin === window.location.origin &&
+        (path.endsWith(".csv") ||
+         path.endsWith(".kml") ||
+         path.endsWith(".json") ||
+         path.endsWith(".xlsx"))
+      );
+    } catch (e) {
+      return false;
+    }
+  }
+
+  function urlDatosFresca(url) {
+    if (!url) return "";
+    if (!navigator.onLine) return url;
+
+    const u = new URL(url, window.location.href);
+    u.searchParams.set("_fresh", FRESH_SESSION);
+    return u.href;
+  }
+
+
+  function repararTextoDistrito(valor) {
+    let texto = String(valor || "").trim();
+    if (!texto || texto === "-") return "";
+
+    // Corrige caracteres dañados por problemas de codificación UTF-8.
+    const reemplazos = {
+      "Ã": "Á", "Ã‰": "É", "Ã": "Í", "Ã“": "Ó", "Ãš": "Ú",
+      "Ã‘": "Ñ", "Ãœ": "Ü",
+      "Ã¡": "á", "Ã©": "é", "Ã­": "í", "Ã³": "ó", "Ãº": "ú",
+      "Ã±": "ñ", "Ã¼": "ü"
+    };
+
+    Object.keys(reemplazos).forEach(clave => {
+      texto = texto.split(clave).join(reemplazos[clave]);
+    });
+
+    // Correcciones conocidas para distritos que pueden llegar con "?".
+    const distritoNormalizado = texto
+      .toUpperCase()
+      .normalize("NFD")
+      .replace(/[\u0300-\u036f]/g, "")
+      .replace(/\?/g, "")
+      .replace(/\s+/g, " ")
+      .trim();
+
+    const distritosConAcento = {
+      "YPEJHU": "YPEJHÚ",
+      "VILLA YGATIMI": "VILLA YGATIMÍ",
+      "TAVAI": "TAVAÍ",
+      "SAN JOAQUIN": "SAN JOAQUÍN",
+      "YBY PYTA": "YBY PYTÃ",
+      "RAUL ARSENIO OVIEDO": "RAÚL ARSENIO OVIEDO"
+    };
+
+    return distritosConAcento[distritoNormalizado] || texto;
+  }
+
+  function actualizarTituloMapa(valorDistrito) {
+    const distrito = repararTextoDistrito(valorDistrito);
+    if (!distrito) return;
+    document.getElementById("tituloMapa").textContent = `Mapa de campo - ${distrito} 🗺️`;
+  }
+
+  const MAX_ZOOM_ESRI = 17;
+
+  const map = L.map('map', {
+    rotate: true,
+    touchRotate: true,
+    rotateControl: false,
+    bearing: 0,
+    maxZoom: MAX_ZOOM_ESRI,
+    preferCanvas: true
+  }).setView([-24.4, -56.4], 12);
+
+  // Ajuste de velocidad de rotación:
+  // Hace que el giro con dos dedos sea más controlado y menos brusco,
+  // manteniendo la fluidez. Subir el factor = gira más rápido; bajar = más lento.
+  const FACTOR_ROTACION = 0.52;
+  const ROTACION_MINIMA_GRADOS = 0.35;
+
+  if (map.setBearing) {
+    map._setBearingOriginal = map.setBearing.bind(map);
+    let bearingSuavizado = 0;
+
+    function normalizarBearing(valor) {
+      return ((valor % 360) + 360) % 360;
+    }
+
+    function diferenciaAngularFirmada(destino, origen) {
+      return (((destino - origen) % 360) + 540) % 360 - 180;
+    }
+
+    map.setBearing = function(bearing, options) {
+      const destino = normalizarBearing(bearing || 0);
+
+      // Usado por el botón Norte para volver inmediatamente.
+      if (options && options.forzarNorte) {
+        bearingSuavizado = destino;
+        return map._setBearingOriginal(destino, options);
+      }
+
+      const delta = diferenciaAngularFirmada(destino, bearingSuavizado);
+
+      // Evita microgiros accidentales, pero deja rotar suavemente cuando el gesto es claro.
+      if (Math.abs(delta) < ROTACION_MINIMA_GRADOS) {
+        return this;
+      }
+
+      bearingSuavizado = normalizarBearing(bearingSuavizado + delta * FACTOR_ROTACION);
+      return map._setBearingOriginal(bearingSuavizado, options);
+    };
+  }
+
+  L.tileLayer(
+    'https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}',
+    { maxZoom: MAX_ZOOM_ESRI, maxNativeZoom: MAX_ZOOM_ESRI, attribution: 'Tiles &copy; Esri' }
+  ).addTo(map);
+
+  L.tileLayer(
+    'https://services.arcgisonline.com/ArcGIS/rest/services/Reference/World_Boundaries_and_Places/MapServer/tile/{z}/{y}/{x}',
+    { maxZoom: MAX_ZOOM_ESRI, maxNativeZoom: MAX_ZOOM_ESRI, attribution: '' }
+  ).addTo(map);
+
+  const capaViviendas = L.featureGroup().addTo(map);
+  const capaParcelas = L.featureGroup().addTo(map);
+  const capaKML = L.featureGroup().addTo(map);
+  const capaKMLP = L.featureGroup().addTo(map);
+  const capaCocinas = L.featureGroup().addTo(map);
+  const capaParcelasEstablecidas = L.featureGroup();
+  const todosLosPuntos = L.featureGroup().addTo(map);
+
+  let registrosBusqueda = [];
+  let parcelasEstablecidasCargadas = false;
+  let parcelasEstablecidasActivas = false;
+  let ubicacionActual = null;
+  let marcadorUsuario = null;
+
+  let totalViviendasGlobal = 0;
+  let totalParcelasGlobal = 0;
+  let totalPoligonos = 0;
+  let totalUbicacionMant = 0;
+  let totalCocinas = 0;
+  let totalParcelasEstablecidas = 0;
+  let etiquetasActivas = true;
+
+  function crearIconoViviendaVisitado(esVisitado) {
+    const color = esVisitado ? "#2e7d32" : "#fdd835";
+    return L.divIcon({
+      html: `<div style="width:30px;height:30px;border-radius:50%;background:${color};border:2px solid white;display:flex;align-items:center;justify-content:center;font-size:18px;box-shadow:0 1px 5px rgba(0,0,0,0.55);">🏠</div>`,
+      className: "", iconSize: [30, 30], iconAnchor: [15, 15]
+    });
+  }
+
+  const iconoVivienda = crearIconoViviendaVisitado(false);
+  const iconoViviendaVisitado = crearIconoViviendaVisitado(true);
+
+  function crearIconoParcelaVisitado(esVisitado) {
+    const color = esVisitado ? "#2e7d32" : "#f4511e";
+    return L.divIcon({
+      html: `<div style="width:32px;height:32px;border-radius:50%;background:${color};border:2px solid white;display:flex;align-items:center;justify-content:center;color:white;font-weight:bold;font-size:18px;box-shadow:0 1px 5px rgba(0,0,0,0.55);">P</div>`,
+      className: "", iconSize: [32, 32], iconAnchor: [16, 16]
+    });
+  }
+
+  function crearIconoKMLPVisitado(esVisitado) {
+    const color = esVisitado ? "#2e7d32" : "#e11b22";
+    return L.divIcon({
+      html: `<div style="
+        width:34px;height:34px;border-radius:50% 50% 50% 0;
+        background:${color};border:2px solid white;
+        transform:rotate(-45deg);
+        box-shadow:0 1px 5px rgba(0,0,0,0.55);
+        display:flex;align-items:center;justify-content:center;">
+        <div style="
+          width:13px;height:13px;border-radius:50%;
+          background:white;"></div>
+      </div>`,
+      className: "",
+      iconSize: [34, 34],
+      iconAnchor: [17, 34],
+      popupAnchor: [0, -30]
+    });
+  }
+
+  const iconoParcela = crearIconoParcelaVisitado(false);
+  const iconoParcelaVisitado = crearIconoParcelaVisitado(true);
+  const iconoKMLP = crearIconoKMLPVisitado(false);
+  const iconoKMLPVisitado = crearIconoKMLPVisitado(true);
+
+  function crearIconoCocinaVisitado(esVisitado) {
+    const color = esVisitado ? "#2e7d32" : "#00897b";
+    return L.divIcon({
+      html: `<div style="width:32px;height:32px;border-radius:50%;background:${color};border:2px solid white;display:flex;align-items:center;justify-content:center;color:white;font-size:18px;box-shadow:0 1px 5px rgba(0,0,0,0.55);">🔥</div>`,
+      className: "", iconSize: [32, 32], iconAnchor: [16, 16]
+    });
+  }
+
+  const iconoCocina = crearIconoCocinaVisitado(false);
+  const iconoCocinaVisitado = crearIconoCocinaVisitado(true);
+
+  function limpiarValor(valor) {
+    if (valor === undefined || valor === null || String(valor).trim() === "") return "-";
+    return String(valor).trim();
+  }
+
+  function normalizarTexto(valor) {
+    return limpiarValor(valor)
+      .toLowerCase()
+      .normalize("NFD")
+      .replace(/[\u0300-\u036f]/g, "")
+      .trim();
+  }
+
+  function get(row, nombre) {
+    if (row[nombre] !== undefined) return row[nombre];
+
+    const buscado = nombre.trim().toLowerCase();
+    const clave = Object.keys(row).find(k => k.trim().toLowerCase() === buscado);
+    return clave ? row[clave] : "";
+  }
+
+  function getCampoFlexible(row, posibles, contieneTexto) {
+    for (const campo of posibles) {
+      const valor = limpiarValor(get(row, campo));
+      if (valor !== "-") return valor;
+    }
+
+    if (contieneTexto) {
+      const clave = Object.keys(row).find(k => k.trim().toLowerCase().includes(contieneTexto.toLowerCase()));
+      if (clave) {
+        const valor = limpiarValor(row[clave]);
+        if (valor !== "-") return valor;
+      }
+    }
+
+    return "-";
+  }
+
+  function getModelo(row) {
+    return getCampoFlexible(row, ["Modelo", "MODELO", "modelo", "Tipo de modelo", "Modelo SAF"], "modelo");
+  }
+
+  function convertirNumero(valor) {
+    if (valor === undefined || valor === null || valor === "") return null;
+    let texto = String(valor).trim().replace(",", ".");
+    const num = parseFloat(texto);
+    if (isNaN(num)) return null;
+    return num;
+  }
+
+  function calcularDistanciaKm(lat1, lon1, lat2, lon2) {
+    const R = 6371;
+    const dLat = (lat2 - lat1) * Math.PI / 180;
+    const dLon = (lon2 - lon1) * Math.PI / 180;
+
+    const a =
+      Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+      Math.cos(lat1 * Math.PI / 180) *
+      Math.cos(lat2 * Math.PI / 180) *
+      Math.sin(dLon / 2) * Math.sin(dLon / 2);
+
+    const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+    return R * c;
+  }
+
+  function crearBloqueDistancia(lat, lon) {
+    if (!ubicacionActual || lat === null || lon === null) {
+      return `
+        <div class="distancia-box">
+          📍 <b>Distancia:</b> esperando ubicación actual
+        </div>
+      `;
+    }
+
+    const distanciaKm = calcularDistanciaKm(
+      ubicacionActual.lat,
+      ubicacionActual.lng,
+      lat,
+      lon
+    );
+
+    return `
+      <div class="distancia-box">
+        📏 <b>Distancia aproximada:</b> ${distanciaKm.toFixed(2)} km
+      </div>
+    `;
+  }
+
+  function crearBotonRuta(lat, lon) {
+    if (lat === null || lon === null) return "";
+
+    const urlRutaOnline = `https://www.google.com/maps/dir/?api=1&destination=${lat},${lon}`;
+
+    // Este enlace usa el esquema nativo del teléfono.
+    // En Android puede abrir Google Maps u otra app de mapas con la ubicación,
+    // y tiene más posibilidades de funcionar si el mapa offline ya está descargado.
+    const urlRutaOffline = `geo:${lat},${lon}?q=${lat},${lon}`;
+
+    return `
+      <div>
+        <a class="btn-ruta" target="_blank" href="${urlRutaOnline}">🧭 Cómo llegar</a>
+        <a class="btn-offline" href="${urlRutaOffline}">📍 Maps Offline</a>
+        <button class="btn-coordenadas" type="button" title="Copiar coordenadas" onclick="copiarCoordenadas(${lat}, ${lon})">📋</button>
+      </div>
+    `;
+  }
+
+  const VISITADOS_STORAGE_KEY = `proeza_visitados_${CAMPANIA}_v3`;
+  const PENDIENTES_STORAGE_KEY = `proeza_visitados_pendientes_${CAMPANIA}_v3`;
+  const visitablesRegistrados = {};
+  const visitablesPorClave = {};
+  const visitadosRemotos = new Set();
+  let visitasRemotasActivas = [];
+
+  function cargarJsonLocal(clave) {
+    try {
+      return JSON.parse(localStorage.getItem(clave) || "{}");
+    } catch (e) {
+      return {};
+    }
+  }
+
+  function guardarJsonLocal(clave, data) {
+    localStorage.setItem(clave, JSON.stringify(data));
+  }
+
+  function cargarVisitados() {
+    return cargarJsonLocal(VISITADOS_STORAGE_KEY);
+  }
+
+  function guardarVisitados(data) {
+    guardarJsonLocal(VISITADOS_STORAGE_KEY, data);
+  }
+
+  function cargarPendientes() {
+    return cargarJsonLocal(PENDIENTES_STORAGE_KEY);
+  }
+
+  function guardarPendientes(data) {
+    guardarJsonLocal(PENDIENTES_STORAGE_KEY, data);
+  }
+
+  function normalizarIdVisitado(texto) {
+    return String(texto || "")
+      .toLowerCase()
+      .normalize("NFD")
+      .replace(/[̀-ͯ]/g, "")
+      .replace(/[^a-z0-9_-]+/g, "_")
+      .replace(/^_+|_+$/g, "");
+  }
+
+  function crearIdVisitado(tipo, nombre, cedula, lat, lon, archivo) {
+    const clavePersona = cedula && cedula !== "-" ? cedula : nombre;
+    return normalizarIdVisitado(`${tipo}_${archivo || "sin_archivo"}_${clavePersona}_${lat}_${lon}`);
+  }
+
+  function cedulaNormalizada(valor) {
+    const limpio = String(valor || "").replace(/\.0+$/, "").trim();
+    if (!limpio || limpio === "-") return "";
+    return normalizarIdVisitado(limpio);
+  }
+
+  function nombreNormalizado(valor) {
+    const limpio = String(valor || "").trim();
+    if (!limpio || limpio === "-") return "";
+    return normalizarIdVisitado(limpio);
+  }
+
+  function tipoNormalizado(valor) {
+    return normalizarIdVisitado(valor);
+  }
+
+  function claveVisita(tipo, cedula, nombre) {
+    const ci = cedulaNormalizada(cedula);
+    const nom = nombreNormalizado(nombre);
+    const persona = ci || nom;
+    return normalizarIdVisitado(`${tipo}_${persona}`);
+  }
+
+  function mismaPersonaPorCedulaONombre(cedulaA, nombreA, cedulaB, nombreB) {
+    const ciA = cedulaNormalizada(cedulaA);
+    const ciB = cedulaNormalizada(cedulaB);
+    const nomA = nombreNormalizado(nombreA);
+    const nomB = nombreNormalizado(nombreB);
+
+    // Si ambas capas tienen cédula válida, se usa cédula.
+    if (ciA && ciB && ciA === ciB) return true;
+
+    // Si alguna capa viene sin cédula desde el KML, usamos nombre como respaldo.
+    if (nomA && nomB && nomA === nomB) return true;
+
+    return false;
+  }
+
+  function estaVisitado(id) {
+    const data = cargarVisitados();
+    return !!data[id];
+  }
+
+  function existeVisitaRemota(tipo, cedula, nombre) {
+    const tipoBuscado = tipoNormalizado(tipo);
+
+    return visitasRemotasActivas.some(v => {
+      if (tipoNormalizado(v.tipo) !== tipoBuscado) return false;
+      return mismaPersonaPorCedulaONombre(v.cedula, v.nombre, cedula, nombre);
+    });
+  }
+
+  function hayVisitaRelacionada(tipoObjetivo, cedula, nombre) {
+    // Primero mira lo que vino desde Google Sheets, aunque el marcador todavía no haya sido registrado.
+    if (tipoObjetivo === "Vivienda") {
+      if (existeVisitaRemota("Plantación", cedula, nombre)) return true;
+      if (existeVisitaRemota("Ubicación Mantenimiento", cedula, nombre)) return true;
+    }
+
+    if (tipoObjetivo === "Polígono Mantenimiento") {
+      if (existeVisitaRemota("Ubicación Mantenimiento", cedula, nombre)) return true;
+    }
+
+    // Después mira lo que se marcó localmente en este dispositivo.
+    return Object.keys(visitablesRegistrados).some(id => {
+      if (!estaVisitado(id)) return false;
+
+      const item = visitablesRegistrados[id];
+      if (!item || !item.datosVisita) return false;
+
+      const mismaPersona = mismaPersonaPorCedulaONombre(
+        item.datosVisita.cedula,
+        item.datosVisita.nombre,
+        cedula,
+        nombre
+      );
+
+      if (!mismaPersona) return false;
+
+      if (tipoObjetivo === "Vivienda") {
+        return item.tipo === "Plantación" || item.tipo === "Ubicación Mantenimiento";
+      }
+
+      if (tipoObjetivo === "Polígono Mantenimiento") {
+        return item.tipo === "Ubicación Mantenimiento";
+      }
+
+      return false;
+    });
+  }
+
+  function estadoVisualVisitado(id) {
+    const item = visitablesRegistrados[id];
+    if (!item) return false;
+
+    const datos = item.datosVisita || {};
+
+    // Estado propio local o remoto: esto corrige que otros dispositivos vean el botón visitado,
+    // pero el pin todavía quede rojo.
+    if (estaVisitado(id)) return true;
+    if (existeVisitaRemota(item.tipo, datos.cedula, datos.nombre)) return true;
+
+    // Estados relacionados por cédula:
+    // Plantación o Ubicación Mantenimiento pintan también la Vivienda.
+    // Ubicación Mantenimiento pinta también el Polígono Mantenimiento.
+    if (item.tipo === "Vivienda" || item.tipo === "Polígono Mantenimiento") {
+      return hayVisitaRelacionada(item.tipo, datos.cedula, datos.nombre);
+    }
+
+    // Cocina eficiente es independiente, aunque comparta cédula con plantación/mantenimiento.
+    return false;
+  }
+
+  function registrarVisitable(id, layer, tipo, datosVisita) {
+    if (!id || !layer) return;
+
+    visitablesRegistrados[id] = { layer, tipo, datosVisita: datosVisita || {} };
+
+    const clave = claveVisita(tipo, datosVisita && datosVisita.cedula, datosVisita && datosVisita.nombre);
+    if (!visitablesPorClave[clave]) visitablesPorClave[clave] = [];
+    visitablesPorClave[clave].push(id);
+
+    if (existeVisitaRemota(tipo, datosVisita && datosVisita.cedula, datosVisita && datosVisita.nombre)) {
+      const data = cargarVisitados();
+      data[id] = true;
+      guardarVisitados(data);
+    }
+
+    aplicarEstadoVisitado(id);
+  }
+
+  function aplicarEstadoVisitado(id) {
+    const item = visitablesRegistrados[id];
+    if (!item || !item.layer) return;
+
+    const visitado = estadoVisualVisitado(id);
+
+    if (item.tipo === "Vivienda" && item.layer.setIcon) {
+      item.layer.setIcon(visitado ? iconoViviendaVisitado : iconoVivienda);
+    }
+
+    if (item.tipo === "Plantación" && item.layer.setIcon) {
+      item.layer.setIcon(visitado ? iconoParcelaVisitado : iconoParcela);
+    }
+
+    if (item.tipo === "Ubicación Mantenimiento" && item.layer.setIcon) {
+      item.layer.setIcon(visitado ? iconoKMLPVisitado : iconoKMLP);
+    }
+
+    if (item.tipo === "Cocina eficiente" && item.layer.setIcon) {
+      item.layer.setIcon(visitado ? iconoCocinaVisitado : iconoCocina);
+    }
+
+    if (item.tipo === "Polígono Mantenimiento" && item.layer.setStyle) {
+      item.layer.setStyle({
+        color: visitado ? "#2e7d32" : "#e11b22",
+        weight: 5,
+        fillOpacity: 0,
+        fillColor: "transparent",
+        opacity: 1
+      });
+    }
+  }
+
+  function aplicarEstadoPorPersonaRelacionada(id) {
+    const base = visitablesRegistrados[id];
+    if (!base || !base.datosVisita) return;
+
+    const ci = cedulaNormalizada(base.datosVisita.cedula);
+    const nom = normalizarIdVisitado(base.datosVisita.nombre);
+
+    Object.keys(visitablesRegistrados).forEach(otroId => {
+      const item = visitablesRegistrados[otroId];
+      const datos = item.datosVisita || {};
+      const mismaPersona = mismaPersonaPorCedulaONombre(
+        base.datosVisita.cedula,
+        base.datosVisita.nombre,
+        datos.cedula,
+        datos.nombre
+      );
+      if (mismaPersona) {
+        aplicarEstadoVisitado(otroId);
+        actualizarBotonVisitado(otroId);
+      }
+    });
+  }
+
+  function crearBotonVisitado(id) {
+    if (!id) return "";
+    const visitado = estadoVisualVisitado(id);
+    const clase = visitado ? "btn-visitado visitado" : "btn-visitado";
+    const texto = visitado ? "↩ Desmarcar visitado" : "✅ Visitado";
+
+    return `
+      <button class="${clase}" type="button" data-visitado-id="${id}" onclick="toggleVisitadoRemoto('${id}')">${texto}</button>
+    `;
+  }
+
+  function actualizarBotonVisitado(id) {
+    const btn = document.querySelector(`[data-visitado-id="${id}"]`);
+    if (!btn) return;
+
+    if (estadoVisualVisitado(id)) {
+      btn.classList.add("visitado");
+      btn.textContent = "↩ Desmarcar visitado";
+    } else {
+      btn.classList.remove("visitado");
+      btn.textContent = "✅ Visitado";
+    }
+  }
+
+  function toggleVisitadoRemoto(id) {
+    const data = cargarVisitados();
+    const nuevoEstadoVisitado = !data[id];
+
+    if (nuevoEstadoVisitado) {
+      data[id] = true;
+    } else {
+      delete data[id];
+    }
+
+    guardarVisitados(data);
+    aplicarEstadoVisitado(id);
+    aplicarEstadoPorPersonaRelacionada(id);
+    actualizarBotonVisitado(id);
+
+    guardarPendienteVisita(id, nuevoEstadoVisitado ? "Visitado" : "Desmarcado");
+    enviarPendientesVisitas();
+    setTimeout(cargarVisitasRemotas, 2500);
+  }
+
+  function guardarPendienteVisita(id, estado) {
+    const item = visitablesRegistrados[id];
+    if (!item || !item.datosVisita) return;
+
+    const pendientes = cargarPendientes();
+    pendientes[id] = Object.assign({}, item.datosVisita, { estado: estado || "Visitado" });
+    guardarPendientes(pendientes);
+  }
+
+  function construirUrlVisita(datos) {
+    const q = new URLSearchParams();
+    q.set("campania", CAMPANIA);
+    q.set("cedula", datos.cedula || "");
+    q.set("nombre", datos.nombre || "");
+    q.set("tipo", datos.tipo || "");
+    q.set("distrito", datos.distrito || "");
+    q.set("localidad", datos.localidad || "");
+    q.set("lote", datos.lote || "");
+    q.set("estado", datos.estado || "Visitado");
+    return `${API_VISITAS_URL}?${q.toString()}`;
+  }
+
+  function enviarVisita(datos) {
+    if (!navigator.onLine) return Promise.reject(new Error("Sin conexión"));
+
+    return fetch(construirUrlVisita(datos), {
+      method: "GET",
+      mode: "no-cors",
+      cache: "no-store"
+    });
+  }
+
+  function enviarPendientesVisitas() {
+    const pendientes = cargarPendientes();
+    const ids = Object.keys(pendientes);
+
+    if (!ids.length || !navigator.onLine) return;
+
+    ids.forEach(id => {
+      enviarVisita(pendientes[id])
+        .then(() => {
+          const actual = cargarPendientes();
+          delete actual[id];
+          guardarPendientes(actual);
+        })
+        .catch(() => {
+          // queda pendiente para el próximo intento
+        });
+    });
+  }
+
+  function cargarVisitasRemotas() {
+    if (!API_VISITAS_URL || !navigator.onLine) return;
+
+    const callbackName = `proezaVisitasCallback_${Date.now()}_${Math.floor(Math.random() * 100000)}`;
+    const script = document.createElement("script");
+
+    window[callbackName] = function(visitas) {
+      try {
+        visitadosRemotos.clear();
+        visitasRemotasActivas = [];
+
+        const data = cargarVisitados();
+
+        // Limpia solamente los estados locales de los objetos del mapa actual.
+        // Luego se vuelve a completar con el estado vigente leído desde Google Sheets.
+        Object.keys(visitablesRegistrados).forEach(id => {
+          delete data[id];
+        });
+
+        // El Apps Script puede devolver histórico. Por eso respetamos el último estado
+        // recibido para cada Tipo + Persona. Si el último es Desmarcado, no se pinta verde.
+        const ultimoEstadoPorClave = new Map();
+
+        (visitas || []).forEach(v => {
+          const clave = claveVisita(v.tipo, v.cedula, v.nombre);
+          ultimoEstadoPorClave.set(clave, v);
+        });
+
+        ultimoEstadoPorClave.forEach(v => {
+          const clave = claveVisita(v.tipo, v.cedula, v.nombre);
+          const estado = String(v.estado || "").toLowerCase();
+
+          if (estado === "visitado") {
+            const visitaActiva = {
+              tipo: v.tipo || "",
+              cedula: v.cedula || "",
+              nombre: v.nombre || "",
+              distrito: v.distrito || "",
+              localidad: v.localidad || "",
+              lote: v.lote || ""
+            };
+
+            visitadosRemotos.add(clave);
+            visitasRemotasActivas.push(visitaActiva);
+          }
+        });
+
+        // Aplica el estado remoto a los marcadores ya registrados.
+        // Esto corrige el caso donde el popup dice Visitado pero el pin seguía rojo.
+        Object.keys(visitablesRegistrados).forEach(id => {
+          const item = visitablesRegistrados[id];
+          const datos = item && item.datosVisita ? item.datosVisita : {};
+
+          if (existeVisitaRemota(item.tipo, datos.cedula, datos.nombre)) {
+            data[id] = true;
+          }
+
+          aplicarEstadoVisitado(id);
+          actualizarBotonVisitado(id);
+        });
+
+        guardarVisitados(data);
+
+        // Segunda pasada: viviendas y polígonos relacionados por la misma cédula/nombre.
+        Object.keys(visitablesRegistrados).forEach(id => {
+          aplicarEstadoVisitado(id);
+          actualizarBotonVisitado(id);
+        });
+
+        traerCapasDeVisitaAlFrente();
+      } finally {
+        delete window[callbackName];
+        script.remove();
+      }
+    };
+
+    const q = new URLSearchParams();
+    q.set("action", "list");
+    q.set("campania", CAMPANIA);
+    q.set("callback", callbackName);
+    // Evita que el navegador reutilice una respuesta anterior del Apps Script.
+    q.set("_ts", Date.now().toString());
+
+    script.src = `${API_VISITAS_URL}?${q.toString()}`;
+    script.onerror = function() {
+      delete window[callbackName];
+      script.remove();
+    };
+
+    document.body.appendChild(script);
+  }
+
+  function sincronizarVisitasAhora() {
+    if (!navigator.onLine) return;
+    enviarPendientesVisitas();
+    cargarVisitasRemotas();
+
+    if ("serviceWorker" in navigator) {
+      navigator.serviceWorker.getRegistration().then(reg => {
+        if (reg) reg.update().catch(() => {});
+      }).catch(() => {});
+    }
+  }
+
+  window.addEventListener("online", sincronizarVisitasAhora);
+
+  // Cuando el técnico vuelve al visor desde otra aplicación o pestaña,
+  // se consulta nuevamente Google Sheets. No usa intervalos permanentes.
+  window.addEventListener("focus", function() {
+    setTimeout(sincronizarVisitasAhora, 250);
+  });
+
+  window.addEventListener("pageshow", function() {
+    setTimeout(sincronizarVisitasAhora, 400);
+  });
+
+  document.addEventListener("visibilitychange", function() {
+    if (!document.hidden) {
+      setTimeout(sincronizarVisitasAhora, 250);
+    }
+  });
+
+  // Sincronización inicial. No consulta cada 30 segundos para cuidar batería y datos.
+  setTimeout(enviarPendientesVisitas, 1200);
+  setTimeout(cargarVisitasRemotas, 1800);
+
+  function copiarCoordenadas(lat, lon) {
+    const texto = `${lat}, ${lon}`;
+
+    function avisarCopiado() {
+      alert("Coordenadas copiadas: " + texto);
+    }
+
+    if (navigator.clipboard && window.isSecureContext) {
+      navigator.clipboard.writeText(texto)
+        .then(avisarCopiado)
+        .catch(function() {
+          copiarCoordenadasFallback(texto);
+        });
+    } else {
+      copiarCoordenadasFallback(texto);
+    }
+  }
+
+  function copiarCoordenadasFallback(texto) {
+    const temp = document.createElement("textarea");
+    temp.value = texto;
+    temp.style.position = "fixed";
+    temp.style.left = "-9999px";
+    document.body.appendChild(temp);
+    temp.focus();
+    temp.select();
+
+    try {
+      document.execCommand("copy");
+      alert("Coordenadas copiadas: " + texto);
+    } catch (e) {
+      alert("No se pudo copiar automáticamente. Coordenadas: " + texto);
+    }
+
+    document.body.removeChild(temp);
+  }
+
+  function crearPopupPrincipal(row, tipo, lat, lon) {
+    const nombre = limpiarValor(get(row, "Nombres y Apellidos"));
+    const cedula = limpiarValor(get(row, "Cédula"));
+    const comunidad = limpiarValor(get(row, "Comunidad"));
+    const modelo = getModelo(row);
+    const departamento = limpiarValor(get(row, "Departamento"));
+    const distrito = limpiarValor(get(row, "Distrito"));
+    const localidad = limpiarValor(get(row, "Localidad"));
+    const telefono = limpiarValor(get(row, "Teléfono"));
+    const empresa = limpiarValor(get(row, "Empresa"));
+    const lote = limpiarValor(get(row, "Lote"));
+    const estadoParticipante = limpiarValor(get(row, "Estado del participante"));
+    const estadoMonitoreo = limpiarValor(get(row, "Estado monitoreo"));
+    const prioridad = limpiarValor(get(row, "Prioridad"));
+    const superficie = limpiarValor(get(row, "Superficie (Ha.)"));
+    const etapaFAO = limpiarValor(get(row, "Etapa de implementación FAO"));
+    const monitorearCocinas = limpiarValor(get(row, "Monitorear Cocinas Eficientes"));
+    const visitadoId = tipo === "Plantación" ? crearIdVisitado("plantacion", nombre, cedula, lat, lon, archivoCSV) : "";
+    const botonVisitado = tipo === "Plantación" ? crearBotonVisitado(visitadoId) : "";
+
+    const badge = tipo === "Vivienda" ? "badge-vivienda" : "badge-parcela";
+
+    return `
+      <div class="popup-card">
+        <span class="popup-badge ${badge}">${tipo}</span>
+        <h3>${nombre}</h3>
+        <div class="popup-grid">
+          <div><b>Cédula:</b> ${cedula}</div>
+          <div><b>Comunidad:</b> ${comunidad}</div>
+          <div><b>Departamento:</b> ${departamento}</div>
+          <div><b>Distrito:</b> ${distrito}</div>
+          <div><b>Localidad:</b> ${localidad}</div>
+          <div><b>Teléfono:</b> ${telefono}</div>
+          <div><b>Modelo:</b> ${modelo}</div>
+          <div><b>Superficie:</b> ${superficie}</div>
+          <div><b>Empresa:</b> ${empresa}</div>
+          <div><b>Lote:</b> ${lote}</div>
+          <div><b>Etapa de implementación FAO:</b> ${etapaFAO}</div>
+          <div><b>Monitorear Cocinas Eficientes:</b> ${monitorearCocinas}</div>
+          <div><b>Prioridad:</b> ${prioridad}</div>
+        </div>
+        ${crearBloqueDistancia(lat, lon)}
+        ${crearBotonRuta(lat, lon)}
+        ${botonVisitado}
+      </div>
+    `;
+  }
+
+  function normalizarClave(texto) {
+    return String(texto || "")
+      .toLowerCase()
+      .normalize("NFD")
+      .replace(/[̀-ͯ]/g, "")
+      .replace(/[^a-z0-9]/g, "");
+  }
+
+  function getPropFlexible(props, posibles, contieneTexto) {
+    const claves = Object.keys(props || {});
+
+    for (const campo of posibles) {
+      const normalCampo = normalizarClave(campo);
+      const clave = claves.find(k => normalizarClave(k) === normalCampo);
+
+      if (clave && String(props[clave]).trim() !== "") {
+        return String(props[clave]).trim();
+      }
+    }
+
+    if (contieneTexto) {
+      const normalBusca = normalizarClave(contieneTexto);
+      const clave = claves.find(k => normalizarClave(k).includes(normalBusca));
+
+      if (clave && String(props[clave]).trim() !== "") {
+        return String(props[clave]).trim();
+      }
+    }
+
+    return "-";
+  }
+
+
+  function limpiarCedulaKML(valor) {
+    if (valor === undefined || valor === null) return "-";
+
+    let texto = String(valor).trim();
+    if (!texto || texto === "-") return "-";
+
+    // Limpia valores exportados como decimal desde QGIS/KML: 5774108.0000000000 -> 5774108
+    texto = texto.replace(/\.0+$/, "");
+
+    // Si por alguna razón llegó con espacios, los quita para mejorar la búsqueda por número.
+    texto = texto.replace(/\s+/g, "");
+
+    return texto || "-";
+  }
+
+  function getCedulaKML(props) {
+    const claves = Object.keys(props || {});
+
+    // 1) Prioridad absoluta: nueva columna auxiliar creada en QGIS, tipo texto y sin tilde.
+    //    Esto no toca ci_UNIF ni Cédula_Ti.
+    let clave = claves.find(k => normalizarClave(k) === "cedula");
+    if (clave && String(props[clave]).trim() !== "") {
+      return limpiarCedulaKML(props[clave]);
+    }
+
+    // 2) Respaldo: campo original Cédula, incluyendo cuando el KML agrega prefijos/rutas.
+    clave = claves.find(k => {
+      const nk = normalizarClave(k);
+      return nk.includes("cedula") &&
+             !nk.includes("cedulati") &&
+             !nk.includes("ciunif");
+    });
+
+    if (clave && String(props[clave]).trim() !== "") {
+      return limpiarCedulaKML(props[clave]);
+    }
+
+    return "-";
+  }
+
+  function bindPopupKMLArriba(layer, contenidoPopup) {
+    // Desplaza el popup hacia arriba para no tapar el polígono/parcela.
+    layer.bindPopup(contenidoPopup, {
+      offset: L.point(0, -70),
+      autoPan: true,
+      keepInView: true
+    });
+  }
+
+
+  function obtenerNombreLoteParaKML(valorLote) {
+    const limpio = limpiarValor(valorLote);
+    if (limpio === "-") return "";
+
+    let lote = limpio.replace(/\.kml$/i, "").trim();
+    lote = lote.replace(/\s+/g, "_");
+
+    if (/^Lote_/i.test(lote)) return `${lote}.kml`;
+    if (/^Lote\s+/i.test(limpio)) return `${limpio.replace(/\s+/g, "_")}.kml`;
+    return `Lote_${lote}.kml`;
+  }
+
+  function obtenerLatLngCentroLayer(layer) {
+    if (layer.getLatLng) return layer.getLatLng();
+    if (layer.getBounds) return layer.getBounds().getCenter();
+    return null;
+  }
+
+  function crearPopupParcelaEstablecida(layer, archivo, latlng) {
+    const props = layer.feature && layer.feature.properties ? layer.feature.properties : {};
+
+    const cedula = getCedulaKML(props);
+    const nombres = getPropFlexible(props, ["Nombres_y_", "Nombres_y", "NOMBRES_Y_", "Nombres y Apellidos", "Nombre", "name"], "nombres");
+    const sexo = getPropFlexible(props, ["Sexo", "SEXO"], "sexo");
+    const comunidad = getPropFlexible(props, ["Comunidad", "COMUNIDAD"], "comunidad");
+    const modelo = getPropFlexible(props, ["Modelo_imp", "MODELO_IMP", "modelo_imp", "Modelo", "MODELO"], "modelo");
+    const departamento = getPropFlexible(props, ["Departamen", "Departamento", "DEPARTAMEN"], "depart");
+    const distrito = getPropFlexible(props, ["Distrito", "DISTRITO"], "distrito");
+    const localidad = getPropFlexible(props, ["Localidad", "LOCALIDAD"], "localidad");
+    const telefono = getPropFlexible(props, ["Teléfono", "Telefono", "TELEFONO"], "tel");
+
+    return `
+      <div class="popup-card">
+        <span class="popup-badge" style="background:#ffeb3b;color:#111;">Parcela Establecida</span>
+        <h3>${nombres}</h3>
+        <div class="popup-grid">
+          <div><b>Cédula:</b> ${cedula}</div>
+          <div><b>Nombres_y_:</b> ${nombres}</div>
+          <div><b>Sexo:</b> ${sexo}</div>
+          <div><b>Comunidad:</b> ${comunidad}</div>
+          <div><b>Modelo:</b> ${modelo}</div>
+          <div><b>Departamento:</b> ${departamento}</div>
+          <div><b>Distrito:</b> ${distrito}</div>
+          <div><b>Localidad:</b> ${localidad}</div>
+          <div><b>Teléfono:</b> ${telefono}</div>
+          <div><b>Archivo:</b> ${archivo}</div>
+        </div>
+        ${latlng ? crearBloqueDistancia(latlng.lat, latlng.lng) : ""}
+        ${latlng ? crearBotonRuta(latlng.lat, latlng.lng) : ""}
+      </div>
+    `;
+  }
+
+  function crearPopupMantenimiento(layer, tipo, archivo, latlng) {
+    const props = layer.feature && layer.feature.properties ? layer.feature.properties : {};
+
+    const cedula = getCedulaKML(props);
+    const nombres = getPropFlexible(props, ["Nombres_y_", "Nombres_y", "NOMBRES_Y_", "Nombre", "name"], "nombres");
+    const sexo = getPropFlexible(props, ["Sexo", "SEXO"], "sexo");
+    const comunidad = getPropFlexible(props, ["Comunidad", "COMUNIDAD"], "comunidad");
+    const modelo = getPropFlexible(props, ["Modelo_imp", "MODELO_IMP", "modelo_imp"], "modelo");
+    const departamento = getPropFlexible(props, ["Departamen", "Departamento", "DEPARTAMEN"], "depart");
+    const distrito = getPropFlexible(props, ["Distrito", "DISTRITO"], "distrito");
+    const localidad = getPropFlexible(props, ["Localidad", "LOCALIDAD"], "localidad");
+    const telefono = getPropFlexible(props, ["Teléfono", "Telefono", "TELEFONO"], "tel");
+    const etapaFAO = getPropFlexible(
+      props,
+      [
+        "Etapa de implementación FAO",
+        "Etapa de implementacion FAO",
+        "Etapa_FAO",
+        "Etapa FAO",
+        "Etapa_impl",
+        "Etapa_implementacion_FAO"
+      ],
+      "etapa"
+    );
+    const cocinaImplementada = getPropFlexible(
+      props,
+      [
+        "Monitorear Cocinas Eficientes",
+        "Monitorear"
+      ],
+      "monitorear"
+    );
+    const visitadoId = (tipo === "Ubicación Mantenimiento" && latlng) ? crearIdVisitado("ubicacion_mantenimiento", nombres, cedula, latlng.lat, latlng.lng, archivo) : "";
+    const botonVisitado = tipo === "Ubicación Mantenimiento" ? crearBotonVisitado(visitadoId) : "";
+
+    const badge = tipo === "Polígono Mantenimiento" ? "badge-poligono" : "badge-kmlp";
+
+    return `
+      <div class="popup-card">
+        <span class="popup-badge ${badge}">${tipo}</span>
+        <h3>${nombres}</h3>
+        <div class="popup-grid">
+          <div><b>Cédula:</b> ${cedula}</div>
+          <div><b>Nombres_y_:</b> ${nombres}</div>
+          <div><b>Sexo:</b> ${sexo}</div>
+          <div><b>Comunidad:</b> ${comunidad}</div>
+          <div><b>Modelo_imp:</b> ${modelo}</div>
+          <div><b>Departamen:</b> ${departamento}</div>
+          <div><b>Distrito:</b> ${distrito}</div>
+          <div><b>Localidad:</b> ${localidad}</div>
+          <div><b>Teléfono:</b> ${telefono}</div>
+          <div><b>Etapa de implementación FAO:</b> ${etapaFAO}</div>
+          <div><b>Monitorear Cocinas Eficientes:</b> ${cocinaImplementada}</div>
+        </div>
+        ${latlng ? crearBloqueDistancia(latlng.lat, latlng.lng) : ""}
+        ${latlng ? crearBotonRuta(latlng.lat, latlng.lng) : ""}
+        ${botonVisitado}
+      </div>
+    `;
+  }
+
+  function crearPopupCocina(row, lat, lon) {
+    const nombre = getCampoFlexible(row, ["Nombre y Apellido", "Nombres y Apellidos", "Nombre"], "nombre");
+    const cedula = getCampoFlexible(row, ["C.I. del participante", "C.I.", "CI", "Cédula"], "participante");
+    const sexo = limpiarValor(get(row, "Sexo"));
+    const comunidad = limpiarValor(get(row, "Comunidad"));
+    const departamento = limpiarValor(get(row, "Departamento"));
+    const distrito = limpiarValor(get(row, "Distrito"));
+    const localidad = limpiarValor(get(row, "Localidad"));
+    const telefono = limpiarValor(get(row, "Teléfono"));
+    const lote = limpiarValor(get(row, "Lote"));
+    const monitorearCocinas = limpiarValor(get(row, "Monitorear Cocinas Eficientes"));
+    const visitadoId = crearIdVisitado("cocina_eficiente", nombre, cedula, lat, lon, archivoCocinas);
+    const botonVisitado = crearBotonVisitado(visitadoId);
+
+    return `
+      <div class="popup-card">
+        <span class="popup-badge badge-cocina">Cocina eficiente</span>
+        <h3>${nombre}</h3>
+        <div class="popup-grid">
+          <div><b>C.I. del participante:</b> ${cedula}</div>
+          <div><b>Sexo:</b> ${sexo}</div>
+          <div><b>Comunidad:</b> ${comunidad}</div>
+          <div><b>Departamento:</b> ${departamento}</div>
+          <div><b>Distrito:</b> ${distrito}</div>
+          <div><b>Localidad:</b> ${localidad}</div>
+          <div><b>Teléfono:</b> ${telefono}</div>
+          <div><b>Lote:</b> ${lote}</div>
+          <div><b>Monitorear Cocinas Eficientes:</b> ${monitorearCocinas}</div>
+        </div>
+        ${crearBloqueDistancia(lat, lon)}
+        ${crearBotonRuta(lat, lon)}
+        ${botonVisitado}
+      </div>
+    `;
+  }
+
+  function agregarEtiqueta(marker, texto) {
+    marker.bindTooltip(texto, {
+      permanent: true,
+      direction: "top",
+      offset: [0, -12],
+      className: "label-nombre"
+    });
+  }
+
+  function agregarBusqueda(nombre, cedula, comunidad, localidad, tipo, lat, lon, marker) {
+    const nombreLimpio = limpiarValor(nombre);
+    const cedulaLimpia = limpiarValor(cedula);
+    const comunidadLimpia = limpiarValor(comunidad);
+    const localidadLimpia = limpiarValor(localidad);
+
+    registrosBusqueda.push({
+      texto: normalizarTexto(`${nombreLimpio} ${cedulaLimpia} ${localidadLimpia} ${comunidadLimpia} ${tipo}`),
+      nombre: nombreLimpio,
+      cedula: cedulaLimpia,
+      comunidad: comunidadLimpia,
+      localidad: localidadLimpia,
+      tipo,
+      lat,
+      lon,
+      marker
+    });
+  }
+
+  function agregarPuntoPrincipal(row, tipo, lat, lon, icono, capa) {
+    const nombre = limpiarValor(get(row, "Nombres y Apellidos"));
+    const cedula = limpiarValor(get(row, "Cédula"));
+    const comunidad = limpiarValor(get(row, "Comunidad"));
+    const localidad = limpiarValor(get(row, "Localidad"));
+    const visitadoId = tipo === "Plantación"
+      ? crearIdVisitado("plantacion", nombre, cedula, lat, lon, archivoCSV)
+      : (tipo === "Vivienda" ? crearIdVisitado("vivienda", nombre, cedula, lat, lon, archivoCSV) : "");
+    const iconoFinal = tipo === "Plantación" && estaVisitado(visitadoId) ? iconoParcelaVisitado : icono;
+
+    const marker = L.marker([lat, lon], { icon: iconoFinal }).addTo(capa);
+    marker.bindPopup(() => crearPopupPrincipal(row, tipo, lat, lon));
+    agregarEtiqueta(marker, nombre);
+
+    if (tipo === "Plantación") {
+      registrarVisitable(visitadoId, marker, "Plantación", {
+        campania: CAMPANIA,
+        cedula,
+        nombre,
+        tipo: "Plantación",
+        distrito: limpiarValor(get(row, "Distrito")),
+        localidad,
+        lote: limpiarValor(get(row, "Lote")),
+        lat,
+        lon
+      });
+    }
+
+    if (tipo === "Vivienda") {
+      registrarVisitable(visitadoId, marker, "Vivienda", {
+        campania: CAMPANIA,
+        cedula,
+        nombre,
+        tipo: "Vivienda",
+        distrito: limpiarValor(get(row, "Distrito")),
+        localidad,
+        lote: limpiarValor(get(row, "Lote")),
+        lat,
+        lon
+      });
+    }
+
+    todosLosPuntos.addLayer(marker);
+    agregarBusqueda(nombre, cedula, comunidad, localidad, tipo, lat, lon, marker);
+  }
+
+  function actualizarResumen() {
+    document.getElementById("resumen").innerHTML =
+      `<div class="resumen-linea resumen-viviendas">Viviendas: ${totalViviendasGlobal}</div>` +
+      `<div class="resumen-linea resumen-plantacion">Plantación: ${totalParcelasGlobal}</div>` +
+      `<div class="resumen-linea resumen-poligonos">Polígono Mantenimiento: ${totalPoligonos}</div>` +
+      `<div class="resumen-linea resumen-ubicacion">Ubicación Mantenimiento: ${totalUbicacionMant}</div>` +
+      `<div class="resumen-linea resumen-cocinas">Cocinas eficientes: ${totalCocinas}</div>`;
+  }
+
+
+  function traerCapasDeVisitaAlFrente() {
+    // Mantiene las capas operativas por encima de Parcelas Establecidas.
+    capaViviendas.eachLayer(function(layer) {
+      if (layer.setZIndexOffset) layer.setZIndexOffset(1000);
+      if (layer.bringToFront) layer.bringToFront();
+    });
+
+    capaKML.eachLayer(function(layer) {
+      if (layer.bringToFront) layer.bringToFront();
+    });
+
+    capaParcelas.eachLayer(function(layer) {
+      if (layer.setZIndexOffset) layer.setZIndexOffset(1500);
+      if (layer.bringToFront) layer.bringToFront();
+    });
+
+    capaKMLP.eachLayer(function(layer) {
+      if (layer.setZIndexOffset) layer.setZIndexOffset(2200);
+      if (layer.bringToFront) layer.bringToFront();
+    });
+
+    capaCocinas.eachLayer(function(layer) {
+      if (layer.setZIndexOffset) layer.setZIndexOffset(2500);
+      if (layer.bringToFront) layer.bringToFront();
+    });
+  }
+
+  if (archivoCSV) {
+    Papa.parse(urlDatosFresca(archivoCSV), {
+      download: true,
+      header: true,
+      skipEmptyLines: true,
+      delimiter: "",
+      complete: function(results) {
+        const datos = results.data;
+
+        if (datos.length > 0) {
+          actualizarTituloMapa(limpiarValor(get(datos[0], "Distrito")));
+        }
+
+        if (!archivoParcelasEstablecidas && datos.length > 0) {
+          const loteDetectado = limpiarValor(get(datos[0], "Lote"));
+          archivoParcelasEstablecidas = obtenerNombreLoteParaKML(loteDetectado);
+        }
+
+        datos.forEach(row => {
+          const latViv = convertirNumero(get(row, "Vivienda_Latitud"));
+          const lonViv = convertirNumero(get(row, "Vivienda_Longitud"));
+
+          if (latViv !== null && lonViv !== null) {
+            agregarPuntoPrincipal(row, "Vivienda", latViv, lonViv, iconoVivienda, capaViviendas);
+            totalViviendasGlobal++;
+          }
+
+          const etapa = normalizarTexto(get(row, "Etapa de implementación FAO"));
+
+          if (etapa === "plantacion") {
+            const latPar = convertirNumero(get(row, "Parcela_Latitud"));
+            const lonPar = convertirNumero(get(row, "Parcela_Longitud"));
+
+            if (latPar !== null && lonPar !== null) {
+              agregarPuntoPrincipal(row, "Plantación", latPar, lonPar, iconoParcela, capaParcelas);
+              totalParcelasGlobal++;
+            }
+          }
+        });
+
+        actualizarResumen();
+        ajustarVistaGeneral();
+        traerCapasDeVisitaAlFrente();
+        actualizarEtiquetasKML();
+        // Asegura que los marcadores recién creados adopten el estado de Google Sheets.
+        setTimeout(cargarVisitasRemotas, 300);
+      },
+      error: function(error) {
+        alert("No se pudo leer el CSV principal. Verificá que el archivo exista en GitHub.");
+        console.error(error);
+      }
+    });
+  }
+
+  function getNombrePoligono(layer) {
+    const props = layer.feature && layer.feature.properties ? layer.feature.properties : {};
+    return getPropFlexible(props, ["Nombres_y_", "Nombres_y", "Nombres y Apellidos", "NOMBRES_Y_", "Nombre", "name"], "nombres");
+  }
+
+  function cargarKMLPoligono() {
+    if (!archivoKML) return;
+
+    const kmlLayer = omnivore.kml(urlDatosFresca(archivoKML))
+      .on('ready', function() {
+        kmlLayer.eachLayer(function(layer) {
+          totalPoligonos++;
+
+          if (layer.setStyle) {
+            layer.setStyle({
+              color: "#e11b22",
+              weight: 5,
+              fillOpacity: 0,
+              fillColor: "transparent",
+              opacity: 1
+            });
+          }
+
+          const nombrePoligono = getNombrePoligono(layer);
+          const latlng = obtenerLatLngCentroLayer(layer);
+          const props = layer.feature && layer.feature.properties ? layer.feature.properties : {};
+          actualizarTituloMapa(getPropFlexible(props, ["Distrito", "DISTRITO"], "distrito"));
+          const cedula = getCedulaKML(props);
+          const comunidad = getPropFlexible(props, ["Comunidad", "COMUNIDAD"], "comunidad");
+          const localidad = getPropFlexible(props, ["Localidad", "LOCALIDAD"], "localidad");
+
+          layer.bindTooltip(nombrePoligono, {
+            permanent: false,
+            direction: "center",
+            className: "kml-label"
+          });
+
+          bindPopupKMLArriba(layer, () => crearPopupMantenimiento(layer, "Polígono Mantenimiento", archivoKML, latlng));
+
+          if (latlng) {
+            const visitadoPoligonoId = crearIdVisitado("poligono_mantenimiento", nombrePoligono, cedula, latlng.lat, latlng.lng, archivoKML);
+            registrarVisitable(visitadoPoligonoId, layer, "Polígono Mantenimiento", {
+              campania: CAMPANIA,
+              cedula,
+              nombre: nombrePoligono,
+              tipo: "Polígono Mantenimiento",
+              distrito: getPropFlexible(props, ["Distrito", "DISTRITO"], "distrito"),
+              localidad,
+              lote: getPropFlexible(props, ["Lote", "LOTE"], "lote"),
+              lat: latlng.lat,
+              lon: latlng.lng
+            });
+            agregarBusqueda(nombrePoligono, cedula, comunidad, localidad, "Parcela Mantenimiento", latlng.lat, latlng.lng, layer);
+          }
+
+          capaKML.addLayer(layer);
+          todosLosPuntos.addLayer(layer);
+        });
+
+        actualizarResumen();
+        ajustarVistaGeneral();
+        actualizarEtiquetasKML();
+        traerCapasDeVisitaAlFrente();
+        setTimeout(cargarVisitasRemotas, 300);
+      })
+      .on('error', function(e) {
+        alert("No se pudo leer el KML de polígono. Verificá que exista en GitHub.");
+        console.error(e);
+      });
+  }
+
+  function getLatLngLayer(layer) {
+    if (layer.getLatLng) return layer.getLatLng();
+    if (layer.getBounds) return layer.getBounds().getCenter();
+    return null;
+  }
+
+  function cargarKMLUbicacion() {
+    if (!archivoKMLP) return;
+
+    const kmlLayer = omnivore.kml(
+      urlDatosFresca(archivoKMLP),
+      null,
+      L.geoJson(null, {
+        pointToLayer: function(feature, latlng) {
+          return L.marker(latlng, {
+            icon: iconoKMLP
+          });
+        }
+      })
+    )
+      .on('ready', function() {
+        kmlLayer.eachLayer(function(layer) {
+          const nombre = getNombrePoligono(layer);
+          const latlng = getLatLngLayer(layer);
+
+          bindPopupKMLArriba(layer, () =>
+            crearPopupMantenimiento(
+              layer,
+              "Ubicación Mantenimiento",
+              archivoKMLP,
+              latlng
+            )
+          );
+
+          if (latlng) {
+            const props = layer.feature && layer.feature.properties ? layer.feature.properties : {};
+            actualizarTituloMapa(getPropFlexible(props, ["Distrito", "DISTRITO"], "distrito"));
+            const cedula = getCedulaKML(props);
+            const comunidad = getPropFlexible(props, ["Comunidad", "COMUNIDAD"], "comunidad");
+            const localidad = getPropFlexible(props, ["Localidad", "LOCALIDAD"], "localidad");
+            const visitadoId = crearIdVisitado("ubicacion_mantenimiento", nombre, cedula, latlng.lat, latlng.lng, archivoKMLP);
+
+            registrarVisitable(visitadoId, layer, "Ubicación Mantenimiento", {
+              campania: CAMPANIA,
+              cedula,
+              nombre,
+              tipo: "Ubicación Mantenimiento",
+              distrito: getPropFlexible(props, ["Distrito", "DISTRITO"], "distrito"),
+              localidad,
+              lote: getPropFlexible(props, ["Lote", "LOTE"], "lote"),
+              lat: latlng.lat,
+              lon: latlng.lng
+            });
+            agregarEtiqueta(layer, nombre);
+            agregarBusqueda(nombre, cedula, comunidad, localidad, "Parcela Mantenimiento", latlng.lat, latlng.lng, layer);
+          }
+
+          capaKMLP.addLayer(layer);
+          todosLosPuntos.addLayer(layer);
+          totalUbicacionMant++;
+        });
+
+        actualizarResumen();
+        ajustarVistaGeneral();
+        traerCapasDeVisitaAlFrente();
+        actualizarEtiquetasKML();
+        setTimeout(cargarVisitasRemotas, 300);
+      })
+      .on('error', function(e) {
+        alert("No se pudo leer el KML de ubicación. Verificá que exista en GitHub.");
+        console.error(e);
+      });
+  }
+
+
+  function cargarParcelasEstablecidas() {
+    if (!archivoParcelasEstablecidas || parcelasEstablecidasCargadas) return;
+
+    const kmlLayer = omnivore.kml(urlDatosFresca(archivoParcelasEstablecidas))
+      .on('ready', function() {
+        kmlLayer.eachLayer(function(layer) {
+          totalParcelasEstablecidas++;
+
+          if (layer.setStyle) {
+            layer.setStyle({
+              // Parcelas Establecidas: contorno amarillo para resaltar sobre vegetación
+              color: "#ffeb3b",
+              weight: 4,
+              fillOpacity: 0,
+              fillColor: "transparent",
+              opacity: 1,
+              dashArray: null
+            });
+          }
+
+          const latlng = obtenerLatLngCentroLayer(layer);
+          const props = layer.feature && layer.feature.properties ? layer.feature.properties : {};
+          const nombre = getPropFlexible(props, ["Nombres_y_", "Nombres_y", "Nombres y Apellidos", "NOMBRES_Y_", "Nombre", "name"], "nombres");
+          const cedula = getCedulaKML(props);
+          const comunidad = getPropFlexible(props, ["Comunidad", "COMUNIDAD"], "comunidad");
+          const localidad = getPropFlexible(props, ["Localidad", "LOCALIDAD"], "localidad");
+
+          layer.bindTooltip(nombre, {
+            permanent: false,
+            direction: "center",
+            className: "kml-label"
+          });
+
+          bindPopupKMLArriba(layer, () => crearPopupParcelaEstablecida(layer, archivoParcelasEstablecidas, latlng));
+
+          if (latlng) {
+            agregarBusqueda(nombre, cedula, comunidad, localidad, "Parcela Establecida", latlng.lat, latlng.lng, layer);
+          }
+
+          capaParcelasEstablecidas.addLayer(layer);
+          todosLosPuntos.addLayer(layer);
+        });
+
+        parcelasEstablecidasCargadas = true;
+
+        if (parcelasEstablecidasActivas && !map.hasLayer(capaParcelasEstablecidas)) {
+          map.addLayer(capaParcelasEstablecidas);
+        }
+        traerCapasDeVisitaAlFrente();
+        actualizarEtiquetasKML();
+      })
+      .on('error', function(e) {
+        alert("No se pudo leer el KML de Parcelas Establecidas. Verificá que exista en GitHub: " + archivoParcelasEstablecidas);
+        console.error(e);
+        parcelasEstablecidasActivas = false;
+        document.getElementById("btnParcelasEstablecidas").classList.remove("activo");
+      });
+  }
+
+  function toggleParcelasEstablecidas() {
+    const btn = document.getElementById("btnParcelasEstablecidas");
+
+    parcelasEstablecidasActivas = !parcelasEstablecidasActivas;
+
+    if (parcelasEstablecidasActivas) {
+      btn.classList.add("activo");
+
+      if (!parcelasEstablecidasCargadas) {
+        cargarParcelasEstablecidas();
+      } else {
+        map.addLayer(capaParcelasEstablecidas);
+      }
+    } else {
+      btn.classList.remove("activo");
+      if (map.hasLayer(capaParcelasEstablecidas)) {
+        map.removeLayer(capaParcelasEstablecidas);
+      }
+    }
+
+    traerCapasDeVisitaAlFrente();
+    actualizarEtiquetasKML();
+    actualizarBusquedaActual();
+  }
+
+  if (archivoCocinas) {
+    Papa.parse(urlDatosFresca(archivoCocinas), {
+      download: true,
+      header: true,
+      skipEmptyLines: true,
+      delimiter: "",
+      complete: function(results) {
+        const datos = results.data;
+
+        if (datos.length > 0) {
+          actualizarTituloMapa(limpiarValor(get(datos[0], "Distrito")));
+        }
+
+        if (!archivoParcelasEstablecidas && datos.length > 0) {
+          const loteDetectado = limpiarValor(get(datos[0], "Lote"));
+          archivoParcelasEstablecidas = obtenerNombreLoteParaKML(loteDetectado);
+        }
+
+        datos.forEach(row => {
+          const lat = convertirNumero(getCampoFlexible(row, ["Latitud", "latitud", "LATITUD"], "lat"));
+          const lon = convertirNumero(getCampoFlexible(row, ["Longuitud", "Longitud", "longuitud", "longitud", "LONGITUD"], "long"));
+
+          if (lat !== null && lon !== null) {
+            const nombre = getCampoFlexible(row, ["Nombre y Apellido", "Nombres y Apellidos", "Nombre"], "nombre");
+            const cedula = getCampoFlexible(row, ["C.I. del participante", "C.I.", "CI", "Cédula"], "participante");
+            const comunidad = limpiarValor(get(row, "Comunidad"));
+            const localidad = limpiarValor(get(row, "Localidad"));
+
+            const visitadoId = crearIdVisitado("cocina_eficiente", nombre, cedula, lat, lon, archivoCocinas);
+            const marker = L.marker([lat, lon], { icon: estaVisitado(visitadoId) ? iconoCocinaVisitado : iconoCocina }).addTo(capaCocinas);
+            marker.bindPopup(() => crearPopupCocina(row, lat, lon));
+            agregarEtiqueta(marker, nombre);
+
+            registrarVisitable(visitadoId, marker, "Cocina eficiente", {
+              campania: CAMPANIA,
+              cedula,
+              nombre,
+              tipo: "Cocina eficiente",
+              distrito: limpiarValor(get(row, "Distrito")),
+              localidad,
+              lote: limpiarValor(get(row, "Lote")),
+              lat,
+              lon
+            });
+
+            todosLosPuntos.addLayer(marker);
+            agregarBusqueda(nombre, cedula, comunidad, localidad, "Cocina eficiente", lat, lon, marker);
+            totalCocinas++;
+          }
+        });
+
+        actualizarResumen();
+        ajustarVistaGeneral();
+        traerCapasDeVisitaAlFrente();
+        actualizarEtiquetasKML();
+        setTimeout(cargarVisitasRemotas, 300);
+      },
+      error: function(error) {
+        alert("No se pudo leer el CSV de cocinas. Verificá que el archivo exista en GitHub.");
+        console.error(error);
+      }
+    });
+  }
+
+  cargarKMLPoligono();
+  cargarKMLUbicacion();
+  actualizarResumen();
+
+  function ajustarVistaGeneral() {
+    if (todosLosPuntos.getLayers().length > 0) {
+      map.fitBounds(todosLosPuntos.getBounds(), { padding: [45, 45] });
+    }
+  }
+
+  function cerrarTooltipsDeCapa(capa) {
+    capa.eachLayer(function(layer) {
+      if (layer.closeTooltip) layer.closeTooltip();
+    });
+  }
+
+  function cerrarTodasLasEtiquetas() {
+    cerrarTooltipsDeCapa(capaViviendas);
+    cerrarTooltipsDeCapa(capaParcelas);
+    cerrarTooltipsDeCapa(capaKML);
+    cerrarTooltipsDeCapa(capaKMLP);
+    cerrarTooltipsDeCapa(capaCocinas);
+    cerrarTooltipsDeCapa(capaParcelasEstablecidas);
+  }
+
+  function cerrarTooltipsMovimiento() {
+    map.getContainer().classList.add("map-interacting");
+    cerrarTodasLasEtiquetas();
+  }
+
+  function finalizarMovimientoMapa() {
+    if (etiquetaTimer) clearTimeout(etiquetaTimer);
+    etiquetaTimer = setTimeout(function() {
+      map.getContainer().classList.remove("map-interacting");
+      actualizarEtiquetasKML();
+    }, 220);
+  }
+
+  function actualizarEtiquetasKML() {
+    if (!etiquetasActivas) {
+      cerrarTodasLasEtiquetas();
+      return;
+    }
+
+    const capasConEtiqueta = [
+      { capa: capaKML, visible: map.hasLayer(capaKML) },
+      { capa: capaParcelasEstablecidas, visible: map.hasLayer(capaParcelasEstablecidas) },
+      { capa: capaKMLP, visible: map.hasLayer(capaKMLP) },
+      { capa: capaViviendas, visible: map.hasLayer(capaViviendas) },
+      { capa: capaParcelas, visible: map.hasLayer(capaParcelas) },
+      { capa: capaCocinas, visible: map.hasLayer(capaCocinas) }
+    ];
+
+    capasConEtiqueta.forEach(function(item) {
+      item.capa.eachLayer(function(layer) {
+        if (!layer.getTooltip || !layer.getTooltip()) return;
+
+        if (map.getZoom() >= ZOOM_ETIQUETA_KML && item.visible) {
+          layer.openTooltip();
+        } else {
+          layer.closeTooltip();
+        }
+      });
+    });
+  }
+
+  let etiquetaTimer = null;
+
+  map.on("movestart", cerrarTooltipsMovimiento);
+  map.on("zoomstart", cerrarTooltipsMovimiento);
+  map.on("rotatestart", cerrarTooltipsMovimiento);
+
+  map.on("zoomend", finalizarMovimientoMapa);
+  map.on("moveend", finalizarMovimientoMapa);
+  map.on("rotateend", finalizarMovimientoMapa);
+
+  function toggleLayer(buttonId, capa, actualizarKml) {
+    const btn = document.getElementById(buttonId);
+
+    if (map.hasLayer(capa)) {
+      map.removeLayer(capa);
+      btn.classList.remove("boton-activo");
+    } else {
+      map.addLayer(capa);
+      btn.classList.add("boton-activo");
+      actualizarEtiquetasKML();
+      traerCapasDeVisitaAlFrente();
+    }
+  }
+
+  document.getElementById("btnViviendas").addEventListener("click", function() {
+    toggleLayer("btnViviendas", capaViviendas, false);
+  });
+
+  document.getElementById("btnParcelas").addEventListener("click", function() {
+    toggleLayer("btnParcelas", capaParcelas, false);
+  });
+
+  document.getElementById("btnKML").addEventListener("click", function() {
+    toggleLayer("btnKML", capaKML, true);
+  });
+
+  document.getElementById("btnKMLP").addEventListener("click", function() {
+    toggleLayer("btnKMLP", capaKMLP, false);
+  });
+
+  document.getElementById("btnCocinas").addEventListener("click", function() {
+    toggleLayer("btnCocinas", capaCocinas, false);
+  });
+
+  function etiquetaTipoBusqueda(tipo) {
+    if (tipo === "Vivienda") return "🏠 Vivienda";
+    if (tipo === "Plantación") return "🌳 Plantación";
+    if (tipo === "Parcela Mantenimiento" || tipo === "Ubicación Mantenimiento") return "📍 Parcela Mantenimiento";
+    if (tipo === "Cocina eficiente") return "🔥 Cocina eficiente";
+    if (tipo === "Parcela Establecida") return "🌿 Parcela Establecida";
+    return tipo;
+  }
+
+  function claseBotonResultado(tipo) {
+    if (tipo === "Vivienda") return "btn-res-vivienda";
+    if (tipo === "Plantación") return "btn-res-plantacion";
+    if (tipo === "Parcela Mantenimiento" || tipo === "Ubicación Mantenimiento") return "btn-res-mantenimiento";
+    if (tipo === "Cocina eficiente") return "btn-res-cocina";
+    if (tipo === "Parcela Establecida") return "btn-res-mantenimiento";
+    return "btn-res-vivienda";
+  }
+
+  function abrirResultadoBusqueda(registro) {
+    map.setView([registro.lat, registro.lon], 17);
+    registro.marker.openPopup();
+    document.getElementById("resultados").style.display = "none";
+  }
+
+  function claveParticipanteBusqueda(registro) {
+    if (registro.cedula && registro.cedula !== "-") {
+      return `CI_${registro.cedula}`;
+    }
+    return `NOMBRE_${registro.nombre}_${registro.localidad}_${registro.comunidad}`;
+  }
+
+  function actualizarBusquedaActual() {
+    const input = document.getElementById("buscador");
+    const valor = normalizarTexto(input.value);
+    const contenedor = document.getElementById("resultados");
+    contenedor.innerHTML = "";
+
+    if (valor.length < 2) {
+      contenedor.style.display = "none";
+      return;
+    }
+
+    const encontrados = registrosBusqueda.filter(r => {
+      if (r.tipo === "Parcela Establecida" && !parcelasEstablecidasActivas) return false;
+      return r.texto.includes(valor);
+    });
+
+    const grupos = new Map();
+
+    encontrados.forEach(r => {
+      const clave = claveParticipanteBusqueda(r);
+
+      if (!grupos.has(clave)) {
+        grupos.set(clave, {
+          nombre: r.nombre,
+          cedula: r.cedula,
+          localidad: r.localidad,
+          comunidad: r.comunidad,
+          opciones: []
+        });
+      }
+
+      const grupo = grupos.get(clave);
+      const yaExisteTipo = grupo.opciones.some(op => op.tipo === r.tipo);
+
+      if (!yaExisteTipo) {
+        grupo.opciones.push(r);
+      }
+    });
+
+    Array.from(grupos.values()).slice(0, 12).forEach(grupo => {
+      const div = document.createElement("div");
+      div.className = "item-resultado";
+
+      const subtitulo = `CI: ${grupo.cedula || "-"} | Localidad: ${grupo.localidad || "-"}`;
+
+      div.innerHTML = `
+        <div class="resultado-titulo">${grupo.nombre}</div>
+        <div class="resultado-subtitulo">${subtitulo}</div>
+        <div class="acciones-resultado"></div>
+      `;
+
+      const acciones = div.querySelector(".acciones-resultado");
+
+      const orden = {
+        "Vivienda": 1,
+        "Plantación": 2,
+        "Parcela Mantenimiento": 3,
+        "Ubicación Mantenimiento": 3,
+        "Cocina eficiente": 4,
+        "Parcela Establecida": 5
+      };
+
+      grupo.opciones
+        .sort((a, b) => (orden[a.tipo] || 99) - (orden[b.tipo] || 99))
+        .forEach(opcion => {
+          const btn = document.createElement("button");
+          btn.className = `btn-resultado ${claseBotonResultado(opcion.tipo)}`;
+          btn.textContent = etiquetaTipoBusqueda(opcion.tipo);
+          btn.onclick = function(e) {
+            e.stopPropagation();
+            abrirResultadoBusqueda(opcion);
+          };
+          acciones.appendChild(btn);
+        });
+
+      contenedor.appendChild(div);
+    });
+
+    contenedor.style.display = grupos.size > 0 ? "block" : "none";
+  }
+
+  document.getElementById("buscador").addEventListener("input", actualizarBusquedaActual);
+
+  // Aplica la visibilidad inicial de etiquetas también a Viviendas.
+  setTimeout(actualizarEtiquetasKML, 2200);
+
+  map.locate({ setView: false, watch: true, enableHighAccuracy: true });
+
+  map.on('locationfound', function(e) {
+    ubicacionActual = e.latlng;
+
+    if (marcadorUsuario) {
+      marcadorUsuario.setLatLng(e.latlng);
+    } else {
+      marcadorUsuario = L.circleMarker(e.latlng, {
+        radius: 8,
+        color: "#1a73e8",
+        fillColor: "#1a73e8",
+        fillOpacity: 0.9,
+        weight: 3
+      }).addTo(map).bindPopup("Mi ubicación actual");
+    }
+  });
+
+  function togglePanel() {
+    document.querySelector(".panel").classList.toggle("panel-visible");
+  }
+
+  function toggleEtiquetas() {
+    etiquetasActivas = !etiquetasActivas;
+    const btn = document.getElementById("btnEtiquetas");
+
+    if (etiquetasActivas) {
+      btn.classList.remove("inactivo");
+      actualizarEtiquetasKML();
+    } else {
+      btn.classList.add("inactivo");
+      cerrarTodasLasEtiquetas();
+    }
+  }
+
+  function resetNorte() {
+    if (map._setBearingOriginal) {
+      map.setBearing(0, { forzarNorte: true });
+    } else if (map.setBearing) {
+      map.setBearing(0);
+    } else if (map.touchRotate && map.touchRotate.setBearing) {
+      map.touchRotate.setBearing(0);
+    } else {
+      alert("La rotación no está disponible en este navegador.");
+    }
+  }
+
+  function centrarMiUbicacion() {
+    if (ubicacionActual) {
+      map.setView(ubicacionActual, 17);
+      if (marcadorUsuario) marcadorUsuario.openPopup();
+    } else {
+      alert("Todavía no se pudo obtener tu ubicación. Permití el acceso a ubicación en el navegador.");
+    }
+  }
+
+
+  // ============================================================
+  // USO SIN CONEXIÓN - ZONAS VERIFICADAS
+  // ============================================================
+
+  // Cada repositorio semanal usa sus propios nombres de caché.
+  // Ejemplo:
+  //   /Mapa_2026_08_17/ -> proeza-app-mapa_2026_08_17-v1
+  //   /Mapa_2026_08_24/ -> proeza-app-mapa_2026_08_24-v1
+  const REPO_OFFLINE_ID = (() => {
+    const partes = window.location.pathname.split("/").filter(Boolean);
+    const repo = partes.length > 0 ? partes[0] : "raiz";
+    return repo
+      .toLowerCase()
+      .replace(/[^a-z0-9_-]+/g, "_")
+      .replace(/^_+|_+$/g, "") || "raiz";
+  })();
+
+  const OFFLINE_APP_CACHE = `proeza-app-${REPO_OFFLINE_ID}-v1`;
+  const OFFLINE_ZONE_PREFIX = `proeza-zona-${REPO_OFFLINE_ID}-`;
+  const OFFLINE_ZONAS_KEY = `proeza_zonas_offline_${REPO_OFFLINE_ID}_v1`;
+  const OFFLINE_ZOOM_MIN = 14;
+  const OFFLINE_ZOOM_MAX = 17;
+  const OFFLINE_MAX_RECURSOS = 1400;
+  const OFFLINE_REINTENTOS = 3;
+
+  let modoSeleccionOffline = false;
+  let descargaOfflineEnCurso = false;
+  let offlineHandleActivo = null;
+  let offlineRectInicial = null;
+  let offlinePointerInicial = null;
+
+  // ------------------------------------------------------------
+  // Service Worker
+  // ------------------------------------------------------------
+  if ("serviceWorker" in navigator) {
+    window.addEventListener("load", function() {
+      navigator.serviceWorker.register("./service-worker.js", { updateViaCache: "none" })
+        .then(function(registration) {
+          registration.update().catch(() => {});
+        })
+        .catch(function(error) {
+          console.warn("No se pudo registrar el Service Worker:", error);
+        });
+    });
+  }
+
+  // ------------------------------------------------------------
+  // Almacenamiento persistente
+  // ------------------------------------------------------------
+  async function solicitarPersistenciaOffline() {
+    if (!navigator.storage || !navigator.storage.persist) {
+      return { soportado: false, persistente: false };
+    }
+
+    try {
+      const yaPersistente = navigator.storage.persisted
+        ? await navigator.storage.persisted()
+        : false;
+
+      if (yaPersistente) {
+        return { soportado: true, persistente: true };
+      }
+
+      const concedido = await navigator.storage.persist();
+      return { soportado: true, persistente: !!concedido };
+    } catch (e) {
+      return { soportado: true, persistente: false };
+    }
+  }
+
+  // ------------------------------------------------------------
+  // Utilidades de metadatos
+  // ------------------------------------------------------------
+  function cargarZonasOffline() {
+    try {
+      return JSON.parse(localStorage.getItem(OFFLINE_ZONAS_KEY) || "[]");
+    } catch (e) {
+      return [];
+    }
+  }
+
+  function guardarZonasOffline(zonas) {
+    localStorage.setItem(OFFLINE_ZONAS_KEY, JSON.stringify(zonas));
+    actualizarResumenZonasOffline();
+  }
+
+  function crearIdZonaOffline() {
+    return `${Date.now()}_${Math.floor(Math.random() * 100000)}`;
+  }
+
+  function detectarDistritoOffline() {
+    const titulo = document.getElementById("tituloMapa");
+    const texto = titulo ? titulo.textContent : "";
+    const m = texto.match(/Mapa de campo\s*-\s*(.*?)\s*🗺️?$/i);
+    if (m && m[1]) return m[1].trim();
+
+    const csv = archivoCSV || "";
+    const base = decodeURIComponent(csv).replace(/\.csv$/i, "");
+    return base.split("_")[0] || "Zona";
+  }
+
+  function detectarLoteOffline() {
+    const p = archivoParcelasEstablecidas || "";
+    const m = decodeURIComponent(p).match(/Lote[_\s-]*([^./]+)/i);
+    if (m && m[1]) return m[1].replace(/_/g, " ").trim();
+
+    const csv = decodeURIComponent(archivoCSV || "").replace(/\.csv$/i, "");
+    const partes = csv.split("_");
+    return partes.length > 1 ? partes[partes.length - 1] : "-";
+  }
+
+  function formatearFechaOffline(iso) {
+    try {
+      return new Date(iso).toLocaleString("es-PY");
+    } catch (e) {
+      return iso || "-";
+    }
+  }
+
+  function formatearMBOffline(bytes) {
+    return (bytes / (1024 * 1024)).toFixed(1);
+  }
+
+  async function estimarUsoStorage() {
+    if (!navigator.storage || !navigator.storage.estimate) return null;
+    try {
+      return await navigator.storage.estimate();
+    } catch (e) {
+      return null;
+    }
+  }
+
+  // ------------------------------------------------------------
+  // Selector de zona
+  // ------------------------------------------------------------
+  function activarSelectorOffline() {
+    if (!navigator.onLine) {
+      alert("Para preparar una zona sin conexión primero necesitás tener internet.");
+      return;
+    }
+
+    modoSeleccionOffline = true;
+    document.getElementById("offlineSelector").classList.add("activo");
+    document.querySelector(".panel").classList.remove("panel-visible");
+    document.getElementById("offlineProgreso").classList.remove("activo");
+    document.getElementById("offlineBarra").style.width = "0%";
+    document.getElementById("offlineTextoProgreso").textContent = "Preparando descarga…";
+    document.getElementById("btnDescargarZona").disabled = false;
+    document.getElementById("btnCancelarOffline").disabled = false;
+    document.getElementById("btnCancelarOffline").textContent = "Cancelar";
+    actualizarEstimacionOffline();
+  }
+
+  function cancelarSelectorOffline() {
+    if (descargaOfflineEnCurso) return;
+    modoSeleccionOffline = false;
+    document.getElementById("offlineSelector").classList.remove("activo");
+    document.getElementById("offlineProgreso").classList.remove("activo");
+  }
+
+  function obtenerBoundsMarcoOffline() {
+    const marco = document.getElementById("offlineMarco");
+    const mapaRect = map.getContainer().getBoundingClientRect();
+    const marcoRect = marco.getBoundingClientRect();
+
+    const p1 = L.point(
+      marcoRect.left - mapaRect.left,
+      marcoRect.top - mapaRect.top
+    );
+    const p2 = L.point(
+      marcoRect.right - mapaRect.left,
+      marcoRect.bottom - mapaRect.top
+    );
+
+    const nw = map.containerPointToLatLng(p1);
+    const se = map.containerPointToLatLng(p2);
+
+    return L.latLngBounds(nw, se);
+  }
+
+  // ------------------------------------------------------------
+  // Vértices ajustables
+  // ------------------------------------------------------------
+  function limitarOffline(valor, min, max) {
+    return Math.max(min, Math.min(max, valor));
+  }
+
+  function iniciarAjusteOffline(event) {
+    if (!modoSeleccionOffline || descargaOfflineEnCurso) return;
+
+    const handle = event.currentTarget.dataset.handle;
+    if (!handle) return;
+
+    event.preventDefault();
+    event.stopPropagation();
+
+    const marco = document.getElementById("offlineMarco");
+    const selector = document.getElementById("offlineSelector");
+    const rectMarco = marco.getBoundingClientRect();
+    const rectSelector = selector.getBoundingClientRect();
+
+    offlineHandleActivo = handle;
+    offlineRectInicial = {
+      left: rectMarco.left - rectSelector.left,
+      top: rectMarco.top - rectSelector.top,
+      right: rectMarco.right - rectSelector.left,
+      bottom: rectMarco.bottom - rectSelector.top
+    };
+    offlinePointerInicial = { x: event.clientX, y: event.clientY };
+    marco.classList.add("ajustando");
+
+    if (event.currentTarget.setPointerCapture) {
+      try { event.currentTarget.setPointerCapture(event.pointerId); } catch (e) {}
+    }
+  }
+
+  function moverAjusteOffline(event) {
+    if (!offlineHandleActivo || !offlineRectInicial || !offlinePointerInicial) return;
+
+    event.preventDefault();
+    event.stopPropagation();
+
+    const marco = document.getElementById("offlineMarco");
+    const selector = document.getElementById("offlineSelector");
+    const rectSelector = selector.getBoundingClientRect();
+    const panelRect = document.querySelector(".offline-panel").getBoundingClientRect();
+
+    const dx = event.clientX - offlinePointerInicial.x;
+    const dy = event.clientY - offlinePointerInicial.y;
+
+    const margen = 12;
+    const minAncho = 120;
+    const minAlto = 120;
+    const limiteInferior = Math.max(160, panelRect.top - rectSelector.top - 12);
+
+    let left = offlineRectInicial.left;
+    let right = offlineRectInicial.right;
+    let top = offlineRectInicial.top;
+    let bottom = offlineRectInicial.bottom;
+
+    if (offlineHandleActivo.includes("w")) {
+      left = limitarOffline(offlineRectInicial.left + dx, margen, right - minAncho);
+    }
+    if (offlineHandleActivo.includes("e")) {
+      right = limitarOffline(offlineRectInicial.right + dx, left + minAncho, rectSelector.width - margen);
+    }
+    if (offlineHandleActivo.includes("n")) {
+      top = limitarOffline(offlineRectInicial.top + dy, margen, bottom - minAlto);
+    }
+    if (offlineHandleActivo.includes("s")) {
+      bottom = limitarOffline(offlineRectInicial.bottom + dy, top + minAlto, limiteInferior);
+    }
+
+    marco.style.left = `${left}px`;
+    marco.style.top = `${top}px`;
+    marco.style.right = `${Math.max(margen, rectSelector.width - right)}px`;
+    marco.style.bottom = `${Math.max(margen, rectSelector.height - bottom)}px`;
+
+    actualizarEstimacionOffline();
+  }
+
+  function finalizarAjusteOffline(event) {
+    if (!offlineHandleActivo) return;
+
+    if (event) {
+      event.preventDefault();
+      event.stopPropagation();
+    }
+
+    document.getElementById("offlineMarco").classList.remove("ajustando");
+    offlineHandleActivo = null;
+    offlineRectInicial = null;
+    offlinePointerInicial = null;
+    actualizarEstimacionOffline();
+  }
+
+  document.querySelectorAll(".offline-handle").forEach(function(handle) {
+    handle.addEventListener("pointerdown", iniciarAjusteOffline, { passive: false });
+    handle.addEventListener("pointermove", moverAjusteOffline, { passive: false });
+    handle.addEventListener("pointerup", finalizarAjusteOffline, { passive: false });
+    handle.addEventListener("pointercancel", finalizarAjusteOffline, { passive: false });
+  });
+
+  // ------------------------------------------------------------
+  // Cálculo de teselas
+  // ------------------------------------------------------------
+  function lon2tile(lon, zoom) {
+    return Math.floor((lon + 180) / 360 * Math.pow(2, zoom));
+  }
+
+  function lat2tile(lat, zoom) {
+    const latRad = lat * Math.PI / 180;
+    return Math.floor(
+      (1 - Math.asinh(Math.tan(latRad)) / Math.PI) / 2 * Math.pow(2, zoom)
+    );
+  }
+
+  function limitarTile(valor, zoom) {
+    const max = Math.pow(2, zoom) - 1;
+    return Math.max(0, Math.min(max, valor));
+  }
+
+  function obtenerTilesParaBounds(bounds) {
+    const imagery = [];
+    const referencia = [];
+
+    const oeste = bounds.getWest();
+    const este = bounds.getEast();
+    const norte = Math.min(85.0511, bounds.getNorth());
+    const sur = Math.max(-85.0511, bounds.getSouth());
+
+    for (let z = OFFLINE_ZOOM_MIN; z <= OFFLINE_ZOOM_MAX; z++) {
+      let xMin = limitarTile(lon2tile(oeste, z), z);
+      let xMax = limitarTile(lon2tile(este, z), z);
+      let yMin = limitarTile(lat2tile(norte, z), z);
+      let yMax = limitarTile(lat2tile(sur, z), z);
+
+      if (xMin > xMax) [xMin, xMax] = [xMax, xMin];
+      if (yMin > yMax) [yMin, yMax] = [yMax, yMin];
+
+      for (let x = xMin; x <= xMax; x++) {
+        for (let y = yMin; y <= yMax; y++) {
+          imagery.push(
+            `https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/${z}/${y}/${x}`
+          );
+          referencia.push(
+            `https://services.arcgisonline.com/ArcGIS/rest/services/Reference/World_Boundaries_and_Places/MapServer/tile/${z}/${y}/${x}`
+          );
+        }
+      }
+    }
+
+    return {
+      imagery: Array.from(new Set(imagery)),
+      referencia: Array.from(new Set(referencia))
+    };
+  }
+
+  // ------------------------------------------------------------
+  // Recursos obligatorios
+  // ------------------------------------------------------------
+  function recursosAppObligatorios() {
+    return Array.from(new Set([
+      "./",
+      "./index.html",
+      "./service-worker.js",
+      "https://unpkg.com/leaflet/dist/leaflet.css",
+      "https://unpkg.com/leaflet/dist/leaflet.js",
+      "https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js",
+      "https://cdn.jsdelivr.net/npm/leaflet-omnivore@0.3.4/leaflet-omnivore.min.js",
+      "https://unpkg.com/leaflet-rotate@0.2.8/dist/leaflet-rotate-src.js"
+    ]));
+  }
+
+  function recursosDatosObligatorios() {
+    const recursos = [];
+
+    if (archivoCSV) recursos.push(archivoCSV);
+    if (archivoKML) recursos.push(archivoKML);
+    if (archivoKMLP) recursos.push(archivoKMLP);
+    if (archivoCocinas) recursos.push(archivoCocinas);
+    if (archivoParcelasEstablecidas) recursos.push(archivoParcelasEstablecidas);
+
+    return Array.from(new Set(recursos.filter(Boolean)));
+  }
+
+  function actualizarEstimacionOffline() {
+    if (!modoSeleccionOffline) return;
+
+    const bounds = obtenerBoundsMarcoOffline();
+    const tiles = obtenerTilesParaBounds(bounds);
+    const app = recursosAppObligatorios();
+    const datos = recursosDatosObligatorios();
+
+    // Para uso offline solo se exige el mapa satelital.
+    // La capa de etiquetas/referencia Esri queda fuera de la descarga.
+    const totalTiles = tiles.imagery.length;
+    const totalRecursos = totalTiles + app.length + datos.length;
+
+    // Estimación aproximada solo del mapa satelital.
+    const bytesEstimados = totalTiles * 55 * 1024;
+
+    const caja = document.getElementById("offlineEstimacion");
+
+    if (totalRecursos > OFFLINE_MAX_RECURSOS) {
+      caja.innerHTML =
+        `⚠️ <b>Zona demasiado grande.</b><br>` +
+        `Recursos estimados: ${totalRecursos}.<br>` +
+        `Acercá el mapa o reducí el recuadro antes de descargar.`;
+      document.getElementById("btnDescargarZona").disabled = true;
+    } else {
+      caja.innerHTML =
+        `<b>Zona seleccionada</b><br>` +
+        `Podés ajustar las 4 esquinas manualmente.<br>` +
+        `Zoom offline: ${OFFLINE_ZOOM_MIN}–${OFFLINE_ZOOM_MAX}<br>` +
+        `Recursos obligatorios: ${totalRecursos}<br>` +
+        `Tamaño aproximado del mapa satelital: ${formatearMBOffline(bytesEstimados)} MB`;
+      document.getElementById("btnDescargarZona").disabled = false;
+    }
+  }
+
+  // ------------------------------------------------------------
+  // Descarga y verificación estricta
+  // ------------------------------------------------------------
+  async function fetchParaCache(url) {
+    const canonica = new URL(url, window.location.href);
+    canonica.searchParams.delete("_fresh");
+
+    const mismaOrigen = canonica.origin === window.location.origin;
+
+    // Para CSV/KML/JSON/XLSX, si hay conexión pedimos una copia fresca.
+    // IMPORTANTE: se guarda bajo la URL canónica, sin _fresh, para que
+    // nunca queden varias semanas del mismo archivo en el caché.
+    const urlFetch = new URL(canonica.href);
+
+    if (navigator.onLine && esArchivoDatosLocal(canonica.href)) {
+      urlFetch.searchParams.set("_fresh", `${Date.now()}_${Math.floor(Math.random() * 100000)}`);
+    }
+
+    const requestFetch = new Request(urlFetch.href, {
+      mode: mismaOrigen ? "same-origin" : "no-cors",
+      cache: "no-store"
+    });
+
+    const respuesta = await fetch(requestFetch);
+
+    if (!respuesta.ok && respuesta.type !== "opaque") {
+      throw new Error(`No se pudo descargar ${canonica.href}`);
+    }
+
+    const requestCanonica = new Request(canonica.href, {
+      mode: mismaOrigen ? "same-origin" : "no-cors"
+    });
+
+    return { request: requestCanonica, response: respuesta };
+  }
+
+  async function guardarRecursoConReintentos(cache, url, maxIntentos) {
+    let ultimoError = null;
+
+    for (let intento = 1; intento <= maxIntentos; intento++) {
+      try {
+        const item = await fetchParaCache(url);
+        await cache.put(item.request, item.response.clone());
+
+        const verificado = await cache.match(item.request);
+        if (verificado) return true;
+
+        ultimoError = new Error("El recurso no quedó almacenado.");
+      } catch (error) {
+        ultimoError = error;
+      }
+
+      await new Promise(resolve => setTimeout(resolve, 350 * intento));
+    }
+
+    console.warn("Recurso no verificado:", url, ultimoError);
+    return false;
+  }
+
+  async function verificarRecursosEnCache(cache, urls) {
+    const faltantes = [];
+
+    for (const url of urls) {
+      const absoluta = new URL(url, window.location.href).href;
+      const encontrado = await cache.match(absoluta);
+      if (!encontrado) faltantes.push(url);
+    }
+
+    return faltantes;
+  }
+
+  async function descargarListaEnCache(cache, urls, onProgress, inicio, totalGlobal) {
+    const TAMANO_LOTE = 6;
+    let procesados = inicio;
+    const fallidos = [];
+
+    for (let i = 0; i < urls.length; i += TAMANO_LOTE) {
+      const lote = urls.slice(i, i + TAMANO_LOTE);
+
+      const resultados = await Promise.all(
+        lote.map(async url => {
+          const ok = await guardarRecursoConReintentos(cache, url, OFFLINE_REINTENTOS);
+          procesados++;
+          if (onProgress) onProgress(procesados, totalGlobal);
+          return { url, ok };
+        })
+      );
+
+      resultados.forEach(r => {
+        if (!r.ok) fallidos.push(r.url);
+      });
+    }
+
+    return { procesados, fallidos };
+  }
+
+  async function descargarZonaOffline() {
+    if (descargaOfflineEnCurso) return;
+
+    if (!navigator.onLine) {
+      alert("No hay conexión. La zona debe prepararse antes de entrar al área sin cobertura.");
+      return;
+    }
+
+    const bounds = obtenerBoundsMarcoOffline();
+    const tiles = obtenerTilesParaBounds(bounds);
+    const appRecursos = recursosAppObligatorios();
+    const datosRecursos = recursosDatosObligatorios();
+    const zonaRecursos = [
+      ...datosRecursos,
+      ...tiles.imagery
+    ];
+
+    const todos = Array.from(new Set([...appRecursos, ...zonaRecursos]));
+
+    if (todos.length > OFFLINE_MAX_RECURSOS) {
+      alert("La zona seleccionada es demasiado grande. Acercá más el mapa o reducí el recuadro.");
+      return;
+    }
+
+    descargaOfflineEnCurso = true;
+
+    const btnDescargar = document.getElementById("btnDescargarZona");
+    const btnCancelar = document.getElementById("btnCancelarOffline");
+    const progreso = document.getElementById("offlineProgreso");
+    const texto = document.getElementById("offlineTextoProgreso");
+    const barra = document.getElementById("offlineBarra");
+
+    btnDescargar.disabled = true;
+    btnCancelar.disabled = true;
+    progreso.classList.add("activo");
+    barra.style.width = "0%";
+    texto.textContent = "Solicitando almacenamiento protegido…";
+
+    const persistencia = await solicitarPersistenciaOffline();
+
+    const zonaId = crearIdZonaOffline();
+    const zonaCacheName = `${OFFLINE_ZONE_PREFIX}${zonaId}`;
+
+    try {
+      const appCache = await caches.open(OFFLINE_APP_CACHE);
+      const zonaCache = await caches.open(zonaCacheName);
+
+      let procesados = 0;
+      const totalGlobal = todos.length;
+
+      function onProgress(done, total) {
+        const porcentaje = Math.round((done / total) * 100);
+        barra.style.width = `${porcentaje}%`;
+        texto.textContent = `Descargando y verificando ${done} de ${total} (${porcentaje}%)`;
+      }
+
+      // 1) Aplicación base: obligatoria
+      let resultado = await descargarListaEnCache(
+        appCache,
+        appRecursos,
+        onProgress,
+        procesados,
+        totalGlobal
+      );
+      procesados = resultado.procesados;
+
+      // 2) Datos + mapa: obligatorios
+      resultado = await descargarListaEnCache(
+        zonaCache,
+        zonaRecursos,
+        onProgress,
+        procesados,
+        totalGlobal
+      );
+      procesados = resultado.procesados;
+
+      texto.textContent = "Verificando que toda la zona esté almacenada…";
+
+      // Verificación final estricta:
+      // aplicación + CSV/KML + mapa satelital.
+      // Las etiquetas de referencia Esri NO son requisito offline.
+      const faltantesApp = await verificarRecursosEnCache(appCache, appRecursos);
+      const faltantesDatos = await verificarRecursosEnCache(zonaCache, datosRecursos);
+      const faltantesMapa = await verificarRecursosEnCache(zonaCache, tiles.imagery);
+
+      const faltantes = [
+        ...faltantesApp,
+        ...faltantesDatos,
+        ...faltantesMapa
+      ];
+
+      if (faltantes.length > 0) {
+        await caches.delete(zonaCacheName);
+
+        texto.textContent =
+          "⚠️ No se pudo completar la descarga. Reintentá mientras tengas conexión.";
+        barra.style.width = "100%";
+        barra.style.background = "#c62828";
+
+        btnDescargar.disabled = false;
+        btnDescargar.textContent = "Reintentar descarga";
+        btnCancelar.disabled = false;
+        btnCancelar.textContent = "Cerrar";
+        descargaOfflineEnCurso = false;
+        return;
+      }
+
+      const estimacion = await estimarUsoStorage();
+      const totalTiles = tiles.imagery.length;
+      const bytesEstimados = totalTiles * 55 * 1024;
+
+      const zona = {
+        id: zonaId,
+        cacheName: zonaCacheName,
+        distrito: detectarDistritoOffline(),
+        lote: detectarLoteOffline(),
+        campania: CAMPANIA,
+        fecha: new Date().toISOString(),
+        url: window.location.href,
+        csv: archivoCSV,
+        kml: archivoKML,
+        kmlp: archivoKMLP,
+        cocinas: archivoCocinas,
+        parcelas: archivoParcelasEstablecidas,
+        bounds: {
+          north: bounds.getNorth(),
+          south: bounds.getSouth(),
+          east: bounds.getEast(),
+          west: bounds.getWest()
+        },
+        zoomMin: OFFLINE_ZOOM_MIN,
+        zoomMax: OFFLINE_ZOOM_MAX,
+        recursos: todos.length,
+        tiles: totalTiles,
+        bytesEstimados: bytesEstimados,
+        persistenciaSolicitada: persistencia.soportado,
+        almacenamientoPersistente: persistencia.persistente,
+        verificada: true
+      };
+
+      const zonas = cargarZonasOffline();
+      zonas.unshift(zona);
+      guardarZonasOffline(zonas);
+
+      barra.style.width = "100%";
+      barra.style.background = "#00897b";
+      texto.textContent = "✅ Zona descargada y verificada para uso sin conexión.";
+
+      btnDescargar.style.display = "none";
+      btnCancelar.disabled = false;
+      btnCancelar.textContent = "Cerrar";
+      descargaOfflineEnCurso = false;
+
+    } catch (error) {
+      console.error(error);
+      await caches.delete(zonaCacheName).catch(() => {});
+
+      texto.textContent =
+        "⚠️ No se pudo completar la descarga. La zona NO quedó habilitada para uso sin conexión.";
+      barra.style.width = "100%";
+      barra.style.background = "#c62828";
+      btnDescargar.disabled = false;
+      btnDescargar.textContent = "Reintentar descarga";
+      btnCancelar.disabled = false;
+      btnCancelar.textContent = "Cerrar";
+      descargaOfflineEnCurso = false;
+    }
+  }
+
+  // ------------------------------------------------------------
+  // Gestor de zonas descargadas
+  // ------------------------------------------------------------
+  async function abrirZonasDescargadas() {
+    document.querySelector(".panel").classList.remove("panel-visible");
+    document.getElementById("offlineGestor").classList.add("activo");
+    await renderZonasDescargadas();
+  }
+
+  function cerrarZonasDescargadas() {
+    document.getElementById("offlineGestor").classList.remove("activo");
+  }
+
+  async function comprobarZonaOffline(zona) {
+    if (!zona || !zona.cacheName) return false;
+
+    try {
+      const cacheZona = await caches.open(zona.cacheName);
+
+      const recursos = [];
+      if (zona.csv) recursos.push(zona.csv);
+      if (zona.kml) recursos.push(zona.kml);
+      if (zona.kmlp) recursos.push(zona.kmlp);
+      if (zona.cocinas) recursos.push(zona.cocinas);
+      if (zona.parcelas) recursos.push(zona.parcelas);
+
+      const faltantesDatos = await verificarRecursosEnCache(cacheZona, recursos);
+
+      // Para el listado no reenumeramos miles de tiles: comprobamos que el cache exista
+      // y que tenga al menos el volumen esperado de entradas.
+      const keys = await cacheZona.keys();
+      const cantidadEsperadaMinima = Math.max(1, (zona.tiles || 0) + recursos.length);
+
+      return faltantesDatos.length === 0 && keys.length >= cantidadEsperadaMinima;
+    } catch (e) {
+      return false;
+    }
+  }
+
+  async function renderZonasDescargadas() {
+    const lista = document.getElementById("offlineListaZonas");
+    const info = document.getElementById("offlineGestorInfo");
+    const zonas = cargarZonasOffline();
+
+    lista.innerHTML = "";
+
+    let persistente = false;
+    if (navigator.storage && navigator.storage.persisted) {
+      try { persistente = await navigator.storage.persisted(); } catch (e) {}
+    }
+
+    info.innerHTML =
+      `${persistente
+        ? "✅ Almacenamiento persistente habilitado para estas zonas."
+        : "ℹ️ No borres los datos del sitio mientras necesites usar las zonas sin conexión."}`;
+
+    if (!zonas.length) {
+      lista.innerHTML =
+        '<div class="offline-sin-zonas">No hay zonas descargadas en este dispositivo.</div>';
+      actualizarResumenZonasOffline();
+      return;
+    }
+
+    for (const zona of zonas) {
+      const vigente = await comprobarZonaOffline(zona);
+
+      const item = document.createElement("div");
+      item.className = "offline-zona-item";
+
+      item.innerHTML = `
+        <div class="offline-zona-titulo">${zona.distrito || "Zona"} · Lote ${zona.lote || "-"}</div>
+        <div class="offline-zona-meta">
+          Campaña: ${zona.campania || "-"}<br>
+          Descargada: ${formatearFechaOffline(zona.fecha)}<br>
+          Zoom: ${zona.zoomMin || "-"}–${zona.zoomMax || "-"}<br>
+          Tamaño aproximado del mapa: ~${formatearMBOffline(zona.bytesEstimados || 0)} MB<br>
+          Recursos verificados al descargar: ${zona.recursos || "-"}
+        </div>
+        <div class="offline-zona-ok">
+          ${vigente ? "✅ Disponible sin conexión" : "⚠️ Zona incompleta — volver a descargar"}
+        </div>
+        <div class="offline-zona-acciones">
+          <button class="offline-btn-ver" type="button">🔎 Ver zona</button>
+          <button class="offline-btn-borrar" type="button">🗑️ Eliminar</button>
+        </div>
+      `;
+
+      const botones = item.querySelectorAll("button");
+      botones[0].onclick = function() {
+        window.location.href = zona.url;
+      };
+      botones[1].onclick = function() {
+        eliminarZonaOffline(zona.id);
+      };
+
+      lista.appendChild(item);
+    }
+
+    actualizarResumenZonasOffline();
+  }
+
+  async function eliminarZonaOffline(id) {
+    const zonas = cargarZonasOffline();
+    const zona = zonas.find(z => z.id === id);
+
+    if (!zona) return;
+
+    const confirmar = confirm(
+      `¿Eliminar la zona descargada ${zona.distrito || ""} · Lote ${zona.lote || "-"}?\n\n` +
+      "Esto liberará el espacio utilizado por esa zona."
+    );
+
+    if (!confirmar) return;
+
+    if (zona.cacheName) {
+      await caches.delete(zona.cacheName);
+    }
+
+    guardarZonasOffline(zonas.filter(z => z.id !== id));
+    await renderZonasDescargadas();
+  }
+
+  async function eliminarTodasLasZonasOffline() {
+    const zonas = cargarZonasOffline();
+    if (!zonas.length) return;
+
+    const confirmar = confirm(
+      "¿Eliminar TODAS las zonas descargadas?\n\n" +
+      "Se liberará el espacio utilizado por los mapas offline."
+    );
+
+    if (!confirmar) return;
+
+    for (const zona of zonas) {
+      if (zona.cacheName) {
+        await caches.delete(zona.cacheName);
+      }
+    }
+
+    guardarZonasOffline([]);
+    await renderZonasDescargadas();
+  }
+
+  async function actualizarResumenZonasOffline() {
+    const el = document.getElementById("offlineResumenZonas");
+    if (!el) return;
+
+    const zonas = cargarZonasOffline();
+
+    if (!zonas.length) {
+      el.textContent = "Offline: sin zonas descargadas";
+      return;
+    }
+
+    const totalBytes = zonas.reduce(
+      (acc, z) => acc + Number(z.bytesEstimados || 0),
+      0
+    );
+
+    el.textContent =
+      `Offline: ${zonas.length} zona${zonas.length === 1 ? "" : "s"} · ~${formatearMBOffline(totalBytes)} MB`;
+  }
+
+  // Recalcular estimación al mover o acercar el mapa.
+  map.on("moveend zoomend", function() {
+    if (modoSeleccionOffline && !descargaOfflineEnCurso) {
+      actualizarEstimacionOffline();
+    }
+  });
+
+  // Mostrar resumen al iniciar.
+  setTimeout(actualizarResumenZonasOffline, 1200);
+
+</script>
+
+</body>
+</html>
