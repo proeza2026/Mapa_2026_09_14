@@ -4,7 +4,7 @@
     <Schema id="Distrito_YASY_CA__Y.schema">
       <SimpleField name="Cédula" type="float"/>
       <SimpleField name="cedula" type="string"/>
-      <SimpleField name="N°" type="float"/>
+      <SimpleField name="N" type="float"/>
       <SimpleField name="Nombres y" type="string"/>
       <SimpleField name="Sexo" type="string"/>
       <SimpleField name="Cambio de" type="string"/>
@@ -54,7 +54,7 @@
           <SchemaData schemaUrl="#Distrito_YASY_CA__Y.schema">
             <SimpleData name="Cédula">4289010.00000000000</SimpleData>
             <SimpleData name="cedula">4289010</SimpleData>
-            <SimpleData name="N°">272</SimpleData>
+            <SimpleData name="N">272</SimpleData>
             <SimpleData name="Nombres y">EVANGELISTA VERA</SimpleData>
             <SimpleData name="Sexo">Mujer</SimpleData>
             <SimpleData name="Cambio de">NO</SimpleData>

@@ -4,7 +4,7 @@
     <Schema id="Distrito_RA__L_ARSENIO_OVIEDO.schema">
       <SimpleField name="Cédula" type="float"/>
       <SimpleField name="cedula" type="string"/>
-      <SimpleField name="N°" type="float"/>
+      <SimpleField name="N" type="float"/>
       <SimpleField name="Nombres y" type="string"/>
       <SimpleField name="Sexo" type="string"/>
       <SimpleField name="Cambio de" type="string"/>
@@ -54,7 +54,7 @@
           <SchemaData schemaUrl="#Distrito_RA__L_ARSENIO_OVIEDO.schema">
             <SimpleData name="Cédula">7202165.00000000000</SimpleData>
             <SimpleData name="cedula">7202165</SimpleData>
-            <SimpleData name="N°">139</SimpleData>
+            <SimpleData name="N">139</SimpleData>
             <SimpleData name="Nombres y">ALCIDES MONTANIA BAEZ</SimpleData>
             <SimpleData name="Sexo">Hombre</SimpleData>
             <SimpleData name="Cambio de">NO</SimpleData>
@@ -108,7 +108,7 @@
           <SchemaData schemaUrl="#Distrito_RA__L_ARSENIO_OVIEDO.schema">
             <SimpleData name="Cédula">6598286.00000000000</SimpleData>
             <SimpleData name="cedula">6598286</SimpleData>
-            <SimpleData name="N°">140</SimpleData>
+            <SimpleData name="N">140</SimpleData>
             <SimpleData name="Nombres y">LORENA VERA ESQUIVEL</SimpleData>
             <SimpleData name="Sexo">Mujer</SimpleData>
             <SimpleData name="Cambio de">NO</SimpleData>

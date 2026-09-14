@@ -4,7 +4,7 @@
     <Schema id="Distrito_PASO_YOBAI.schema">
       <SimpleField name="Cédula" type="float"/>
       <SimpleField name="cedula" type="string"/>
-      <SimpleField name="N°" type="float"/>
+      <SimpleField name="N" type="float"/>
       <SimpleField name="Nombres y" type="string"/>
       <SimpleField name="Sexo" type="string"/>
       <SimpleField name="Cambio de" type="string"/>
@@ -54,7 +54,7 @@
           <SchemaData schemaUrl="#Distrito_PASO_YOBAI.schema">
             <SimpleData name="Cédula">7162930.00000000000</SimpleData>
             <SimpleData name="cedula">7162930</SimpleData>
-            <SimpleData name="N°">134</SimpleData>
+            <SimpleData name="N">134</SimpleData>
             <SimpleData name="Nombres y">FIDELINA BARRIOS MEDINA</SimpleData>
             <SimpleData name="Sexo">Mujer</SimpleData>
             <SimpleData name="Cambio de">NO</SimpleData>
@@ -115,7 +115,7 @@
           <SchemaData schemaUrl="#Distrito_PASO_YOBAI.schema">
             <SimpleData name="Cédula">6204320.00000000000</SimpleData>
             <SimpleData name="cedula">6204320</SimpleData>
-            <SimpleData name="N°">130</SimpleData>
+            <SimpleData name="N">130</SimpleData>
             <SimpleData name="Nombres y">NERY DUARTE BENITEZ</SimpleData>
             <SimpleData name="Sexo">Hombre</SimpleData>
             <SimpleData name="Cambio de">NO</SimpleData>
@@ -169,7 +169,7 @@
           <SchemaData schemaUrl="#Distrito_PASO_YOBAI.schema">
             <SimpleData name="Cédula">4526434.00000000000</SimpleData>
             <SimpleData name="cedula">4526434</SimpleData>
-            <SimpleData name="N°">129</SimpleData>
+            <SimpleData name="N">129</SimpleData>
             <SimpleData name="Nombres y">DARIO DUARTE QUINTANA</SimpleData>
             <SimpleData name="Sexo">Hombre</SimpleData>
             <SimpleData name="Cambio de">NO</SimpleData>
@@ -223,7 +223,7 @@
           <SchemaData schemaUrl="#Distrito_PASO_YOBAI.schema">
             <SimpleData name="Cédula">6518274.00000000000</SimpleData>
             <SimpleData name="cedula">6518274</SimpleData>
-            <SimpleData name="N°">135</SimpleData>
+            <SimpleData name="N">135</SimpleData>
             <SimpleData name="Nombres y">JAIME RAMON ARZAMENDIA ROSALES</SimpleData>
             <SimpleData name="Sexo">Hombre</SimpleData>
             <SimpleData name="Cambio de">NO</SimpleData>
@@ -277,7 +277,7 @@
           <SchemaData schemaUrl="#Distrito_PASO_YOBAI.schema">
             <SimpleData name="Cédula">7031317.00000000000</SimpleData>
             <SimpleData name="cedula">7031317</SimpleData>
-            <SimpleData name="N°">136</SimpleData>
+            <SimpleData name="N">136</SimpleData>
             <SimpleData name="Nombres y">ALDO ESQUIVEL NEUKIRCHINGER</SimpleData>
             <SimpleData name="Sexo">Hombre</SimpleData>
             <SimpleData name="Cambio de">NO</SimpleData>
@@ -331,7 +331,7 @@
           <SchemaData schemaUrl="#Distrito_PASO_YOBAI.schema">
             <SimpleData name="Cédula">6905078.00000000000</SimpleData>
             <SimpleData name="cedula">6905078</SimpleData>
-            <SimpleData name="N°">127</SimpleData>
+            <SimpleData name="N">127</SimpleData>
             <SimpleData name="Nombres y">NERY CARDOZO BENITEZ</SimpleData>
             <SimpleData name="Sexo">Hombre</SimpleData>
             <SimpleData name="Cambio de">NO</SimpleData>
@@ -385,7 +385,7 @@
           <SchemaData schemaUrl="#Distrito_PASO_YOBAI.schema">
             <SimpleData name="Cédula">6198494.00000000000</SimpleData>
             <SimpleData name="cedula">6198494</SimpleData>
-            <SimpleData name="N°">131</SimpleData>
+            <SimpleData name="N">131</SimpleData>
             <SimpleData name="Nombres y">JUAN VILLALBA BENITEZ</SimpleData>
             <SimpleData name="Sexo">Hombre</SimpleData>
             <SimpleData name="Cambio de">NO</SimpleData>
@@ -439,7 +439,7 @@
           <SchemaData schemaUrl="#Distrito_PASO_YOBAI.schema">
             <SimpleData name="Cédula">6204318.00000000000</SimpleData>
             <SimpleData name="cedula">6204318</SimpleData>
-            <SimpleData name="N°">132</SimpleData>
+            <SimpleData name="N">132</SimpleData>
             <SimpleData name="Nombres y">OLGA VILLALBA DUARTE</SimpleData>
             <SimpleData name="Sexo">Mujer</SimpleData>
             <SimpleData name="Cambio de">NO</SimpleData>
@@ -493,7 +493,7 @@
           <SchemaData schemaUrl="#Distrito_PASO_YOBAI.schema">
             <SimpleData name="Cédula">7445575.00000000000</SimpleData>
             <SimpleData name="cedula">7445575</SimpleData>
-            <SimpleData name="N°">133</SimpleData>
+            <SimpleData name="N">133</SimpleData>
             <SimpleData name="Nombres y">NARCISO PENAYO MARTINEZ</SimpleData>
             <SimpleData name="Sexo">Hombre</SimpleData>
             <SimpleData name="Cambio de">NO</SimpleData>
@@ -547,7 +547,7 @@
           <SchemaData schemaUrl="#Distrito_PASO_YOBAI.schema">
             <SimpleData name="Cédula">6204277.00000000000</SimpleData>
             <SimpleData name="cedula">6204277</SimpleData>
-            <SimpleData name="N°">128</SimpleData>
+            <SimpleData name="N">128</SimpleData>
             <SimpleData name="Nombres y">BENIGNO DUARTE MARTINEZ</SimpleData>
             <SimpleData name="Sexo">Hombre</SimpleData>
             <SimpleData name="Cambio de">NO</SimpleData>

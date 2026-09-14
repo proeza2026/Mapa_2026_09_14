@@ -4,7 +4,7 @@
     <Schema id="Distrito_YRYBUCUA.schema">
       <SimpleField name="Cédula" type="float"/>
       <SimpleField name="cedula" type="string"/>
-      <SimpleField name="N°" type="float"/>
+      <SimpleField name="N" type="float"/>
       <SimpleField name="Nombres y" type="string"/>
       <SimpleField name="Sexo" type="string"/>
       <SimpleField name="Cambio de" type="string"/>
@@ -54,7 +54,7 @@
           <SchemaData schemaUrl="#Distrito_YRYBUCUA.schema">
             <SimpleData name="Cédula">5482729.00000000000</SimpleData>
             <SimpleData name="cedula">5482729</SimpleData>
-            <SimpleData name="N°">346</SimpleData>
+            <SimpleData name="N">346</SimpleData>
             <SimpleData name="Nombres y">AIDA COLLANTE CUEVAS</SimpleData>
             <SimpleData name="Sexo">Mujer</SimpleData>
             <SimpleData name="Cambio de">NO</SimpleData>
@@ -106,7 +106,7 @@
           <SchemaData schemaUrl="#Distrito_YRYBUCUA.schema">
             <SimpleData name="Cédula">5316172.00000000000</SimpleData>
             <SimpleData name="cedula">5316172</SimpleData>
-            <SimpleData name="N°">350</SimpleData>
+            <SimpleData name="N">350</SimpleData>
             <SimpleData name="Nombres y">HERMELINDA GUIMARAE BENITEZ</SimpleData>
             <SimpleData name="Sexo">Mujer</SimpleData>
             <SimpleData name="Cambio de">NO</SimpleData>
@@ -159,7 +159,7 @@
           <SchemaData schemaUrl="#Distrito_YRYBUCUA.schema">
             <SimpleData name="Cédula">6274899.00000000000</SimpleData>
             <SimpleData name="cedula">6274899</SimpleData>
-            <SimpleData name="N°">362</SimpleData>
+            <SimpleData name="N">362</SimpleData>
             <SimpleData name="Nombres y">DOMINGA BAEZ</SimpleData>
             <SimpleData name="Sexo">Mujer</SimpleData>
             <SimpleData name="Cambio de">NO</SimpleData>
@@ -211,7 +211,7 @@
           <SchemaData schemaUrl="#Distrito_YRYBUCUA.schema">
             <SimpleData name="Cédula">4312311.00000000000</SimpleData>
             <SimpleData name="cedula">4312311</SimpleData>
-            <SimpleData name="N°">363</SimpleData>
+            <SimpleData name="N">363</SimpleData>
             <SimpleData name="Nombres y">PETRONILA PEREZ</SimpleData>
             <SimpleData name="Sexo">Mujer</SimpleData>
             <SimpleData name="Cambio de">NO</SimpleData>
@@ -263,7 +263,7 @@
           <SchemaData schemaUrl="#Distrito_YRYBUCUA.schema">
             <SimpleData name="Cédula">6526900.00000000000</SimpleData>
             <SimpleData name="cedula">6526900</SimpleData>
-            <SimpleData name="N°">371</SimpleData>
+            <SimpleData name="N">371</SimpleData>
             <SimpleData name="Nombres y">ZUNILDA PAVON DE PORTILLO</SimpleData>
             <SimpleData name="Sexo">Mujer</SimpleData>
             <SimpleData name="Cambio de">NO</SimpleData>
@@ -315,7 +315,7 @@
           <SchemaData schemaUrl="#Distrito_YRYBUCUA.schema">
             <SimpleData name="Cédula">6108750.00000000000</SimpleData>
             <SimpleData name="cedula">6108750</SimpleData>
-            <SimpleData name="N°">364</SimpleData>
+            <SimpleData name="N">364</SimpleData>
             <SimpleData name="Nombres y">MARIA VERONICA ARCE AYALA</SimpleData>
             <SimpleData name="Sexo">Mujer</SimpleData>
             <SimpleData name="Cambio de">NO</SimpleData>
@@ -367,7 +367,7 @@
           <SchemaData schemaUrl="#Distrito_YRYBUCUA.schema">
             <SimpleData name="Cédula">5545487.00000000000</SimpleData>
             <SimpleData name="cedula">5545487</SimpleData>
-            <SimpleData name="N°">369</SimpleData>
+            <SimpleData name="N">369</SimpleData>
             <SimpleData name="Nombres y">MIGUELINA CARDOZO OLIVEIRA</SimpleData>
             <SimpleData name="Sexo">Mujer</SimpleData>
             <SimpleData name="Cambio de">NO</SimpleData>
@@ -419,7 +419,7 @@
           <SchemaData schemaUrl="#Distrito_YRYBUCUA.schema">
             <SimpleData name="Cédula">7673997.00000000000</SimpleData>
             <SimpleData name="cedula">7673997</SimpleData>
-            <SimpleData name="N°">347</SimpleData>
+            <SimpleData name="N">347</SimpleData>
             <SimpleData name="Nombres y">LUCIANA CACIANO AMADEO</SimpleData>
             <SimpleData name="Sexo">Mujer</SimpleData>
             <SimpleData name="Cambio de">NO</SimpleData>
@@ -471,7 +471,7 @@
           <SchemaData schemaUrl="#Distrito_YRYBUCUA.schema">
             <SimpleData name="Cédula">2297336.00000000000</SimpleData>
             <SimpleData name="cedula">2297336</SimpleData>
-            <SimpleData name="N°">361</SimpleData>
+            <SimpleData name="N">361</SimpleData>
             <SimpleData name="Nombres y">EMILIANA CACERES ROMAN</SimpleData>
             <SimpleData name="Sexo">Mujer</SimpleData>
             <SimpleData name="Cambio de">NO</SimpleData>
@@ -523,7 +523,7 @@
           <SchemaData schemaUrl="#Distrito_YRYBUCUA.schema">
             <SimpleData name="Cédula">2460664.00000000000</SimpleData>
             <SimpleData name="cedula">2460664</SimpleData>
-            <SimpleData name="N°">353</SimpleData>
+            <SimpleData name="N">353</SimpleData>
             <SimpleData name="Nombres y">VIVIANA FRANCO DE VERA</SimpleData>
             <SimpleData name="Sexo">Mujer</SimpleData>
             <SimpleData name="Cambio de">NO</SimpleData>
@@ -575,7 +575,7 @@
           <SchemaData schemaUrl="#Distrito_YRYBUCUA.schema">
             <SimpleData name="Cédula">5402413.00000000000</SimpleData>
             <SimpleData name="cedula">5402413</SimpleData>
-            <SimpleData name="N°">345</SimpleData>
+            <SimpleData name="N">345</SimpleData>
             <SimpleData name="Nombres y">NILDA ARMOA MARTINEZ</SimpleData>
             <SimpleData name="Sexo">Mujer</SimpleData>
             <SimpleData name="Cambio de">NO</SimpleData>
@@ -634,7 +634,7 @@
           <SchemaData schemaUrl="#Distrito_YRYBUCUA.schema">
             <SimpleData name="Cédula">7256554.00000000000</SimpleData>
             <SimpleData name="cedula">7256554</SimpleData>
-            <SimpleData name="N°">368</SimpleData>
+            <SimpleData name="N">368</SimpleData>
             <SimpleData name="Nombres y">LIZ MARIELA MALDONADO LLANES</SimpleData>
             <SimpleData name="Sexo">Mujer</SimpleData>
             <SimpleData name="Cambio de">NO</SimpleData>
@@ -686,7 +686,7 @@
           <SchemaData schemaUrl="#Distrito_YRYBUCUA.schema">
             <SimpleData name="Cédula">5405504.00000000000</SimpleData>
             <SimpleData name="cedula">5405504</SimpleData>
-            <SimpleData name="N°">354</SimpleData>
+            <SimpleData name="N">354</SimpleData>
             <SimpleData name="Nombres y">ORLINDA ROMERO RIQUELME</SimpleData>
             <SimpleData name="Sexo">Mujer</SimpleData>
             <SimpleData name="Cambio de">NO</SimpleData>
@@ -738,7 +738,7 @@
           <SchemaData schemaUrl="#Distrito_YRYBUCUA.schema">
             <SimpleData name="Cédula">7231377.00000000000</SimpleData>
             <SimpleData name="cedula">7231377</SimpleData>
-            <SimpleData name="N°">357</SimpleData>
+            <SimpleData name="N">357</SimpleData>
             <SimpleData name="Nombres y">EUGENIA GAUTO BENITEZ</SimpleData>
             <SimpleData name="Sexo">Mujer</SimpleData>
             <SimpleData name="Cambio de">NO</SimpleData>
@@ -791,7 +791,7 @@
           <SchemaData schemaUrl="#Distrito_YRYBUCUA.schema">
             <SimpleData name="Cédula">3586774.00000000000</SimpleData>
             <SimpleData name="cedula">3586774</SimpleData>
-            <SimpleData name="N°">370</SimpleData>
+            <SimpleData name="N">370</SimpleData>
             <SimpleData name="Nombres y">EVA PAVON DE GARCIA</SimpleData>
             <SimpleData name="Sexo">Mujer</SimpleData>
             <SimpleData name="Cambio de">NO</SimpleData>
@@ -843,7 +843,7 @@
           <SchemaData schemaUrl="#Distrito_YRYBUCUA.schema">
             <SimpleData name="Cédula">1460937.00000000000</SimpleData>
             <SimpleData name="cedula">1460937</SimpleData>
-            <SimpleData name="N°">355</SimpleData>
+            <SimpleData name="N">355</SimpleData>
             <SimpleData name="Nombres y">PATROCINIO PORTILLO VERA</SimpleData>
             <SimpleData name="Sexo">Hombre</SimpleData>
             <SimpleData name="Cambio de">NO</SimpleData>
@@ -895,7 +895,7 @@
           <SchemaData schemaUrl="#Distrito_YRYBUCUA.schema">
             <SimpleData name="Cédula">5710084.00000000000</SimpleData>
             <SimpleData name="cedula">5710084</SimpleData>
-            <SimpleData name="N°">367</SimpleData>
+            <SimpleData name="N">367</SimpleData>
             <SimpleData name="Nombres y">MARIA MERCEDES AGUILAR PANIAGUA</SimpleData>
             <SimpleData name="Sexo">Mujer</SimpleData>
             <SimpleData name="Cambio de">NO</SimpleData>
@@ -947,7 +947,7 @@
           <SchemaData schemaUrl="#Distrito_YRYBUCUA.schema">
             <SimpleData name="Cédula">7871033.00000000000</SimpleData>
             <SimpleData name="cedula">7871033</SimpleData>
-            <SimpleData name="N°">359</SimpleData>
+            <SimpleData name="N">359</SimpleData>
             <SimpleData name="Nombres y">NORMA DOMINGUEZ BENITEZ</SimpleData>
             <SimpleData name="Sexo">Mujer</SimpleData>
             <SimpleData name="Cambio de">NO</SimpleData>
@@ -999,7 +999,7 @@
           <SchemaData schemaUrl="#Distrito_YRYBUCUA.schema">
             <SimpleData name="Cédula">4602358.00000000000</SimpleData>
             <SimpleData name="cedula">4602358</SimpleData>
-            <SimpleData name="N°">349</SimpleData>
+            <SimpleData name="N">349</SimpleData>
             <SimpleData name="Nombres y">LINA PASCUALA ARIAS ROMERO</SimpleData>
             <SimpleData name="Sexo">Mujer</SimpleData>
             <SimpleData name="Cambio de">NO</SimpleData>
@@ -1051,7 +1051,7 @@
           <SchemaData schemaUrl="#Distrito_YRYBUCUA.schema">
             <SimpleData name="Cédula">5316155.00000000000</SimpleData>
             <SimpleData name="cedula">5316155</SimpleData>
-            <SimpleData name="N°">358</SimpleData>
+            <SimpleData name="N">358</SimpleData>
             <SimpleData name="Nombres y">NILDA VERA OVIEDO</SimpleData>
             <SimpleData name="Sexo">Mujer</SimpleData>
             <SimpleData name="Cambio de">NO</SimpleData>
@@ -1113,7 +1113,7 @@ Cantidad de plantines inferior a la requerida.</SimpleData>
           <SchemaData schemaUrl="#Distrito_YRYBUCUA.schema">
             <SimpleData name="Cédula">7781949.00000000000</SimpleData>
             <SimpleData name="cedula">7781949</SimpleData>
-            <SimpleData name="N°">360</SimpleData>
+            <SimpleData name="N">360</SimpleData>
             <SimpleData name="Nombres y">ESMILCE GOMEZ CACERES</SimpleData>
             <SimpleData name="Sexo">Mujer</SimpleData>
             <SimpleData name="Cambio de">NO</SimpleData>
@@ -1165,7 +1165,7 @@ Cantidad de plantines inferior a la requerida.</SimpleData>
           <SchemaData schemaUrl="#Distrito_YRYBUCUA.schema">
             <SimpleData name="Cédula">7108449.00000000000</SimpleData>
             <SimpleData name="cedula">7108449</SimpleData>
-            <SimpleData name="N°">348</SimpleData>
+            <SimpleData name="N">348</SimpleData>
             <SimpleData name="Nombres y">VICTOR CACIANO AMADEO</SimpleData>
             <SimpleData name="Sexo">Hombre</SimpleData>
             <SimpleData name="Cambio de">NO</SimpleData>
@@ -1217,7 +1217,7 @@ Cantidad de plantines inferior a la requerida.</SimpleData>
           <SchemaData schemaUrl="#Distrito_YRYBUCUA.schema">
             <SimpleData name="Cédula">5553710.00000000000</SimpleData>
             <SimpleData name="cedula">5553710</SimpleData>
-            <SimpleData name="N°">366</SimpleData>
+            <SimpleData name="N">366</SimpleData>
             <SimpleData name="Nombres y">VIDALIA ZARACHO ESPINOLA</SimpleData>
             <SimpleData name="Sexo">Mujer</SimpleData>
             <SimpleData name="Cambio de">NO</SimpleData>
@@ -1269,7 +1269,7 @@ Cantidad de plantines inferior a la requerida.</SimpleData>
           <SchemaData schemaUrl="#Distrito_YRYBUCUA.schema">
             <SimpleData name="Cédula">5553711.00000000000</SimpleData>
             <SimpleData name="cedula">5553711</SimpleData>
-            <SimpleData name="N°">365</SimpleData>
+            <SimpleData name="N">365</SimpleData>
             <SimpleData name="Nombres y">ROCIO ZARACHO ESPINOLA</SimpleData>
             <SimpleData name="Sexo">Mujer</SimpleData>
             <SimpleData name="Cambio de">NO</SimpleData>
@@ -1321,7 +1321,7 @@ Cantidad de plantines inferior a la requerida.</SimpleData>
           <SchemaData schemaUrl="#Distrito_YRYBUCUA.schema">
             <SimpleData name="Cédula">5316176.00000000000</SimpleData>
             <SimpleData name="cedula">5316176</SimpleData>
-            <SimpleData name="N°">351</SimpleData>
+            <SimpleData name="N">351</SimpleData>
             <SimpleData name="Nombres y">GLORIA VERA ROMERO</SimpleData>
             <SimpleData name="Sexo">Mujer</SimpleData>
             <SimpleData name="Cambio de">NO</SimpleData>
@@ -1373,7 +1373,7 @@ Cantidad de plantines inferior a la requerida.</SimpleData>
           <SchemaData schemaUrl="#Distrito_YRYBUCUA.schema">
             <SimpleData name="Cédula">5665925.00000000000</SimpleData>
             <SimpleData name="cedula">5665925</SimpleData>
-            <SimpleData name="N°">352</SimpleData>
+            <SimpleData name="N">352</SimpleData>
             <SimpleData name="Nombres y">ELIANA MARTINEZ DUARTE</SimpleData>
             <SimpleData name="Sexo">Mujer</SimpleData>
             <SimpleData name="Cambio de">NO</SimpleData>
@@ -1425,7 +1425,7 @@ Cantidad de plantines inferior a la requerida.</SimpleData>
           <SchemaData schemaUrl="#Distrito_YRYBUCUA.schema">
             <SimpleData name="Cédula">5316227.00000000000</SimpleData>
             <SimpleData name="cedula">5316227</SimpleData>
-            <SimpleData name="N°">356</SimpleData>
+            <SimpleData name="N">356</SimpleData>
             <SimpleData name="Nombres y">ANDRES VERA OZUNA</SimpleData>
             <SimpleData name="Sexo">Hombre</SimpleData>
             <SimpleData name="Cambio de">NO</SimpleData>
@@ -1477,7 +1477,7 @@ Cantidad de plantines inferior a la requerida.</SimpleData>
           <SchemaData schemaUrl="#Distrito_YRYBUCUA.schema">
             <SimpleData name="Cédula">7161105.00000000000</SimpleData>
             <SimpleData name="cedula">7161105</SimpleData>
-            <SimpleData name="N°">372</SimpleData>
+            <SimpleData name="N">372</SimpleData>
             <SimpleData name="Nombres y">LEIDI BENITEZ DUARTE</SimpleData>
             <SimpleData name="Sexo">Mujer</SimpleData>
             <SimpleData name="Cambio de">NO</SimpleData>
@@ -1500,6 +1500,7 @@ Cantidad de plantines inferior a la requerida.</SimpleData>
             <SimpleData name="Grupo de P">Lote 1-P1-XX-XX-XX</SimpleData>
             <SimpleData name="Jornales">0</SimpleData>
             <SimpleData name="Monto">0</SimpleData>
+            <SimpleData name="ETAPA FAO">Mantenimiento Año 1.2</SimpleData>
             <SimpleData name="Estado del">Activo</SimpleData>
             <SimpleData name="Adjudicado">SI</SimpleData>
             <SimpleData name="Empresa">Hyh Consultores SRL</SimpleData>
@@ -1530,7 +1531,7 @@ Cantidad de plantines inferior a la requerida.</SimpleData>
           <SchemaData schemaUrl="#Distrito_YRYBUCUA.schema">
             <SimpleData name="Cédula">6749116.00000000000</SimpleData>
             <SimpleData name="cedula">6749116</SimpleData>
-            <SimpleData name="N°">373</SimpleData>
+            <SimpleData name="N">373</SimpleData>
             <SimpleData name="Nombres y">LISA ESTER ALEGRE ALBARES</SimpleData>
             <SimpleData name="Sexo">Mujer</SimpleData>
             <SimpleData name="Cambio de">NO</SimpleData>
@@ -1553,6 +1554,7 @@ Cantidad de plantines inferior a la requerida.</SimpleData>
             <SimpleData name="Grupo de P">Lote 1-P1-XX-XX-XX</SimpleData>
             <SimpleData name="Jornales">0</SimpleData>
             <SimpleData name="Monto">0</SimpleData>
+            <SimpleData name="ETAPA FAO">Mantenimiento Año 1.2</SimpleData>
             <SimpleData name="Estado del">Activo</SimpleData>
             <SimpleData name="Adjudicado">SI</SimpleData>
             <SimpleData name="Empresa">Hyh Consultores SRL</SimpleData>

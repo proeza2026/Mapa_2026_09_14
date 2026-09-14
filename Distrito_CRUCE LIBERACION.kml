@@ -4,7 +4,7 @@
     <Schema id="Distrito_CRUCE_LIBERACION.schema">
       <SimpleField name="Cédula" type="float"/>
       <SimpleField name="cedula" type="string"/>
-      <SimpleField name="N°" type="float"/>
+      <SimpleField name="N" type="float"/>
       <SimpleField name="Nombres y" type="string"/>
       <SimpleField name="Sexo" type="string"/>
       <SimpleField name="Cambio de" type="string"/>
@@ -54,7 +54,7 @@
           <SchemaData schemaUrl="#Distrito_CRUCE_LIBERACION.schema">
             <SimpleData name="Cédula">6992778.00000000000</SimpleData>
             <SimpleData name="cedula">6992778</SimpleData>
-            <SimpleData name="N°">65</SimpleData>
+            <SimpleData name="N">65</SimpleData>
             <SimpleData name="Nombres y">DINA NOEMI ZARATE ARBE</SimpleData>
             <SimpleData name="Sexo">Mujer</SimpleData>
             <SimpleData name="Cambio de">NO</SimpleData>
@@ -77,6 +77,7 @@
             <SimpleData name="Grupo de P">I-P1-XX-XX-XX</SimpleData>
             <SimpleData name="Jornales">0</SimpleData>
             <SimpleData name="Monto">0</SimpleData>
+            <SimpleData name="ETAPA FAO">Mantenimiento Año 1.1</SimpleData>
             <SimpleData name="Estado del">Activo</SimpleData>
             <SimpleData name="Adjudicado">SI</SimpleData>
             <SimpleData name="Empresa">Emilio Solís Grance</SimpleData>
@@ -115,7 +116,7 @@
           <SchemaData schemaUrl="#Distrito_CRUCE_LIBERACION.schema">
             <SimpleData name="Cédula">3881432.00000000000</SimpleData>
             <SimpleData name="cedula">3881432</SimpleData>
-            <SimpleData name="N°">64</SimpleData>
+            <SimpleData name="N">64</SimpleData>
             <SimpleData name="Nombres y">JOSE RAMON LOPEZ CARDOZO</SimpleData>
             <SimpleData name="Sexo">Hombre</SimpleData>
             <SimpleData name="Cambio de">NO</SimpleData>
@@ -138,6 +139,7 @@
             <SimpleData name="Grupo de P">I-P1-XX-XX-XX</SimpleData>
             <SimpleData name="Jornales">0</SimpleData>
             <SimpleData name="Monto">0</SimpleData>
+            <SimpleData name="ETAPA FAO">Mantenimiento Año 1.1</SimpleData>
             <SimpleData name="Estado del">Activo</SimpleData>
             <SimpleData name="Adjudicado">SI</SimpleData>
             <SimpleData name="Empresa">Emilio Solís Grance</SimpleData>
@@ -181,7 +183,7 @@
           <SchemaData schemaUrl="#Distrito_CRUCE_LIBERACION.schema">
             <SimpleData name="Cédula">6784100.00000000000</SimpleData>
             <SimpleData name="cedula">6784100</SimpleData>
-            <SimpleData name="N°">63</SimpleData>
+            <SimpleData name="N">63</SimpleData>
             <SimpleData name="Nombres y">NANCY ESTELA SANCHEZ GIMENEZ</SimpleData>
             <SimpleData name="Sexo">Mujer</SimpleData>
             <SimpleData name="Cambio de">NO</SimpleData>
@@ -204,6 +206,7 @@
             <SimpleData name="Grupo de P">I-P1-XX-XX-XX</SimpleData>
             <SimpleData name="Jornales">0</SimpleData>
             <SimpleData name="Monto">0</SimpleData>
+            <SimpleData name="ETAPA FAO">Mantenimiento Año 1.1</SimpleData>
             <SimpleData name="Estado del">Activo</SimpleData>
             <SimpleData name="Adjudicado">SI</SimpleData>
             <SimpleData name="Empresa">Emilio Solís Grance</SimpleData>
@@ -242,7 +245,7 @@
           <SchemaData schemaUrl="#Distrito_CRUCE_LIBERACION.schema">
             <SimpleData name="Cédula">3959135.00000000000</SimpleData>
             <SimpleData name="cedula">3959135</SimpleData>
-            <SimpleData name="N°">66</SimpleData>
+            <SimpleData name="N">66</SimpleData>
             <SimpleData name="Nombres y">SALVADORA AGUAYO SOSA</SimpleData>
             <SimpleData name="Sexo">Mujer</SimpleData>
             <SimpleData name="Cambio de">NO</SimpleData>
@@ -265,6 +268,7 @@
             <SimpleData name="Grupo de P">I-P1-XX-XX-XX</SimpleData>
             <SimpleData name="Jornales">0</SimpleData>
             <SimpleData name="Monto">0</SimpleData>
+            <SimpleData name="ETAPA FAO">Mantenimiento Año 1.1</SimpleData>
             <SimpleData name="Estado del">Activo</SimpleData>
             <SimpleData name="Adjudicado">SI</SimpleData>
             <SimpleData name="Empresa">Emilio Solís Grance</SimpleData>
@@ -303,7 +307,7 @@
           <SchemaData schemaUrl="#Distrito_CRUCE_LIBERACION.schema">
             <SimpleData name="Cédula">5406101.00000000000</SimpleData>
             <SimpleData name="cedula">5406101</SimpleData>
-            <SimpleData name="N°">62</SimpleData>
+            <SimpleData name="N">62</SimpleData>
             <SimpleData name="Nombres y">SONIA LEIVA AMARILLA</SimpleData>
             <SimpleData name="Sexo">Mujer</SimpleData>
             <SimpleData name="Cambio de">NO</SimpleData>
@@ -326,6 +330,7 @@
             <SimpleData name="Grupo de P">I-P2-XX-XX-XX</SimpleData>
             <SimpleData name="Jornales">0</SimpleData>
             <SimpleData name="Monto">0</SimpleData>
+            <SimpleData name="ETAPA FAO">Mantenimiento Año 1.1</SimpleData>
             <SimpleData name="Estado del">Activo</SimpleData>
             <SimpleData name="Adjudicado">SI</SimpleData>
             <SimpleData name="Empresa">Emilio Solís Grance</SimpleData>
@@ -364,7 +369,7 @@
           <SchemaData schemaUrl="#Distrito_CRUCE_LIBERACION.schema">
             <SimpleData name="Cédula">5995637.00000000000</SimpleData>
             <SimpleData name="cedula">5995637</SimpleData>
-            <SimpleData name="N°">61</SimpleData>
+            <SimpleData name="N">61</SimpleData>
             <SimpleData name="Nombres y">LELIA AQUINO VILLALBA</SimpleData>
             <SimpleData name="Sexo">Mujer</SimpleData>
             <SimpleData name="Cambio de">NO</SimpleData>
@@ -387,6 +392,7 @@
             <SimpleData name="Grupo de P">I-P2-XX-XX-XX</SimpleData>
             <SimpleData name="Jornales">0</SimpleData>
             <SimpleData name="Monto">0</SimpleData>
+            <SimpleData name="ETAPA FAO">Mantenimiento Año 1.1</SimpleData>
             <SimpleData name="Estado del">Activo</SimpleData>
             <SimpleData name="Adjudicado">SI</SimpleData>
             <SimpleData name="Empresa">Emilio Solís Grance</SimpleData>

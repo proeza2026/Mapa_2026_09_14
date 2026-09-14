@@ -4,7 +4,7 @@
     <Schema id="Distrito_HERNANDARIAS.schema">
       <SimpleField name="Cédula" type="float"/>
       <SimpleField name="cedula" type="string"/>
-      <SimpleField name="N°" type="float"/>
+      <SimpleField name="N" type="float"/>
       <SimpleField name="Nombres y" type="string"/>
       <SimpleField name="Sexo" type="string"/>
       <SimpleField name="Cambio de" type="string"/>
@@ -54,7 +54,7 @@
           <SchemaData schemaUrl="#Distrito_HERNANDARIAS.schema">
             <SimpleData name="Cédula">6013148.00000000000</SimpleData>
             <SimpleData name="cedula">6013148</SimpleData>
-            <SimpleData name="N°">76</SimpleData>
+            <SimpleData name="N">76</SimpleData>
             <SimpleData name="Nombres y">LUCILA ZORRILLA</SimpleData>
             <SimpleData name="Sexo">Mujer</SimpleData>
             <SimpleData name="Cambio de">NO</SimpleData>
@@ -122,7 +122,7 @@
           <SchemaData schemaUrl="#Distrito_HERNANDARIAS.schema">
             <SimpleData name="Cédula">6904413.00000000000</SimpleData>
             <SimpleData name="cedula">6904413</SimpleData>
-            <SimpleData name="N°">72</SimpleData>
+            <SimpleData name="N">72</SimpleData>
             <SimpleData name="Nombres y">EUGENIA LOPEZ ROMERO</SimpleData>
             <SimpleData name="Sexo">Mujer</SimpleData>
             <SimpleData name="Cambio de">NO</SimpleData>
@@ -189,7 +189,7 @@
           <SchemaData schemaUrl="#Distrito_HERNANDARIAS.schema">
             <SimpleData name="Cédula">7393413.00000000000</SimpleData>
             <SimpleData name="cedula">7393413</SimpleData>
-            <SimpleData name="N°">73</SimpleData>
+            <SimpleData name="N">73</SimpleData>
             <SimpleData name="Nombres y">NANCY VILLALBA MARTINEZ</SimpleData>
             <SimpleData name="Sexo">Mujer</SimpleData>
             <SimpleData name="Cambio de">NO</SimpleData>
@@ -253,7 +253,7 @@
           <SchemaData schemaUrl="#Distrito_HERNANDARIAS.schema">
             <SimpleData name="Cédula">7787947.00000000000</SimpleData>
             <SimpleData name="cedula">7787947</SimpleData>
-            <SimpleData name="N°">74</SimpleData>
+            <SimpleData name="N">74</SimpleData>
             <SimpleData name="Nombres y">ADOLFO DELGADO AQUINO</SimpleData>
             <SimpleData name="Sexo">Hombre</SimpleData>
             <SimpleData name="Cambio de">NO</SimpleData>
@@ -325,7 +325,7 @@
           <SchemaData schemaUrl="#Distrito_HERNANDARIAS.schema">
             <SimpleData name="Cédula">4764298.00000000000</SimpleData>
             <SimpleData name="cedula">4764298</SimpleData>
-            <SimpleData name="N°">75</SimpleData>
+            <SimpleData name="N">75</SimpleData>
             <SimpleData name="Nombres y">DIONICIA ACOSTA PEREIRA</SimpleData>
             <SimpleData name="Sexo">Mujer</SimpleData>
             <SimpleData name="Cambio de">NO</SimpleData>

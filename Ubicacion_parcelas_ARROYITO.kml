@@ -4,7 +4,7 @@
     <Schema id="Distrito_ARROYITO.schema">
       <SimpleField name="Cédula" type="float"/>
       <SimpleField name="cedula" type="string"/>
-      <SimpleField name="N°" type="float"/>
+      <SimpleField name="N" type="float"/>
       <SimpleField name="Nombres y" type="string"/>
       <SimpleField name="Sexo" type="string"/>
       <SimpleField name="Cambio de" type="string"/>
@@ -54,7 +54,7 @@
           <SchemaData schemaUrl="#Distrito_ARROYITO.schema">
             <SimpleData name="Cédula">4395303.00000000000</SimpleData>
             <SimpleData name="cedula">4395303</SimpleData>
-            <SimpleData name="N°">41</SimpleData>
+            <SimpleData name="N">41</SimpleData>
             <SimpleData name="Nombres y">LISA CARIN GALEANO PRIETO</SimpleData>
             <SimpleData name="Sexo">Mujer</SimpleData>
             <SimpleData name="Cambio de">NO</SimpleData>
@@ -77,7 +77,7 @@
             <SimpleData name="Grupo de P">J-P5-XX-XX-XX</SimpleData>
             <SimpleData name="Jornales">0</SimpleData>
             <SimpleData name="Monto">0</SimpleData>
-            <SimpleData name="ETAPA FAO">0</SimpleData>
+            <SimpleData name="ETAPA FAO">Mantenimiento Año 1.1</SimpleData>
             <SimpleData name="Estado del">Activo</SimpleData>
             <SimpleData name="Adjudicado">SI</SimpleData>
             <SimpleData name="Empresa">Emilio Solís Grance</SimpleData>

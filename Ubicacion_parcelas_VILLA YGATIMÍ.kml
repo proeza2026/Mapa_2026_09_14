@@ -4,7 +4,7 @@
     <Schema id="Distrito_VILLA_YGATIM__.schema">
       <SimpleField name="Cédula" type="float"/>
       <SimpleField name="cedula" type="string"/>
-      <SimpleField name="N°" type="float"/>
+      <SimpleField name="N" type="float"/>
       <SimpleField name="Nombres y" type="string"/>
       <SimpleField name="Sexo" type="string"/>
       <SimpleField name="Cambio de" type="string"/>
@@ -54,7 +54,7 @@
           <SchemaData schemaUrl="#Distrito_VILLA_YGATIM__.schema">
             <SimpleData name="Cédula">6349351.00000000000</SimpleData>
             <SimpleData name="cedula">6349351</SimpleData>
-            <SimpleData name="N°">257</SimpleData>
+            <SimpleData name="N">257</SimpleData>
             <SimpleData name="Nombres y">MARIANELA AIRAGI ACHIPURANGI FUA AGI</SimpleData>
             <SimpleData name="Sexo">Mujer</SimpleData>
             <SimpleData name="Cambio de">NO</SimpleData>
@@ -107,7 +107,7 @@
           <SchemaData schemaUrl="#Distrito_VILLA_YGATIM__.schema">
             <SimpleData name="Cédula">6729013.00000000000</SimpleData>
             <SimpleData name="cedula">6729013</SimpleData>
-            <SimpleData name="N°">265</SimpleData>
+            <SimpleData name="N">265</SimpleData>
             <SimpleData name="Nombres y">CARINA BENITEZ TAPARI</SimpleData>
             <SimpleData name="Sexo">Mujer</SimpleData>
             <SimpleData name="Cambio de">NO</SimpleData>
@@ -160,7 +160,7 @@
           <SchemaData schemaUrl="#Distrito_VILLA_YGATIM__.schema">
             <SimpleData name="Cédula">5073836.00000000000</SimpleData>
             <SimpleData name="cedula">5073836</SimpleData>
-            <SimpleData name="N°">235</SimpleData>
+            <SimpleData name="N">235</SimpleData>
             <SimpleData name="Nombres y">RAMONA ITURBE</SimpleData>
             <SimpleData name="Sexo">Mujer</SimpleData>
             <SimpleData name="Cambio de">NO</SimpleData>
@@ -220,7 +220,7 @@
           <SchemaData schemaUrl="#Distrito_VILLA_YGATIM__.schema">
             <SimpleData name="Cédula">6349313.00000000000</SimpleData>
             <SimpleData name="cedula">6349313</SimpleData>
-            <SimpleData name="N°">214</SimpleData>
+            <SimpleData name="N">214</SimpleData>
             <SimpleData name="Nombres y">DAMARI CHENGYPURANGI</SimpleData>
             <SimpleData name="Sexo">Mujer</SimpleData>
             <SimpleData name="Cambio de">NO</SimpleData>
@@ -272,7 +272,7 @@
           <SchemaData schemaUrl="#Distrito_VILLA_YGATIM__.schema">
             <SimpleData name="Cédula">4630101.00000000000</SimpleData>
             <SimpleData name="cedula">4630101</SimpleData>
-            <SimpleData name="N°">186</SimpleData>
+            <SimpleData name="N">186</SimpleData>
             <SimpleData name="Nombres y">LETICIA KUAREMINIGI MBEJUAGI MBEPURANGI</SimpleData>
             <SimpleData name="Sexo">Mujer</SimpleData>
             <SimpleData name="Cambio de">NO</SimpleData>
@@ -324,7 +324,7 @@
           <SchemaData schemaUrl="#Distrito_VILLA_YGATIM__.schema">
             <SimpleData name="Cédula">8052985.00000000000</SimpleData>
             <SimpleData name="cedula">8052985</SimpleData>
-            <SimpleData name="N°">215</SimpleData>
+            <SimpleData name="N">215</SimpleData>
             <SimpleData name="Nombres y">NELLIDA FAGI CHEVUGI FAGI</SimpleData>
             <SimpleData name="Sexo">Hombre</SimpleData>
             <SimpleData name="Cambio de">NO</SimpleData>
@@ -376,7 +376,7 @@
           <SchemaData schemaUrl="#Distrito_VILLA_YGATIM__.schema">
             <SimpleData name="Cédula">7883098.00000000000</SimpleData>
             <SimpleData name="cedula">7883098</SimpleData>
-            <SimpleData name="N°">179</SimpleData>
+            <SimpleData name="N">179</SimpleData>
             <SimpleData name="Nombres y">FIDELINA BAREIRO PEREIRA</SimpleData>
             <SimpleData name="Sexo">Mujer</SimpleData>
             <SimpleData name="Cambio de">NO</SimpleData>
@@ -430,7 +430,7 @@
           <SchemaData schemaUrl="#Distrito_VILLA_YGATIM__.schema">
             <SimpleData name="Cédula">7748490.00000000000</SimpleData>
             <SimpleData name="cedula">7748490</SimpleData>
-            <SimpleData name="N°">183</SimpleData>
+            <SimpleData name="N">183</SimpleData>
             <SimpleData name="Nombres y">SANDRA DELMONTE ROMERO</SimpleData>
             <SimpleData name="Sexo">Mujer</SimpleData>
             <SimpleData name="Cambio de">NO</SimpleData>
@@ -483,7 +483,7 @@
           <SchemaData schemaUrl="#Distrito_VILLA_YGATIM__.schema">
             <SimpleData name="Cédula">4251068.00000000000</SimpleData>
             <SimpleData name="cedula">4251068</SimpleData>
-            <SimpleData name="N°">181</SimpleData>
+            <SimpleData name="N">181</SimpleData>
             <SimpleData name="Nombres y">AGUEDA EVANGELINA PAREDEZ GAVILAN</SimpleData>
             <SimpleData name="Sexo">Mujer</SimpleData>
             <SimpleData name="Cambio de">NO</SimpleData>
@@ -537,7 +537,7 @@
           <SchemaData schemaUrl="#Distrito_VILLA_YGATIM__.schema">
             <SimpleData name="Cédula">7773200.00000000000</SimpleData>
             <SimpleData name="cedula">7773200</SimpleData>
-            <SimpleData name="N°">212</SimpleData>
+            <SimpleData name="N">212</SimpleData>
             <SimpleData name="Nombres y">CHINITA TAYJANGA</SimpleData>
             <SimpleData name="Sexo">Mujer</SimpleData>
             <SimpleData name="Cambio de">NO</SimpleData>
@@ -589,7 +589,7 @@
           <SchemaData schemaUrl="#Distrito_VILLA_YGATIM__.schema">
             <SimpleData name="Cédula">6349328.00000000000</SimpleData>
             <SimpleData name="cedula">6349328</SimpleData>
-            <SimpleData name="N°">258</SimpleData>
+            <SimpleData name="N">258</SimpleData>
             <SimpleData name="Nombres y">VERONICA MEMBOPURANGI PIRAGI KRYGI</SimpleData>
             <SimpleData name="Sexo">Mujer</SimpleData>
             <SimpleData name="Cambio de">NO</SimpleData>
@@ -642,7 +642,7 @@
           <SchemaData schemaUrl="#Distrito_VILLA_YGATIM__.schema">
             <SimpleData name="Cédula">6349084.00000000000</SimpleData>
             <SimpleData name="cedula">6349084</SimpleData>
-            <SimpleData name="N°">219</SimpleData>
+            <SimpleData name="N">219</SimpleData>
             <SimpleData name="Nombres y">MANUELA KRYGI CHACHUGI JAMONGI</SimpleData>
             <SimpleData name="Sexo">Mujer</SimpleData>
             <SimpleData name="Cambio de">NO</SimpleData>
@@ -695,7 +695,7 @@
           <SchemaData schemaUrl="#Distrito_VILLA_YGATIM__.schema">
             <SimpleData name="Cédula">6349048.00000000000</SimpleData>
             <SimpleData name="cedula">6349048</SimpleData>
-            <SimpleData name="N°">231</SimpleData>
+            <SimpleData name="N">231</SimpleData>
             <SimpleData name="Nombres y">ADAN MROMBEGI KMABUGI PIRAJUGI</SimpleData>
             <SimpleData name="Sexo">Hombre</SimpleData>
             <SimpleData name="Cambio de">NO</SimpleData>
@@ -747,7 +747,7 @@
           <SchemaData schemaUrl="#Distrito_VILLA_YGATIM__.schema">
             <SimpleData name="Cédula">1597690.00000000000</SimpleData>
             <SimpleData name="cedula">1597690</SimpleData>
-            <SimpleData name="N°">203</SimpleData>
+            <SimpleData name="N">203</SimpleData>
             <SimpleData name="Nombres y">ANDREA VILLALBA GAUTO</SimpleData>
             <SimpleData name="Sexo">Mujer</SimpleData>
             <SimpleData name="Cambio de">NO</SimpleData>
@@ -807,7 +807,7 @@
           <SchemaData schemaUrl="#Distrito_VILLA_YGATIM__.schema">
             <SimpleData name="Cédula">3330550.00000000000</SimpleData>
             <SimpleData name="cedula">3330550</SimpleData>
-            <SimpleData name="N°">198</SimpleData>
+            <SimpleData name="N">198</SimpleData>
             <SimpleData name="Nombres y">LIDIA VILLALBA MARTINEZ</SimpleData>
             <SimpleData name="Sexo">Mujer</SimpleData>
             <SimpleData name="Cambio de">NO</SimpleData>
@@ -859,7 +859,7 @@
           <SchemaData schemaUrl="#Distrito_VILLA_YGATIM__.schema">
             <SimpleData name="Cédula">7299134.00000000000</SimpleData>
             <SimpleData name="cedula">7299134</SimpleData>
-            <SimpleData name="N°">182</SimpleData>
+            <SimpleData name="N">182</SimpleData>
             <SimpleData name="Nombres y">MAGDALENA MORALES PIRIS</SimpleData>
             <SimpleData name="Sexo">Mujer</SimpleData>
             <SimpleData name="Cambio de">NO</SimpleData>
@@ -912,7 +912,7 @@
           <SchemaData schemaUrl="#Distrito_VILLA_YGATIM__.schema">
             <SimpleData name="Cédula">5249994.00000000000</SimpleData>
             <SimpleData name="cedula">5249994</SimpleData>
-            <SimpleData name="N°">222</SimpleData>
+            <SimpleData name="N">222</SimpleData>
             <SimpleData name="Nombres y">DOMINGA ROJAS GONZALEZ</SimpleData>
             <SimpleData name="Sexo">Mujer</SimpleData>
             <SimpleData name="Cambio de">NO</SimpleData>
@@ -965,7 +965,7 @@
           <SchemaData schemaUrl="#Distrito_VILLA_YGATIM__.schema">
             <SimpleData name="Cédula">8308037.00000000000</SimpleData>
             <SimpleData name="cedula">8308037</SimpleData>
-            <SimpleData name="N°">266</SimpleData>
+            <SimpleData name="N">266</SimpleData>
             <SimpleData name="Nombres y">CATALINA DENIS VERA</SimpleData>
             <SimpleData name="Sexo">Mujer</SimpleData>
             <SimpleData name="Cambio de">NO</SimpleData>
@@ -1018,7 +1018,7 @@
           <SchemaData schemaUrl="#Distrito_VILLA_YGATIM__.schema">
             <SimpleData name="Cédula">6349367.00000000000</SimpleData>
             <SimpleData name="cedula">6349367</SimpleData>
-            <SimpleData name="N°">220</SimpleData>
+            <SimpleData name="N">220</SimpleData>
             <SimpleData name="Nombres y">ESTELA MBEKUTUGI VELAZQUEZ GARCIA</SimpleData>
             <SimpleData name="Sexo">Mujer</SimpleData>
             <SimpleData name="Cambio de">NO</SimpleData>
@@ -1070,7 +1070,7 @@
           <SchemaData schemaUrl="#Distrito_VILLA_YGATIM__.schema">
             <SimpleData name="Cédula">6349311.00000000000</SimpleData>
             <SimpleData name="cedula">6349311</SimpleData>
-            <SimpleData name="N°">191</SimpleData>
+            <SimpleData name="N">191</SimpleData>
             <SimpleData name="Nombres y">MARIA NAMBUGI MIRANDA TATUGI</SimpleData>
             <SimpleData name="Sexo">Mujer</SimpleData>
             <SimpleData name="Cambio de">NO</SimpleData>
@@ -1123,7 +1123,7 @@
           <SchemaData schemaUrl="#Distrito_VILLA_YGATIM__.schema">
             <SimpleData name="Cédula">6760723.00000000000</SimpleData>
             <SimpleData name="cedula">6760723</SimpleData>
-            <SimpleData name="N°">239</SimpleData>
+            <SimpleData name="N">239</SimpleData>
             <SimpleData name="Nombres y">AGUSTIN RUIZ DIAZ MARTINEZ</SimpleData>
             <SimpleData name="Sexo">Hombre</SimpleData>
             <SimpleData name="Cambio de">NO</SimpleData>
@@ -1175,7 +1175,7 @@
           <SchemaData schemaUrl="#Distrito_VILLA_YGATIM__.schema">
             <SimpleData name="Cédula">7409256.00000000000</SimpleData>
             <SimpleData name="cedula">7409256</SimpleData>
-            <SimpleData name="N°">175</SimpleData>
+            <SimpleData name="N">175</SimpleData>
             <SimpleData name="Nombres y">MIGUELA AGRIAL</SimpleData>
             <SimpleData name="Sexo">Mujer</SimpleData>
             <SimpleData name="Cambio de">NO</SimpleData>
@@ -1198,7 +1198,7 @@
             <SimpleData name="Grupo de P">H-P17-XX-XX-XX</SimpleData>
             <SimpleData name="Jornales">0</SimpleData>
             <SimpleData name="Monto">0</SimpleData>
-            <SimpleData name="ETAPA FAO">Plantación</SimpleData>
+            <SimpleData name="ETAPA FAO">Mantenimiento Año 1.1</SimpleData>
             <SimpleData name="Estado del">Activo</SimpleData>
             <SimpleData name="Adjudicado">SI</SimpleData>
             <SimpleData name="Empresa">Hyh Consultores SRL</SimpleData>
@@ -1229,7 +1229,7 @@
           <SchemaData schemaUrl="#Distrito_VILLA_YGATIM__.schema">
             <SimpleData name="Cédula">7863761.00000000000</SimpleData>
             <SimpleData name="cedula">7863761</SimpleData>
-            <SimpleData name="N°">250</SimpleData>
+            <SimpleData name="N">250</SimpleData>
             <SimpleData name="Nombres y">SARA  VYRAKOGI</SimpleData>
             <SimpleData name="Sexo">Mujer</SimpleData>
             <SimpleData name="Cambio de">NO</SimpleData>
@@ -1281,7 +1281,7 @@
           <SchemaData schemaUrl="#Distrito_VILLA_YGATIM__.schema">
             <SimpleData name="Cédula">5451969.00000000000</SimpleData>
             <SimpleData name="cedula">5451969</SimpleData>
-            <SimpleData name="N°">221</SimpleData>
+            <SimpleData name="N">221</SimpleData>
             <SimpleData name="Nombres y">FATIMA PIKYGI CENTURION VELAZQUEZ</SimpleData>
             <SimpleData name="Sexo">Mujer</SimpleData>
             <SimpleData name="Cambio de">NO</SimpleData>
@@ -1333,7 +1333,7 @@
           <SchemaData schemaUrl="#Distrito_VILLA_YGATIM__.schema">
             <SimpleData name="Cédula">6349365.00000000000</SimpleData>
             <SimpleData name="cedula">6349365</SimpleData>
-            <SimpleData name="N°">233</SimpleData>
+            <SimpleData name="N">233</SimpleData>
             <SimpleData name="Nombres y"><![CDATA[RAFAELA KRY'YPURANGI]]></SimpleData>
             <SimpleData name="Sexo">Mujer</SimpleData>
             <SimpleData name="Cambio de">NO</SimpleData>
@@ -1385,7 +1385,7 @@
           <SchemaData schemaUrl="#Distrito_VILLA_YGATIM__.schema">
             <SimpleData name="Cédula">7175376.00000000000</SimpleData>
             <SimpleData name="cedula">7175376</SimpleData>
-            <SimpleData name="N°">255</SimpleData>
+            <SimpleData name="N">255</SimpleData>
             <SimpleData name="Nombres y">VIVIANA  JAKUGI</SimpleData>
             <SimpleData name="Sexo">Mujer</SimpleData>
             <SimpleData name="Cambio de">NO</SimpleData>
@@ -1437,7 +1437,7 @@
           <SchemaData schemaUrl="#Distrito_VILLA_YGATIM__.schema">
             <SimpleData name="Cédula">7753540.00000000000</SimpleData>
             <SimpleData name="cedula">7753540</SimpleData>
-            <SimpleData name="N°">251</SimpleData>
+            <SimpleData name="N">251</SimpleData>
             <SimpleData name="Nombres y">RAMONA KADJEGI WACHUGI KRIROGI</SimpleData>
             <SimpleData name="Sexo">Mujer</SimpleData>
             <SimpleData name="Cambio de">NO</SimpleData>
@@ -1489,7 +1489,7 @@
           <SchemaData schemaUrl="#Distrito_VILLA_YGATIM__.schema">
             <SimpleData name="Cédula">6742950.00000000000</SimpleData>
             <SimpleData name="cedula">6742950</SimpleData>
-            <SimpleData name="N°">242</SimpleData>
+            <SimpleData name="N">242</SimpleData>
             <SimpleData name="Nombres y">DELIA NU EZ DUARTE</SimpleData>
             <SimpleData name="Sexo">Mujer</SimpleData>
             <SimpleData name="Cambio de">NO</SimpleData>
@@ -1542,7 +1542,7 @@
           <SchemaData schemaUrl="#Distrito_VILLA_YGATIM__.schema">
             <SimpleData name="Cédula">8341159.00000000000</SimpleData>
             <SimpleData name="cedula">8341159</SimpleData>
-            <SimpleData name="N°">224</SimpleData>
+            <SimpleData name="N">224</SimpleData>
             <SimpleData name="Nombres y">ISABELINA KUAREMINIGI</SimpleData>
             <SimpleData name="Sexo">Mujer</SimpleData>
             <SimpleData name="Cambio de">NO</SimpleData>
@@ -1595,7 +1595,7 @@
           <SchemaData schemaUrl="#Distrito_VILLA_YGATIM__.schema">
             <SimpleData name="Cédula">7176764.00000000000</SimpleData>
             <SimpleData name="cedula">7176764</SimpleData>
-            <SimpleData name="N°">195</SimpleData>
+            <SimpleData name="N">195</SimpleData>
             <SimpleData name="Nombres y">EVER OJEDA DEL MONTE</SimpleData>
             <SimpleData name="Sexo">Hombre</SimpleData>
             <SimpleData name="Cambio de">NO</SimpleData>
@@ -1648,7 +1648,7 @@
           <SchemaData schemaUrl="#Distrito_VILLA_YGATIM__.schema">
             <SimpleData name="Cédula">6314557.00000000000</SimpleData>
             <SimpleData name="cedula">6314557</SimpleData>
-            <SimpleData name="N°">211</SimpleData>
+            <SimpleData name="N">211</SimpleData>
             <SimpleData name="Nombres y">DORKA KREMBEGI TAKUANGI MBYVANGI</SimpleData>
             <SimpleData name="Sexo">Mujer</SimpleData>
             <SimpleData name="Cambio de">NO</SimpleData>
@@ -1700,7 +1700,7 @@
           <SchemaData schemaUrl="#Distrito_VILLA_YGATIM__.schema">
             <SimpleData name="Cédula">6860001.00000000000</SimpleData>
             <SimpleData name="cedula">6860001</SimpleData>
-            <SimpleData name="N°">207</SimpleData>
+            <SimpleData name="N">207</SimpleData>
             <SimpleData name="Nombres y">SARA CHIVURAGI</SimpleData>
             <SimpleData name="Sexo">Mujer</SimpleData>
             <SimpleData name="Cambio de">NO</SimpleData>
@@ -1752,7 +1752,7 @@
           <SchemaData schemaUrl="#Distrito_VILLA_YGATIM__.schema">
             <SimpleData name="Cédula">4285785.00000000000</SimpleData>
             <SimpleData name="cedula">4285785</SimpleData>
-            <SimpleData name="N°">268</SimpleData>
+            <SimpleData name="N">268</SimpleData>
             <SimpleData name="Nombres y">DANIEL PORTILLO GARCIA</SimpleData>
             <SimpleData name="Sexo">Hombre</SimpleData>
             <SimpleData name="Cambio de">NO</SimpleData>
@@ -1774,7 +1774,7 @@
             <SimpleData name="Grupo de P">H-P17-XX-XX-XX</SimpleData>
             <SimpleData name="Jornales">0</SimpleData>
             <SimpleData name="Monto">0</SimpleData>
-            <SimpleData name="ETAPA FAO">Plantación</SimpleData>
+            <SimpleData name="ETAPA FAO">Mantenimiento Año 1.1</SimpleData>
             <SimpleData name="Estado del">Activo</SimpleData>
             <SimpleData name="Adjudicado">SI</SimpleData>
             <SimpleData name="Empresa">Hyh Consultores SRL</SimpleData>
@@ -1805,7 +1805,7 @@
           <SchemaData schemaUrl="#Distrito_VILLA_YGATIM__.schema">
             <SimpleData name="Cédula">7297215.00000000000</SimpleData>
             <SimpleData name="cedula">7297215</SimpleData>
-            <SimpleData name="N°">213</SimpleData>
+            <SimpleData name="N">213</SimpleData>
             <SimpleData name="Nombres y">ROGELIA CARDOZO GARCIA</SimpleData>
             <SimpleData name="Sexo">Mujer</SimpleData>
             <SimpleData name="Cambio de">NO</SimpleData>
@@ -1857,7 +1857,7 @@
           <SchemaData schemaUrl="#Distrito_VILLA_YGATIM__.schema">
             <SimpleData name="Cédula">6349169.00000000000</SimpleData>
             <SimpleData name="cedula">6349169</SimpleData>
-            <SimpleData name="N°">238</SimpleData>
+            <SimpleData name="N">238</SimpleData>
             <SimpleData name="Nombres y">ALEJANDRA KUCHINGI</SimpleData>
             <SimpleData name="Sexo">Mujer</SimpleData>
             <SimpleData name="Cambio de">NO</SimpleData>
@@ -1909,7 +1909,7 @@
           <SchemaData schemaUrl="#Distrito_VILLA_YGATIM__.schema">
             <SimpleData name="Cédula">5752579.00000000000</SimpleData>
             <SimpleData name="cedula">5752579</SimpleData>
-            <SimpleData name="N°">248</SimpleData>
+            <SimpleData name="N">248</SimpleData>
             <SimpleData name="Nombres y">BERONICA TAYJANGI TATUGI CHACHUGI</SimpleData>
             <SimpleData name="Sexo">Mujer</SimpleData>
             <SimpleData name="Cambio de">NO</SimpleData>
@@ -1961,7 +1961,7 @@
           <SchemaData schemaUrl="#Distrito_VILLA_YGATIM__.schema">
             <SimpleData name="Cédula">6084260.00000000000</SimpleData>
             <SimpleData name="cedula">6084260</SimpleData>
-            <SimpleData name="N°">217</SimpleData>
+            <SimpleData name="N">217</SimpleData>
             <SimpleData name="Nombres y">ESMILDA ROJAS SANTOS</SimpleData>
             <SimpleData name="Sexo">Mujer</SimpleData>
             <SimpleData name="Cambio de">NO</SimpleData>
@@ -2013,7 +2013,7 @@
           <SchemaData schemaUrl="#Distrito_VILLA_YGATIM__.schema">
             <SimpleData name="Cédula">6349329.00000000000</SimpleData>
             <SimpleData name="cedula">6349329</SimpleData>
-            <SimpleData name="N°">245</SimpleData>
+            <SimpleData name="N">245</SimpleData>
             <SimpleData name="Nombres y">VERONICA PIRAGI MBYVANGI CHEVUGI</SimpleData>
             <SimpleData name="Sexo">Mujer</SimpleData>
             <SimpleData name="Cambio de">NO</SimpleData>
@@ -2065,7 +2065,7 @@
           <SchemaData schemaUrl="#Distrito_VILLA_YGATIM__.schema">
             <SimpleData name="Cédula">6773422.00000000000</SimpleData>
             <SimpleData name="cedula">6773422</SimpleData>
-            <SimpleData name="N°">267</SimpleData>
+            <SimpleData name="N">267</SimpleData>
             <SimpleData name="Nombres y">ELOIDA DENIS VERA</SimpleData>
             <SimpleData name="Sexo">Mujer</SimpleData>
             <SimpleData name="Cambio de">NO</SimpleData>
@@ -2118,7 +2118,7 @@
           <SchemaData schemaUrl="#Distrito_VILLA_YGATIM__.schema">
             <SimpleData name="Cédula">5774108.00000000000</SimpleData>
             <SimpleData name="cedula">5774108</SimpleData>
-            <SimpleData name="N°">259</SimpleData>
+            <SimpleData name="N">259</SimpleData>
             <SimpleData name="Nombres y">CAROLINA  KUACHINGI</SimpleData>
             <SimpleData name="Sexo">Mujer</SimpleData>
             <SimpleData name="Cambio de">NO</SimpleData>
@@ -2171,7 +2171,7 @@
           <SchemaData schemaUrl="#Distrito_VILLA_YGATIM__.schema">
             <SimpleData name="Cédula">4180676.00000000000</SimpleData>
             <SimpleData name="cedula">4180676</SimpleData>
-            <SimpleData name="N°">201</SimpleData>
+            <SimpleData name="N">201</SimpleData>
             <SimpleData name="Nombres y">INOCENCIA GONZALEZ GAUTO</SimpleData>
             <SimpleData name="Sexo">Mujer</SimpleData>
             <SimpleData name="Cambio de">NO</SimpleData>
@@ -2224,7 +2224,7 @@
           <SchemaData schemaUrl="#Distrito_VILLA_YGATIM__.schema">
             <SimpleData name="Cédula">5795309.00000000000</SimpleData>
             <SimpleData name="cedula">5795309</SimpleData>
-            <SimpleData name="N°">262</SimpleData>
+            <SimpleData name="N">262</SimpleData>
             <SimpleData name="Nombres y">VALIENTE  SAVAGI</SimpleData>
             <SimpleData name="Sexo">Hombre</SimpleData>
             <SimpleData name="Cambio de">NO</SimpleData>
@@ -2277,7 +2277,7 @@
           <SchemaData schemaUrl="#Distrito_VILLA_YGATIM__.schema">
             <SimpleData name="Cédula">4920839.00000000000</SimpleData>
             <SimpleData name="cedula">4920839</SimpleData>
-            <SimpleData name="N°">180</SimpleData>
+            <SimpleData name="N">180</SimpleData>
             <SimpleData name="Nombres y">MARI FLORENTIN BENITEZ</SimpleData>
             <SimpleData name="Sexo">Mujer</SimpleData>
             <SimpleData name="Cambio de">NO</SimpleData>
@@ -2300,7 +2300,7 @@
             <SimpleData name="Grupo de P">H-P17-XX-XX-XX</SimpleData>
             <SimpleData name="Jornales">0</SimpleData>
             <SimpleData name="Monto">0</SimpleData>
-            <SimpleData name="ETAPA FAO">Plantación</SimpleData>
+            <SimpleData name="ETAPA FAO">Mantenimiento Año 1.1</SimpleData>
             <SimpleData name="Estado del">Activo</SimpleData>
             <SimpleData name="Adjudicado">SI</SimpleData>
             <SimpleData name="Empresa">Hyh Consultores SRL</SimpleData>
@@ -2331,7 +2331,7 @@
           <SchemaData schemaUrl="#Distrito_VILLA_YGATIM__.schema">
             <SimpleData name="Cédula">5968757.00000000000</SimpleData>
             <SimpleData name="cedula">5968757</SimpleData>
-            <SimpleData name="N°">204</SimpleData>
+            <SimpleData name="N">204</SimpleData>
             <SimpleData name="Nombres y"><![CDATA[CRECENCIA KRY'YPURANGI MBETAPAGI MBYVANGI]]></SimpleData>
             <SimpleData name="Sexo">Mujer</SimpleData>
             <SimpleData name="Cambio de">NO</SimpleData>
@@ -2383,7 +2383,7 @@
           <SchemaData schemaUrl="#Distrito_VILLA_YGATIM__.schema">
             <SimpleData name="Cédula">5752680.00000000000</SimpleData>
             <SimpleData name="cedula">5752680</SimpleData>
-            <SimpleData name="N°">199</SimpleData>
+            <SimpleData name="N">199</SimpleData>
             <SimpleData name="Nombres y">SINTHIA FAGI</SimpleData>
             <SimpleData name="Sexo">Mujer</SimpleData>
             <SimpleData name="Cambio de">NO</SimpleData>
@@ -2436,7 +2436,7 @@
           <SchemaData schemaUrl="#Distrito_VILLA_YGATIM__.schema">
             <SimpleData name="Cédula">5752668.00000000000</SimpleData>
             <SimpleData name="cedula">5752668</SimpleData>
-            <SimpleData name="N°">196</SimpleData>
+            <SimpleData name="N">196</SimpleData>
             <SimpleData name="Nombres y">PATRICIA ACHIPURANGI</SimpleData>
             <SimpleData name="Sexo">Mujer</SimpleData>
             <SimpleData name="Cambio de">NO</SimpleData>
@@ -2489,7 +2489,7 @@
           <SchemaData schemaUrl="#Distrito_VILLA_YGATIM__.schema">
             <SimpleData name="Cédula">7727132.00000000000</SimpleData>
             <SimpleData name="cedula">7727132</SimpleData>
-            <SimpleData name="N°">241</SimpleData>
+            <SimpleData name="N">241</SimpleData>
             <SimpleData name="Nombres y">GUZMAN ANTOLIANO TUKAMPURANGI</SimpleData>
             <SimpleData name="Sexo">Hombre</SimpleData>
             <SimpleData name="Cambio de">NO</SimpleData>
@@ -2541,7 +2541,7 @@
           <SchemaData schemaUrl="#Distrito_VILLA_YGATIM__.schema">
             <SimpleData name="Cédula">6754578.00000000000</SimpleData>
             <SimpleData name="cedula">6754578</SimpleData>
-            <SimpleData name="N°">236</SimpleData>
+            <SimpleData name="N">236</SimpleData>
             <SimpleData name="Nombres y">REINALDO MBEJUVAGI</SimpleData>
             <SimpleData name="Sexo">Hombre</SimpleData>
             <SimpleData name="Cambio de">NO</SimpleData>
@@ -2600,7 +2600,7 @@
           <SchemaData schemaUrl="#Distrito_VILLA_YGATIM__.schema">
             <SimpleData name="Cédula">3534955.00000000000</SimpleData>
             <SimpleData name="cedula">3534955</SimpleData>
-            <SimpleData name="N°">232</SimpleData>
+            <SimpleData name="N">232</SimpleData>
             <SimpleData name="Nombres y">JOAQUIN ACHIPURANGI</SimpleData>
             <SimpleData name="Sexo">Hombre</SimpleData>
             <SimpleData name="Cambio de">NO</SimpleData>
@@ -2652,7 +2652,7 @@
           <SchemaData schemaUrl="#Distrito_VILLA_YGATIM__.schema">
             <SimpleData name="Cédula">7295040.00000000000</SimpleData>
             <SimpleData name="cedula">7295040</SimpleData>
-            <SimpleData name="N°">243</SimpleData>
+            <SimpleData name="N">243</SimpleData>
             <SimpleData name="Nombres y">SUNI AVALOS MARTINEZ</SimpleData>
             <SimpleData name="Sexo">Mujer</SimpleData>
             <SimpleData name="Cambio de">NO</SimpleData>
@@ -2705,7 +2705,7 @@
           <SchemaData schemaUrl="#Distrito_VILLA_YGATIM__.schema">
             <SimpleData name="Cédula">6349327.00000000000</SimpleData>
             <SimpleData name="cedula">6349327</SimpleData>
-            <SimpleData name="N°">246</SimpleData>
+            <SimpleData name="N">246</SimpleData>
             <SimpleData name="Nombres y">MANUELA PIRAGI KMABUGI PIRAJUGI</SimpleData>
             <SimpleData name="Sexo">Mujer</SimpleData>
             <SimpleData name="Cambio de">NO</SimpleData>
@@ -2757,7 +2757,7 @@
           <SchemaData schemaUrl="#Distrito_VILLA_YGATIM__.schema">
             <SimpleData name="Cédula">6740324.00000000000</SimpleData>
             <SimpleData name="cedula">6740324</SimpleData>
-            <SimpleData name="N°">229</SimpleData>
+            <SimpleData name="N">229</SimpleData>
             <SimpleData name="Nombres y">CARINA CHAMORRO DELMONTE</SimpleData>
             <SimpleData name="Sexo">Mujer</SimpleData>
             <SimpleData name="Cambio de">NO</SimpleData>
@@ -2810,7 +2810,7 @@
           <SchemaData schemaUrl="#Distrito_VILLA_YGATIM__.schema">
             <SimpleData name="Cédula">5569268.00000000000</SimpleData>
             <SimpleData name="cedula">5569268</SimpleData>
-            <SimpleData name="N°">223</SimpleData>
+            <SimpleData name="N">223</SimpleData>
             <SimpleData name="Nombres y">JULIANA BENITEZ MORALES</SimpleData>
             <SimpleData name="Sexo">Mujer</SimpleData>
             <SimpleData name="Cambio de">NO</SimpleData>
@@ -2863,7 +2863,7 @@
           <SchemaData schemaUrl="#Distrito_VILLA_YGATIM__.schema">
             <SimpleData name="Cédula">5968758.00000000000</SimpleData>
             <SimpleData name="cedula">5968758</SimpleData>
-            <SimpleData name="N°">216</SimpleData>
+            <SimpleData name="N">216</SimpleData>
             <SimpleData name="Nombres y">MARISA KRIJUGI TAKUANGI MBYVANGI</SimpleData>
             <SimpleData name="Sexo">Mujer</SimpleData>
             <SimpleData name="Cambio de">NO</SimpleData>
@@ -2915,7 +2915,7 @@
           <SchemaData schemaUrl="#Distrito_VILLA_YGATIM__.schema">
             <SimpleData name="Cédula">7906165.00000000000</SimpleData>
             <SimpleData name="cedula">7906165</SimpleData>
-            <SimpleData name="N°">178</SimpleData>
+            <SimpleData name="N">178</SimpleData>
             <SimpleData name="Nombres y">MARIA ANTONIA ROMERO MENDOZA</SimpleData>
             <SimpleData name="Sexo">Mujer</SimpleData>
             <SimpleData name="Cambio de">NO</SimpleData>
@@ -2969,7 +2969,7 @@
           <SchemaData schemaUrl="#Distrito_VILLA_YGATIM__.schema">
             <SimpleData name="Cédula">4173682.00000000000</SimpleData>
             <SimpleData name="cedula">4173682</SimpleData>
-            <SimpleData name="N°">210</SimpleData>
+            <SimpleData name="N">210</SimpleData>
             <SimpleData name="Nombres y">ANTONIA MBYVANGI</SimpleData>
             <SimpleData name="Sexo">Mujer</SimpleData>
             <SimpleData name="Cambio de">NO</SimpleData>
@@ -3021,7 +3021,7 @@
           <SchemaData schemaUrl="#Distrito_VILLA_YGATIM__.schema">
             <SimpleData name="Cédula">6349352.00000000000</SimpleData>
             <SimpleData name="cedula">6349352</SimpleData>
-            <SimpleData name="N°">209</SimpleData>
+            <SimpleData name="N">209</SimpleData>
             <SimpleData name="Nombres y">ANDREA MBECHEPEGI PAYVAGI DE DUARTE</SimpleData>
             <SimpleData name="Sexo">Mujer</SimpleData>
             <SimpleData name="Cambio de">NO</SimpleData>
@@ -3073,7 +3073,7 @@
           <SchemaData schemaUrl="#Distrito_VILLA_YGATIM__.schema">
             <SimpleData name="Cédula">6349396.00000000000</SimpleData>
             <SimpleData name="cedula">6349396</SimpleData>
-            <SimpleData name="N°">205</SimpleData>
+            <SimpleData name="N">205</SimpleData>
             <SimpleData name="Nombres y">FATIMA CHERYGI FUAKYMBAGI FAAGI</SimpleData>
             <SimpleData name="Sexo">Mujer</SimpleData>
             <SimpleData name="Cambio de">NO</SimpleData>
@@ -3125,7 +3125,7 @@
           <SchemaData schemaUrl="#Distrito_VILLA_YGATIM__.schema">
             <SimpleData name="Cédula">6852597.00000000000</SimpleData>
             <SimpleData name="cedula">6852597</SimpleData>
-            <SimpleData name="N°">244</SimpleData>
+            <SimpleData name="N">244</SimpleData>
             <SimpleData name="Nombres y">LUCINE  DELMONTE PIRIS</SimpleData>
             <SimpleData name="Sexo">Mujer</SimpleData>
             <SimpleData name="Cambio de">NO</SimpleData>
@@ -3178,7 +3178,7 @@
           <SchemaData schemaUrl="#Distrito_VILLA_YGATIM__.schema">
             <SimpleData name="Cédula">7758241.00000000000</SimpleData>
             <SimpleData name="cedula">7758241</SimpleData>
-            <SimpleData name="N°">253</SimpleData>
+            <SimpleData name="N">253</SimpleData>
             <SimpleData name="Nombres y">CERAFINA  TATUGI</SimpleData>
             <SimpleData name="Sexo">Mujer</SimpleData>
             <SimpleData name="Cambio de">NO</SimpleData>
@@ -3230,7 +3230,7 @@
           <SchemaData schemaUrl="#Distrito_VILLA_YGATIM__.schema">
             <SimpleData name="Cédula">5797984.00000000000</SimpleData>
             <SimpleData name="cedula">5797984</SimpleData>
-            <SimpleData name="N°">234</SimpleData>
+            <SimpleData name="N">234</SimpleData>
             <SimpleData name="Nombres y">MAGDALENA VERA PEREIRA</SimpleData>
             <SimpleData name="Sexo">Mujer</SimpleData>
             <SimpleData name="Cambio de">NO</SimpleData>
@@ -3283,7 +3283,7 @@
           <SchemaData schemaUrl="#Distrito_VILLA_YGATIM__.schema">
             <SimpleData name="Cédula">6815528.00000000000</SimpleData>
             <SimpleData name="cedula">6815528</SimpleData>
-            <SimpleData name="N°">264</SimpleData>
+            <SimpleData name="N">264</SimpleData>
             <SimpleData name="Nombres y">TORIBIA ISASI LOPEZ</SimpleData>
             <SimpleData name="Sexo">Mujer</SimpleData>
             <SimpleData name="Cambio de">NO</SimpleData>
@@ -3337,7 +3337,7 @@
           <SchemaData schemaUrl="#Distrito_VILLA_YGATIM__.schema">
             <SimpleData name="Cédula">6349340.00000000000</SimpleData>
             <SimpleData name="cedula">6349340</SimpleData>
-            <SimpleData name="N°">252</SimpleData>
+            <SimpleData name="N">252</SimpleData>
             <SimpleData name="Nombres y">LIZ MABEL CHEJUGI JAVAGI VYGYGI</SimpleData>
             <SimpleData name="Sexo">Mujer</SimpleData>
             <SimpleData name="Cambio de">NO</SimpleData>
@@ -3389,7 +3389,7 @@
           <SchemaData schemaUrl="#Distrito_VILLA_YGATIM__.schema">
             <SimpleData name="Cédula">4971407.00000000000</SimpleData>
             <SimpleData name="cedula">4971407</SimpleData>
-            <SimpleData name="N°">230</SimpleData>
+            <SimpleData name="N">230</SimpleData>
             <SimpleData name="Nombres y">SERGIO LUIS FRANCO VELAZQUEZ</SimpleData>
             <SimpleData name="Sexo">Hombre</SimpleData>
             <SimpleData name="Cambio de">NO</SimpleData>
@@ -3441,7 +3441,7 @@
           <SchemaData schemaUrl="#Distrito_VILLA_YGATIM__.schema">
             <SimpleData name="Cédula">7964460.00000000000</SimpleData>
             <SimpleData name="cedula">7964460</SimpleData>
-            <SimpleData name="N°">177</SimpleData>
+            <SimpleData name="N">177</SimpleData>
             <SimpleData name="Nombres y">DANIELA ORTIZ BARRETO</SimpleData>
             <SimpleData name="Sexo">Mujer</SimpleData>
             <SimpleData name="Cambio de">NO</SimpleData>
@@ -3494,7 +3494,7 @@
           <SchemaData schemaUrl="#Distrito_VILLA_YGATIM__.schema">
             <SimpleData name="Cédula">5752676.00000000000</SimpleData>
             <SimpleData name="cedula">5752676</SimpleData>
-            <SimpleData name="N°">225</SimpleData>
+            <SimpleData name="N">225</SimpleData>
             <SimpleData name="Nombres y">HILARIA KANJEGI DE TORANGI</SimpleData>
             <SimpleData name="Sexo">Mujer</SimpleData>
             <SimpleData name="Cambio de">NO</SimpleData>
@@ -3546,7 +3546,7 @@
           <SchemaData schemaUrl="#Distrito_VILLA_YGATIM__.schema">
             <SimpleData name="Cédula">6551301.00000000000</SimpleData>
             <SimpleData name="cedula">6551301</SimpleData>
-            <SimpleData name="N°">188</SimpleData>
+            <SimpleData name="N">188</SimpleData>
             <SimpleData name="Nombres y">EPIFANIO ROMERO LOPEZ</SimpleData>
             <SimpleData name="Sexo">Hombre</SimpleData>
             <SimpleData name="Cambio de">NO</SimpleData>
@@ -3599,7 +3599,7 @@
           <SchemaData schemaUrl="#Distrito_VILLA_YGATIM__.schema">
             <SimpleData name="Cédula">6349091.00000000000</SimpleData>
             <SimpleData name="cedula">6349091</SimpleData>
-            <SimpleData name="N°">190</SimpleData>
+            <SimpleData name="N">190</SimpleData>
             <SimpleData name="Nombres y">ELODIA KRURUGI CHACHUGI JAMONGI</SimpleData>
             <SimpleData name="Sexo">Mujer</SimpleData>
             <SimpleData name="Cambio de">NO</SimpleData>
@@ -3651,7 +3651,7 @@
           <SchemaData schemaUrl="#Distrito_VILLA_YGATIM__.schema">
             <SimpleData name="Cédula">6656854.00000000000</SimpleData>
             <SimpleData name="cedula">6656854</SimpleData>
-            <SimpleData name="N°">193</SimpleData>
+            <SimpleData name="N">193</SimpleData>
             <SimpleData name="Nombres y">REGINA ISASI GONZALEZ</SimpleData>
             <SimpleData name="Sexo">Mujer</SimpleData>
             <SimpleData name="Cambio de">NO</SimpleData>
@@ -3704,7 +3704,7 @@
           <SchemaData schemaUrl="#Distrito_VILLA_YGATIM__.schema">
             <SimpleData name="Cédula">3892441.00000000000</SimpleData>
             <SimpleData name="cedula">3892441</SimpleData>
-            <SimpleData name="N°">227</SimpleData>
+            <SimpleData name="N">227</SimpleData>
             <SimpleData name="Nombres y">CRISTINA VERA</SimpleData>
             <SimpleData name="Sexo">Mujer</SimpleData>
             <SimpleData name="Cambio de">NO</SimpleData>
@@ -3757,7 +3757,7 @@
           <SchemaData schemaUrl="#Distrito_VILLA_YGATIM__.schema">
             <SimpleData name="Cédula">5836745.00000000000</SimpleData>
             <SimpleData name="cedula">5836745</SimpleData>
-            <SimpleData name="N°">184</SimpleData>
+            <SimpleData name="N">184</SimpleData>
             <SimpleData name="Nombres y">ROSANA OLIVEIRA ROMERO</SimpleData>
             <SimpleData name="Sexo">Mujer</SimpleData>
             <SimpleData name="Cambio de">NO</SimpleData>
@@ -3810,7 +3810,7 @@
           <SchemaData schemaUrl="#Distrito_VILLA_YGATIM__.schema">
             <SimpleData name="Cédula">4845358.00000000000</SimpleData>
             <SimpleData name="cedula">4845358</SimpleData>
-            <SimpleData name="N°">261</SimpleData>
+            <SimpleData name="N">261</SimpleData>
             <SimpleData name="Nombres y">CRISTINA  CHEVUGI</SimpleData>
             <SimpleData name="Sexo">Mujer</SimpleData>
             <SimpleData name="Cambio de">NO</SimpleData>
@@ -3862,7 +3862,7 @@
           <SchemaData schemaUrl="#Distrito_VILLA_YGATIM__.schema">
             <SimpleData name="Cédula">5968759.00000000000</SimpleData>
             <SimpleData name="cedula">5968759</SimpleData>
-            <SimpleData name="N°">240</SimpleData>
+            <SimpleData name="N">240</SimpleData>
             <SimpleData name="Nombres y">ISABEL CHACHUPURANGI CHIMBEGI CHEVUGI</SimpleData>
             <SimpleData name="Sexo">Mujer</SimpleData>
             <SimpleData name="Cambio de">NO</SimpleData>
@@ -3914,7 +3914,7 @@
           <SchemaData schemaUrl="#Distrito_VILLA_YGATIM__.schema">
             <SimpleData name="Cédula">5752665.00000000000</SimpleData>
             <SimpleData name="cedula">5752665</SimpleData>
-            <SimpleData name="N°">254</SimpleData>
+            <SimpleData name="N">254</SimpleData>
             <SimpleData name="Nombres y">MARCELA VARUKUGI PIKYGI MBYVANGI</SimpleData>
             <SimpleData name="Sexo">Mujer</SimpleData>
             <SimpleData name="Cambio de">NO</SimpleData>
@@ -3966,7 +3966,7 @@
           <SchemaData schemaUrl="#Distrito_VILLA_YGATIM__.schema">
             <SimpleData name="Cédula">1597794.00000000000</SimpleData>
             <SimpleData name="cedula">1597794</SimpleData>
-            <SimpleData name="N°">202</SimpleData>
+            <SimpleData name="N">202</SimpleData>
             <SimpleData name="Nombres y">CRISANTO VILLALBA GAUTO</SimpleData>
             <SimpleData name="Sexo">Hombre</SimpleData>
             <SimpleData name="Cambio de">NO</SimpleData>
@@ -4019,7 +4019,7 @@
           <SchemaData schemaUrl="#Distrito_VILLA_YGATIM__.schema">
             <SimpleData name="Cédula">4948444.00000000000</SimpleData>
             <SimpleData name="cedula">4948444</SimpleData>
-            <SimpleData name="N°">256</SimpleData>
+            <SimpleData name="N">256</SimpleData>
             <SimpleData name="Nombres y">ANGELINA  CHACHUPURANGI</SimpleData>
             <SimpleData name="Sexo">Mujer</SimpleData>
             <SimpleData name="Cambio de">NO</SimpleData>
@@ -4071,7 +4071,7 @@
           <SchemaData schemaUrl="#Distrito_VILLA_YGATIM__.schema">
             <SimpleData name="Cédula">4173708.00000000000</SimpleData>
             <SimpleData name="cedula">4173708</SimpleData>
-            <SimpleData name="N°">218</SimpleData>
+            <SimpleData name="N">218</SimpleData>
             <SimpleData name="Nombres y">LIDIA JUKUGI GARCIA</SimpleData>
             <SimpleData name="Sexo">Mujer</SimpleData>
             <SimpleData name="Cambio de">NO</SimpleData>
@@ -4124,7 +4124,7 @@
           <SchemaData schemaUrl="#Distrito_VILLA_YGATIM__.schema">
             <SimpleData name="Cédula">6349355.00000000000</SimpleData>
             <SimpleData name="cedula">6349355</SimpleData>
-            <SimpleData name="N°">237</SimpleData>
+            <SimpleData name="N">237</SimpleData>
             <SimpleData name="Nombres y">BRIGIDA KUACHINGI TYKUARANGI TATUGI</SimpleData>
             <SimpleData name="Sexo">Mujer</SimpleData>
             <SimpleData name="Cambio de">NO</SimpleData>
@@ -4176,7 +4176,7 @@
           <SchemaData schemaUrl="#Distrito_VILLA_YGATIM__.schema">
             <SimpleData name="Cédula">3792238.00000000000</SimpleData>
             <SimpleData name="cedula">3792238</SimpleData>
-            <SimpleData name="N°">206</SimpleData>
+            <SimpleData name="N">206</SimpleData>
             <SimpleData name="Nombres y">FELIPE ITAPEGI</SimpleData>
             <SimpleData name="Sexo">Hombre</SimpleData>
             <SimpleData name="Cambio de">NO</SimpleData>
@@ -4229,7 +4229,7 @@
           <SchemaData schemaUrl="#Distrito_VILLA_YGATIM__.schema">
             <SimpleData name="Cédula">8348512.00000000000</SimpleData>
             <SimpleData name="cedula">8348512</SimpleData>
-            <SimpleData name="N°">192</SimpleData>
+            <SimpleData name="N">192</SimpleData>
             <SimpleData name="Nombres y">CINTHIA SABINA LOPEZ GAUTO</SimpleData>
             <SimpleData name="Sexo">Mujer</SimpleData>
             <SimpleData name="Cambio de">NO</SimpleData>
@@ -4282,7 +4282,7 @@
           <SchemaData schemaUrl="#Distrito_VILLA_YGATIM__.schema">
             <SimpleData name="Cédula">5752666.00000000000</SimpleData>
             <SimpleData name="cedula">5752666</SimpleData>
-            <SimpleData name="N°">249</SimpleData>
+            <SimpleData name="N">249</SimpleData>
             <SimpleData name="Nombres y">JOANA MBECHAKRAMAGI PIKYGI MBYVANGI</SimpleData>
             <SimpleData name="Sexo">Mujer</SimpleData>
             <SimpleData name="Cambio de">NO</SimpleData>
@@ -4334,7 +4334,7 @@
           <SchemaData schemaUrl="#Distrito_VILLA_YGATIM__.schema">
             <SimpleData name="Cédula">4285824.00000000000</SimpleData>
             <SimpleData name="cedula">4285824</SimpleData>
-            <SimpleData name="N°">263</SimpleData>
+            <SimpleData name="N">263</SimpleData>
             <SimpleData name="Nombres y">OSVALDA GOMEZ PORTILLO</SimpleData>
             <SimpleData name="Sexo">Mujer</SimpleData>
             <SimpleData name="Cambio de">NO</SimpleData>
@@ -4357,7 +4357,7 @@
             <SimpleData name="Grupo de P">H-P17-XX-XX-XX</SimpleData>
             <SimpleData name="Jornales">0</SimpleData>
             <SimpleData name="Monto">0</SimpleData>
-            <SimpleData name="ETAPA FAO">Plantación</SimpleData>
+            <SimpleData name="ETAPA FAO">Mantenimiento Año 1.1</SimpleData>
             <SimpleData name="Estado del">Activo</SimpleData>
             <SimpleData name="Adjudicado">SI</SimpleData>
             <SimpleData name="Empresa">Hyh Consultores SRL</SimpleData>
@@ -4388,7 +4388,7 @@
           <SchemaData schemaUrl="#Distrito_VILLA_YGATIM__.schema">
             <SimpleData name="Cédula">5345295.00000000000</SimpleData>
             <SimpleData name="cedula">5345295</SimpleData>
-            <SimpleData name="N°">185</SimpleData>
+            <SimpleData name="N">185</SimpleData>
             <SimpleData name="Nombres y">CLAUDIA CHAKYTANGI MBEJUAGI MBEPURANGI</SimpleData>
             <SimpleData name="Sexo">Mujer</SimpleData>
             <SimpleData name="Cambio de">NO</SimpleData>
@@ -4440,7 +4440,7 @@
           <SchemaData schemaUrl="#Distrito_VILLA_YGATIM__.schema">
             <SimpleData name="Cédula">1086286.00000000000</SimpleData>
             <SimpleData name="cedula">1086286</SimpleData>
-            <SimpleData name="N°">197</SimpleData>
+            <SimpleData name="N">197</SimpleData>
             <SimpleData name="Nombres y">PETRONA TATUGI DE TYKUARANGI</SimpleData>
             <SimpleData name="Sexo">Mujer</SimpleData>
             <SimpleData name="Cambio de">NO</SimpleData>
@@ -4492,7 +4492,7 @@
           <SchemaData schemaUrl="#Distrito_VILLA_YGATIM__.schema">
             <SimpleData name="Cédula">6713153.00000000000</SimpleData>
             <SimpleData name="cedula">6713153</SimpleData>
-            <SimpleData name="N°">176</SimpleData>
+            <SimpleData name="N">176</SimpleData>
             <SimpleData name="Nombres y">JESSICA MAGALI PANIAGUA BRITEZ</SimpleData>
             <SimpleData name="Sexo">Mujer</SimpleData>
             <SimpleData name="Cambio de">NO</SimpleData>
@@ -4545,7 +4545,7 @@
           <SchemaData schemaUrl="#Distrito_VILLA_YGATIM__.schema">
             <SimpleData name="Cédula">5170881.00000000000</SimpleData>
             <SimpleData name="cedula">5170881</SimpleData>
-            <SimpleData name="N°">247</SimpleData>
+            <SimpleData name="N">247</SimpleData>
             <SimpleData name="Nombres y">VENICIA KUAREMINIGI CHACHUGI TORANGI</SimpleData>
             <SimpleData name="Sexo">Mujer</SimpleData>
             <SimpleData name="Cambio de">NO</SimpleData>
@@ -4597,7 +4597,7 @@
           <SchemaData schemaUrl="#Distrito_VILLA_YGATIM__.schema">
             <SimpleData name="Cédula">8311562.00000000000</SimpleData>
             <SimpleData name="cedula">8311562</SimpleData>
-            <SimpleData name="N°">189</SimpleData>
+            <SimpleData name="N">189</SimpleData>
             <SimpleData name="Nombres y">VERONICA PORTILLO ROMERO</SimpleData>
             <SimpleData name="Sexo">Mujer</SimpleData>
             <SimpleData name="Cambio de">NO</SimpleData>
@@ -4657,7 +4657,7 @@
           <SchemaData schemaUrl="#Distrito_VILLA_YGATIM__.schema">
             <SimpleData name="Cédula">2270351.00000000000</SimpleData>
             <SimpleData name="cedula">2270351</SimpleData>
-            <SimpleData name="N°">194</SimpleData>
+            <SimpleData name="N">194</SimpleData>
             <SimpleData name="Nombres y">ESTEBAN RODRIGUEZ</SimpleData>
             <SimpleData name="Sexo">Hombre</SimpleData>
             <SimpleData name="Cambio de">NO</SimpleData>
@@ -4710,7 +4710,7 @@
           <SchemaData schemaUrl="#Distrito_VILLA_YGATIM__.schema">
             <SimpleData name="Cédula">6349364.00000000000</SimpleData>
             <SimpleData name="cedula">6349364</SimpleData>
-            <SimpleData name="N°">187</SimpleData>
+            <SimpleData name="N">187</SimpleData>
             <SimpleData name="Nombres y">CORNELIA MBEPEGI KRACHOGI MBEPURANGI</SimpleData>
             <SimpleData name="Sexo">Mujer</SimpleData>
             <SimpleData name="Cambio de">NO</SimpleData>
@@ -4762,7 +4762,7 @@
           <SchemaData schemaUrl="#Distrito_VILLA_YGATIM__.schema">
             <SimpleData name="Cédula">6349320.00000000000</SimpleData>
             <SimpleData name="cedula">6349320</SimpleData>
-            <SimpleData name="N°">226</SimpleData>
+            <SimpleData name="N">226</SimpleData>
             <SimpleData name="Nombres y">CLAUDIA NAMBUVACHUGI TYKUARANGI DE TORANGI</SimpleData>
             <SimpleData name="Sexo">Mujer</SimpleData>
             <SimpleData name="Cambio de">NO</SimpleData>
@@ -4814,7 +4814,7 @@
           <SchemaData schemaUrl="#Distrito_VILLA_YGATIM__.schema">
             <SimpleData name="Cédula">6349370.00000000000</SimpleData>
             <SimpleData name="cedula">6349370</SimpleData>
-            <SimpleData name="N°">260</SimpleData>
+            <SimpleData name="N">260</SimpleData>
             <SimpleData name="Nombres y">HERODIA KREMBEGI PAYVANGI KUCHINGI</SimpleData>
             <SimpleData name="Sexo">Mujer</SimpleData>
             <SimpleData name="Cambio de">NO</SimpleData>
@@ -4867,7 +4867,7 @@
           <SchemaData schemaUrl="#Distrito_VILLA_YGATIM__.schema">
             <SimpleData name="Cédula">4544983.00000000000</SimpleData>
             <SimpleData name="cedula">4544983</SimpleData>
-            <SimpleData name="N°">200</SimpleData>
+            <SimpleData name="N">200</SimpleData>
             <SimpleData name="Nombres y">MERCEDES ROJAS GONZALEZ</SimpleData>
             <SimpleData name="Sexo">Mujer</SimpleData>
             <SimpleData name="Cambio de">NO</SimpleData>
@@ -4920,7 +4920,7 @@
           <SchemaData schemaUrl="#Distrito_VILLA_YGATIM__.schema">
             <SimpleData name="Cédula">4630091.00000000000</SimpleData>
             <SimpleData name="cedula">4630091</SimpleData>
-            <SimpleData name="N°">208</SimpleData>
+            <SimpleData name="N">208</SimpleData>
             <SimpleData name="Nombres y">CRISTINA MBYVANGI MBEPIGI DE CHEVUGI</SimpleData>
             <SimpleData name="Sexo">Mujer</SimpleData>
             <SimpleData name="Cambio de">NO</SimpleData>

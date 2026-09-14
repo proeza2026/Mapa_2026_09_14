@@ -4,7 +4,7 @@
     <Schema id="Distrito_CHORE.schema">
       <SimpleField name="Cédula" type="float"/>
       <SimpleField name="cedula" type="string"/>
-      <SimpleField name="N°" type="float"/>
+      <SimpleField name="N" type="float"/>
       <SimpleField name="Nombres y" type="string"/>
       <SimpleField name="Sexo" type="string"/>
       <SimpleField name="Cambio de" type="string"/>
@@ -54,7 +54,7 @@
           <SchemaData schemaUrl="#Distrito_CHORE.schema">
             <SimpleData name="Cédula">7268168.00000000000</SimpleData>
             <SimpleData name="cedula">7268168</SimpleData>
-            <SimpleData name="N°">54</SimpleData>
+            <SimpleData name="N">54</SimpleData>
             <SimpleData name="Nombres y">LUCILA  AGUILERA AYALA</SimpleData>
             <SimpleData name="Sexo">Mujer</SimpleData>
             <SimpleData name="Cambio de">NO</SimpleData>
@@ -77,7 +77,7 @@
             <SimpleData name="Grupo de P">I-P3-XX-XX-XX</SimpleData>
             <SimpleData name="Jornales">0</SimpleData>
             <SimpleData name="Monto">0</SimpleData>
-            <SimpleData name="ETAPA FAO">0</SimpleData>
+            <SimpleData name="ETAPA FAO">Mantenimiento Año 1.1</SimpleData>
             <SimpleData name="Estado del">Activo</SimpleData>
             <SimpleData name="Adjudicado">SI</SimpleData>
             <SimpleData name="Empresa">Emilio Solís Grance</SimpleData>

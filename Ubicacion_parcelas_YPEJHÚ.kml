@@ -4,7 +4,7 @@
     <Schema id="Distrito_YPEJH__.schema">
       <SimpleField name="Cédula" type="float"/>
       <SimpleField name="cedula" type="string"/>
-      <SimpleField name="N°" type="float"/>
+      <SimpleField name="N" type="float"/>
       <SimpleField name="Nombres y" type="string"/>
       <SimpleField name="Sexo" type="string"/>
       <SimpleField name="Cambio de" type="string"/>
@@ -54,7 +54,7 @@
           <SchemaData schemaUrl="#Distrito_YPEJH__.schema">
             <SimpleData name="Cédula">5454036.00000000000</SimpleData>
             <SimpleData name="cedula">5454036</SimpleData>
-            <SimpleData name="N°">305</SimpleData>
+            <SimpleData name="N">305</SimpleData>
             <SimpleData name="Nombres y">CRISTINA LOPEZ ROA</SimpleData>
             <SimpleData name="Sexo">Mujer</SimpleData>
             <SimpleData name="Cambio de">NO</SimpleData>
@@ -107,7 +107,7 @@
           <SchemaData schemaUrl="#Distrito_YPEJH__.schema">
             <SimpleData name="Cédula">5426614.00000000000</SimpleData>
             <SimpleData name="cedula">5426614</SimpleData>
-            <SimpleData name="N°">303</SimpleData>
+            <SimpleData name="N">303</SimpleData>
             <SimpleData name="Nombres y">ANTONIA BENITEZ BRITEZ</SimpleData>
             <SimpleData name="Sexo">Mujer</SimpleData>
             <SimpleData name="Cambio de">NO</SimpleData>
@@ -161,7 +161,7 @@
           <SchemaData schemaUrl="#Distrito_YPEJH__.schema">
             <SimpleData name="Cédula">5829383.00000000000</SimpleData>
             <SimpleData name="cedula">5829383</SimpleData>
-            <SimpleData name="N°">299</SimpleData>
+            <SimpleData name="N">299</SimpleData>
             <SimpleData name="Nombres y">NICOLASA BENITEZ</SimpleData>
             <SimpleData name="Sexo">Mujer</SimpleData>
             <SimpleData name="Cambio de">NO</SimpleData>
@@ -215,7 +215,7 @@
           <SchemaData schemaUrl="#Distrito_YPEJH__.schema">
             <SimpleData name="Cédula">5453986.00000000000</SimpleData>
             <SimpleData name="cedula">5453986</SimpleData>
-            <SimpleData name="N°">304</SimpleData>
+            <SimpleData name="N">304</SimpleData>
             <SimpleData name="Nombres y">NIDA PERALTA</SimpleData>
             <SimpleData name="Sexo">Mujer</SimpleData>
             <SimpleData name="Cambio de">NO</SimpleData>
@@ -269,7 +269,7 @@
           <SchemaData schemaUrl="#Distrito_YPEJH__.schema">
             <SimpleData name="Cédula">5454000.00000000000</SimpleData>
             <SimpleData name="cedula">5454000</SimpleData>
-            <SimpleData name="N°">300</SimpleData>
+            <SimpleData name="N">300</SimpleData>
             <SimpleData name="Nombres y">ANTOLINA VERGARA BRITEZ</SimpleData>
             <SimpleData name="Sexo">Mujer</SimpleData>
             <SimpleData name="Cambio de">NO</SimpleData>
@@ -322,7 +322,7 @@
           <SchemaData schemaUrl="#Distrito_YPEJH__.schema">
             <SimpleData name="Cédula">5426629.00000000000</SimpleData>
             <SimpleData name="cedula">5426629</SimpleData>
-            <SimpleData name="N°">302</SimpleData>
+            <SimpleData name="N">302</SimpleData>
             <SimpleData name="Nombres y">ISELINA PERALTA BENITEZ</SimpleData>
             <SimpleData name="Sexo">Mujer</SimpleData>
             <SimpleData name="Cambio de">NO</SimpleData>
@@ -376,7 +376,7 @@
           <SchemaData schemaUrl="#Distrito_YPEJH__.schema">
             <SimpleData name="Cédula">6757505.00000000000</SimpleData>
             <SimpleData name="cedula">6757505</SimpleData>
-            <SimpleData name="N°">309</SimpleData>
+            <SimpleData name="N">309</SimpleData>
             <SimpleData name="Nombres y">VIDALINA AQUINO RECALDE</SimpleData>
             <SimpleData name="Sexo">Mujer</SimpleData>
             <SimpleData name="Cambio de">NO</SimpleData>
@@ -430,7 +430,7 @@
           <SchemaData schemaUrl="#Distrito_YPEJH__.schema">
             <SimpleData name="Cédula">6757450.00000000000</SimpleData>
             <SimpleData name="cedula">6757450</SimpleData>
-            <SimpleData name="N°">311</SimpleData>
+            <SimpleData name="N">311</SimpleData>
             <SimpleData name="Nombres y">REINALDO LOPEZ MARTINEZ</SimpleData>
             <SimpleData name="Sexo">Hombre</SimpleData>
             <SimpleData name="Cambio de">NO</SimpleData>
@@ -452,7 +452,7 @@
             <SimpleData name="Grupo de P">H-P17-XX-XX-XX</SimpleData>
             <SimpleData name="Jornales">0</SimpleData>
             <SimpleData name="Monto">0</SimpleData>
-            <SimpleData name="ETAPA FAO">Plantación</SimpleData>
+            <SimpleData name="ETAPA FAO">Mantenimiento Año 1.1</SimpleData>
             <SimpleData name="Estado del">Activo</SimpleData>
             <SimpleData name="Adjudicado">Si</SimpleData>
             <SimpleData name="Empresa">Hyh Consultores SRL</SimpleData>
@@ -483,7 +483,7 @@
           <SchemaData schemaUrl="#Distrito_YPEJH__.schema">
             <SimpleData name="Cédula">6954209.00000000000</SimpleData>
             <SimpleData name="cedula">6954209</SimpleData>
-            <SimpleData name="N°">298</SimpleData>
+            <SimpleData name="N">298</SimpleData>
             <SimpleData name="Nombres y">MARIBEL AGUILAR ALEGRE</SimpleData>
             <SimpleData name="Sexo">Mujer</SimpleData>
             <SimpleData name="Cambio de">NO</SimpleData>
@@ -537,7 +537,7 @@
           <SchemaData schemaUrl="#Distrito_YPEJH__.schema">
             <SimpleData name="Cédula">6747927.00000000000</SimpleData>
             <SimpleData name="cedula">6747927</SimpleData>
-            <SimpleData name="N°">310</SimpleData>
+            <SimpleData name="N">310</SimpleData>
             <SimpleData name="Nombres y">TRANQUILINA ESPINOLA FERNANDEZ</SimpleData>
             <SimpleData name="Sexo">Mujer</SimpleData>
             <SimpleData name="Cambio de">NO</SimpleData>
@@ -590,7 +590,7 @@
           <SchemaData schemaUrl="#Distrito_YPEJH__.schema">
             <SimpleData name="Cédula">5453823.00000000000</SimpleData>
             <SimpleData name="cedula">5453823</SimpleData>
-            <SimpleData name="N°">301</SimpleData>
+            <SimpleData name="N">301</SimpleData>
             <SimpleData name="Nombres y">SUSANA BENITEZ BRITEZ</SimpleData>
             <SimpleData name="Sexo">Mujer</SimpleData>
             <SimpleData name="Cambio de">NO</SimpleData>
@@ -644,7 +644,7 @@
           <SchemaData schemaUrl="#Distrito_YPEJH__.schema">
             <SimpleData name="Cédula">4552788.00000000000</SimpleData>
             <SimpleData name="cedula">4552788</SimpleData>
-            <SimpleData name="N°">307</SimpleData>
+            <SimpleData name="N">307</SimpleData>
             <SimpleData name="Nombres y">FLORENTINA ROA MARTINEZ</SimpleData>
             <SimpleData name="Sexo">Mujer</SimpleData>
             <SimpleData name="Cambio de">NO</SimpleData>
@@ -698,7 +698,7 @@
           <SchemaData schemaUrl="#Distrito_YPEJH__.schema">
             <SimpleData name="Cédula">5426598.00000000000</SimpleData>
             <SimpleData name="cedula">5426598</SimpleData>
-            <SimpleData name="N°">306</SimpleData>
+            <SimpleData name="N">306</SimpleData>
             <SimpleData name="Nombres y">TEODORINA BRITEZ BARRETO</SimpleData>
             <SimpleData name="Sexo">Mujer</SimpleData>
             <SimpleData name="Cambio de">NO</SimpleData>
@@ -751,7 +751,7 @@
           <SchemaData schemaUrl="#Distrito_YPEJH__.schema">
             <SimpleData name="Cédula">8323662.00000000000</SimpleData>
             <SimpleData name="cedula">8323662</SimpleData>
-            <SimpleData name="N°">312</SimpleData>
+            <SimpleData name="N">312</SimpleData>
             <SimpleData name="Nombres y">VILMA MEDINA BENITEZ</SimpleData>
             <SimpleData name="Sexo">Mujer</SimpleData>
             <SimpleData name="Cambio de">NO</SimpleData>
@@ -774,7 +774,7 @@
             <SimpleData name="Grupo de P">H-P17-XX-XX-XX</SimpleData>
             <SimpleData name="Jornales">0</SimpleData>
             <SimpleData name="Monto">0</SimpleData>
-            <SimpleData name="ETAPA FAO">Plantación</SimpleData>
+            <SimpleData name="ETAPA FAO">Mantenimiento Año 1.1</SimpleData>
             <SimpleData name="Estado del">Activo</SimpleData>
             <SimpleData name="Adjudicado">Si</SimpleData>
             <SimpleData name="Empresa">Hyh Consultores SRL</SimpleData>
@@ -812,7 +812,7 @@
           <SchemaData schemaUrl="#Distrito_YPEJH__.schema">
             <SimpleData name="Cédula">6743519.00000000000</SimpleData>
             <SimpleData name="cedula">6743519</SimpleData>
-            <SimpleData name="N°">308</SimpleData>
+            <SimpleData name="N">308</SimpleData>
             <SimpleData name="Nombres y">ANASTACIO VERGARA PERALTA</SimpleData>
             <SimpleData name="Sexo">Hombre</SimpleData>
             <SimpleData name="Cambio de">NO</SimpleData>

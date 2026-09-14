@@ -4,7 +4,7 @@
     <Schema id="Distrito_NUEVA_TOLEDO.schema">
       <SimpleField name="Cédula" type="float"/>
       <SimpleField name="cedula" type="string"/>
-      <SimpleField name="N°" type="float"/>
+      <SimpleField name="N" type="float"/>
       <SimpleField name="Nombres y" type="string"/>
       <SimpleField name="Sexo" type="string"/>
       <SimpleField name="Cambio de" type="string"/>
@@ -54,7 +54,7 @@
           <SchemaData schemaUrl="#Distrito_NUEVA_TOLEDO.schema">
             <SimpleData name="Cédula">8069716.00000000000</SimpleData>
             <SimpleData name="cedula">8069716</SimpleData>
-            <SimpleData name="N°">117</SimpleData>
+            <SimpleData name="N">117</SimpleData>
             <SimpleData name="Nombres y">RAQUEL FERNANDEZ VILLALBA</SimpleData>
             <SimpleData name="Sexo">Mujer</SimpleData>
             <SimpleData name="Cambio de">NO</SimpleData>
@@ -108,7 +108,7 @@
           <SchemaData schemaUrl="#Distrito_NUEVA_TOLEDO.schema">
             <SimpleData name="Cédula">7271488.00000000000</SimpleData>
             <SimpleData name="cedula">7271488</SimpleData>
-            <SimpleData name="N°">118</SimpleData>
+            <SimpleData name="N">118</SimpleData>
             <SimpleData name="Nombres y">ANA ESQUIVEL CHAVEZ</SimpleData>
             <SimpleData name="Sexo">Mujer</SimpleData>
             <SimpleData name="Cambio de">NO</SimpleData>

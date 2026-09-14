@@ -4,7 +4,7 @@
     <Schema id="Distrito_HORQUETA.schema">
       <SimpleField name="Cédula" type="float"/>
       <SimpleField name="cedula" type="string"/>
-      <SimpleField name="N°" type="float"/>
+      <SimpleField name="N" type="float"/>
       <SimpleField name="Nombres y" type="string"/>
       <SimpleField name="Sexo" type="string"/>
       <SimpleField name="Cambio de" type="string"/>
@@ -54,7 +54,7 @@
           <SchemaData schemaUrl="#Distrito_HORQUETA.schema">
             <SimpleData name="Cédula">7900312.00000000000</SimpleData>
             <SimpleData name="cedula">7900312</SimpleData>
-            <SimpleData name="N°">80</SimpleData>
+            <SimpleData name="N">80</SimpleData>
             <SimpleData name="Nombres y">RODRIGO GALEANO</SimpleData>
             <SimpleData name="Sexo">Hombre</SimpleData>
             <SimpleData name="Cambio de">NO</SimpleData>
@@ -108,7 +108,7 @@
           <SchemaData schemaUrl="#Distrito_HORQUETA.schema">
             <SimpleData name="Cédula">6616006.00000000000</SimpleData>
             <SimpleData name="cedula">6616006</SimpleData>
-            <SimpleData name="N°">82</SimpleData>
+            <SimpleData name="N">82</SimpleData>
             <SimpleData name="Nombres y">MARIA CRISTINA  ARCE GARCETE</SimpleData>
             <SimpleData name="Sexo">Mujer</SimpleData>
             <SimpleData name="Cambio de">NO</SimpleData>
@@ -169,7 +169,7 @@
           <SchemaData schemaUrl="#Distrito_HORQUETA.schema">
             <SimpleData name="Cédula">6027481.00000000000</SimpleData>
             <SimpleData name="cedula">6027481</SimpleData>
-            <SimpleData name="N°">78</SimpleData>
+            <SimpleData name="N">78</SimpleData>
             <SimpleData name="Nombres y">CESAR SEBASTIAN ARISTE</SimpleData>
             <SimpleData name="Sexo">Hombre</SimpleData>
             <SimpleData name="Cambio de">NO</SimpleData>
@@ -192,6 +192,7 @@
             <SimpleData name="Grupo de P">J-P1-XX-XX-XX</SimpleData>
             <SimpleData name="Jornales">0</SimpleData>
             <SimpleData name="Monto">0</SimpleData>
+            <SimpleData name="ETAPA FAO">Mantenimiento Año 1.1</SimpleData>
             <SimpleData name="Estado del">Activo</SimpleData>
             <SimpleData name="Adjudicado">SI</SimpleData>
             <SimpleData name="Empresa">Emilio Solís Grance</SimpleData>

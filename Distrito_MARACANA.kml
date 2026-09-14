@@ -4,7 +4,7 @@
     <Schema id="Distrito_MARACANA.schema">
       <SimpleField name="Cédula" type="float"/>
       <SimpleField name="cedula" type="string"/>
-      <SimpleField name="N°" type="float"/>
+      <SimpleField name="N" type="float"/>
       <SimpleField name="Nombres y" type="string"/>
       <SimpleField name="Sexo" type="string"/>
       <SimpleField name="Cambio de" type="string"/>
@@ -54,7 +54,7 @@
           <SchemaData schemaUrl="#Distrito_MARACANA.schema">
             <SimpleData name="Cédula">6160386.00000000000</SimpleData>
             <SimpleData name="cedula">6160386</SimpleData>
-            <SimpleData name="N°">107</SimpleData>
+            <SimpleData name="N">107</SimpleData>
             <SimpleData name="Nombres y">LOURDES MARIA BENITEZ LOPEZ</SimpleData>
             <SimpleData name="Sexo">Mujer</SimpleData>
             <SimpleData name="Cambio de">NO</SimpleData>
@@ -76,7 +76,7 @@
             <SimpleData name="Grupo de P">H-P1-XX-XX-XX</SimpleData>
             <SimpleData name="Jornales">0</SimpleData>
             <SimpleData name="Monto">0</SimpleData>
-            <SimpleData name="ETAPA FAO">Plantación</SimpleData>
+            <SimpleData name="ETAPA FAO">Mantenimiento Año 1.1</SimpleData>
             <SimpleData name="Estado del">Activo</SimpleData>
             <SimpleData name="Empresa">Hyh Consultores SRL</SimpleData>
             <SimpleData name="Lote">H</SimpleData>

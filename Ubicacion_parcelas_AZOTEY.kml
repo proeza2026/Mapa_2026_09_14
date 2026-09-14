@@ -4,7 +4,7 @@
     <Schema id="Distrito_AZOTEY.schema">
       <SimpleField name="Cédula" type="float"/>
       <SimpleField name="cedula" type="string"/>
-      <SimpleField name="N°" type="float"/>
+      <SimpleField name="N" type="float"/>
       <SimpleField name="Nombres y" type="string"/>
       <SimpleField name="Sexo" type="string"/>
       <SimpleField name="Cambio de" type="string"/>
@@ -54,7 +54,7 @@
           <SchemaData schemaUrl="#Distrito_AZOTEY.schema">
             <SimpleData name="Cédula">7424731.00000000000</SimpleData>
             <SimpleData name="cedula">7424731</SimpleData>
-            <SimpleData name="N°">44</SimpleData>
+            <SimpleData name="N">44</SimpleData>
             <SimpleData name="Nombres y">MARILENE VARGAS DUARTE</SimpleData>
             <SimpleData name="Sexo">Mujer</SimpleData>
             <SimpleData name="Cambio de">NO</SimpleData>
@@ -77,6 +77,7 @@
             <SimpleData name="Grupo de P">J-P1-XX-XX-XX</SimpleData>
             <SimpleData name="Jornales">0</SimpleData>
             <SimpleData name="Monto">0</SimpleData>
+            <SimpleData name="ETAPA FAO">Mantenimiento Año 1.1</SimpleData>
             <SimpleData name="Estado del">Activo</SimpleData>
             <SimpleData name="Adjudicado">SI</SimpleData>
             <SimpleData name="Empresa">Emilio Solís Grance</SimpleData>
@@ -107,7 +108,7 @@
           <SchemaData schemaUrl="#Distrito_AZOTEY.schema">
             <SimpleData name="Cédula">3833193.00000000000</SimpleData>
             <SimpleData name="cedula">3833193</SimpleData>
-            <SimpleData name="N°">46</SimpleData>
+            <SimpleData name="N">46</SimpleData>
             <SimpleData name="Nombres y">LOURDE MARISEL DUARTE</SimpleData>
             <SimpleData name="Sexo">Mujer</SimpleData>
             <SimpleData name="Cambio de">SI</SimpleData>
@@ -131,6 +132,7 @@
             <SimpleData name="Grupo de P">J-P1-XX-XX-XX</SimpleData>
             <SimpleData name="Jornales">0</SimpleData>
             <SimpleData name="Monto">0</SimpleData>
+            <SimpleData name="ETAPA FAO">Mantenimiento Año 1.1</SimpleData>
             <SimpleData name="Estado del">Activo</SimpleData>
             <SimpleData name="Adjudicado">SI</SimpleData>
             <SimpleData name="Empresa">Emilio Solís Grance</SimpleData>
@@ -160,7 +162,7 @@
           <SchemaData schemaUrl="#Distrito_AZOTEY.schema">
             <SimpleData name="Cédula">6945797.00000000000</SimpleData>
             <SimpleData name="cedula">6945797</SimpleData>
-            <SimpleData name="N°">45</SimpleData>
+            <SimpleData name="N">45</SimpleData>
             <SimpleData name="Nombres y">CONSORCIA RAMIREZ RECALDE</SimpleData>
             <SimpleData name="Sexo">Mujer</SimpleData>
             <SimpleData name="Cambio de">NO</SimpleData>
@@ -183,6 +185,7 @@
             <SimpleData name="Grupo de P">J-P1-XX-XX-XX</SimpleData>
             <SimpleData name="Jornales">0</SimpleData>
             <SimpleData name="Monto">0</SimpleData>
+            <SimpleData name="ETAPA FAO">Mantenimiento Año 1.1</SimpleData>
             <SimpleData name="Estado del">Activo</SimpleData>
             <SimpleData name="Adjudicado">SI</SimpleData>
             <SimpleData name="Empresa">Emilio Solís Grance</SimpleData>
@@ -213,7 +216,7 @@
           <SchemaData schemaUrl="#Distrito_AZOTEY.schema">
             <SimpleData name="Cédula">6788915.00000000000</SimpleData>
             <SimpleData name="cedula">6788915</SimpleData>
-            <SimpleData name="N°">43</SimpleData>
+            <SimpleData name="N">43</SimpleData>
             <SimpleData name="Nombres y">DIGNA ARCE RECALDE</SimpleData>
             <SimpleData name="Sexo">Mujer</SimpleData>
             <SimpleData name="Cambio de">NO</SimpleData>
@@ -236,6 +239,7 @@
             <SimpleData name="Grupo de P">J-P1-XX-XX-XX</SimpleData>
             <SimpleData name="Jornales">0</SimpleData>
             <SimpleData name="Monto">0</SimpleData>
+            <SimpleData name="ETAPA FAO">Mantenimiento Año 1.1</SimpleData>
             <SimpleData name="Estado del">Activo</SimpleData>
             <SimpleData name="Adjudicado">SI</SimpleData>
             <SimpleData name="Empresa">Emilio Solís Grance</SimpleData>
@@ -266,7 +270,7 @@
           <SchemaData schemaUrl="#Distrito_AZOTEY.schema">
             <SimpleData name="Cédula">4200849.00000000000</SimpleData>
             <SimpleData name="cedula">4200849</SimpleData>
-            <SimpleData name="N°">42</SimpleData>
+            <SimpleData name="N">42</SimpleData>
             <SimpleData name="Nombres y">ANA MARIELA RECALDE GARCETE</SimpleData>
             <SimpleData name="Sexo">Mujer</SimpleData>
             <SimpleData name="Cambio de">SI</SimpleData>
@@ -290,6 +294,7 @@
             <SimpleData name="Grupo de P">J-P1-XX-XX-XX</SimpleData>
             <SimpleData name="Jornales">0</SimpleData>
             <SimpleData name="Monto">0</SimpleData>
+            <SimpleData name="ETAPA FAO">Mantenimiento Año 1.1</SimpleData>
             <SimpleData name="Estado del">Activo</SimpleData>
             <SimpleData name="Adjudicado">SI</SimpleData>
             <SimpleData name="Empresa">Emilio Solís Grance</SimpleData>

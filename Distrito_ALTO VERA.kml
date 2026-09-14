@@ -4,7 +4,7 @@
     <Schema id="Distrito_ALTO_VERA.schema">
       <SimpleField name="Cédula" type="float"/>
       <SimpleField name="cedula" type="string"/>
-      <SimpleField name="N°" type="float"/>
+      <SimpleField name="N" type="float"/>
       <SimpleField name="Nombres y" type="string"/>
       <SimpleField name="Sexo" type="string"/>
       <SimpleField name="Cambio de" type="string"/>
@@ -54,7 +54,7 @@
           <SchemaData schemaUrl="#Distrito_ALTO_VERA.schema">
             <SimpleData name="Cédula">6607303.00000000000</SimpleData>
             <SimpleData name="cedula">6607303</SimpleData>
-            <SimpleData name="N°">40</SimpleData>
+            <SimpleData name="N">40</SimpleData>
             <SimpleData name="Nombres y">LIZ ROSMARI DIAZ BENITEZ</SimpleData>
             <SimpleData name="Sexo">Mujer</SimpleData>
             <SimpleData name="Cambio de">NO</SimpleData>
@@ -131,7 +131,7 @@
           <SchemaData schemaUrl="#Distrito_ALTO_VERA.schema">
             <SimpleData name="Cédula">6655884.00000000000</SimpleData>
             <SimpleData name="cedula">6655884</SimpleData>
-            <SimpleData name="N°">3</SimpleData>
+            <SimpleData name="N">3</SimpleData>
             <SimpleData name="Nombres y">MARIELA BAREIRO CACERES</SimpleData>
             <SimpleData name="Sexo">Mujer</SimpleData>
             <SimpleData name="Cambio de">NO</SimpleData>
@@ -208,7 +208,7 @@
           <SchemaData schemaUrl="#Distrito_ALTO_VERA.schema">
             <SimpleData name="Cédula">6600755.00000000000</SimpleData>
             <SimpleData name="cedula">6600755</SimpleData>
-            <SimpleData name="N°">28</SimpleData>
+            <SimpleData name="N">28</SimpleData>
             <SimpleData name="Nombres y">BACILIA DUARTE SANGER</SimpleData>
             <SimpleData name="Sexo">Mujer</SimpleData>
             <SimpleData name="Cambio de">NO</SimpleData>
@@ -277,7 +277,7 @@
           <SchemaData schemaUrl="#Distrito_ALTO_VERA.schema">
             <SimpleData name="Cédula">8141631.00000000000</SimpleData>
             <SimpleData name="cedula">8141631</SimpleData>
-            <SimpleData name="N°">25</SimpleData>
+            <SimpleData name="N">25</SimpleData>
             <SimpleData name="Nombres y">LILIANA BENITEZ CABRERA</SimpleData>
             <SimpleData name="Sexo">Mujer</SimpleData>
             <SimpleData name="Cambio de">NO</SimpleData>
@@ -349,7 +349,7 @@
           <SchemaData schemaUrl="#Distrito_ALTO_VERA.schema">
             <SimpleData name="Cédula">5129578.00000000000</SimpleData>
             <SimpleData name="cedula">5129578</SimpleData>
-            <SimpleData name="N°">15</SimpleData>
+            <SimpleData name="N">15</SimpleData>
             <SimpleData name="Nombres y">FRANCISCO JAVIER ORUE ACOSTA</SimpleData>
             <SimpleData name="Sexo">Hombre</SimpleData>
             <SimpleData name="Cambio de">NO</SimpleData>
@@ -413,7 +413,7 @@
           <SchemaData schemaUrl="#Distrito_ALTO_VERA.schema">
             <SimpleData name="Cédula">7112602.00000000000</SimpleData>
             <SimpleData name="cedula">7112602</SimpleData>
-            <SimpleData name="N°">30</SimpleData>
+            <SimpleData name="N">30</SimpleData>
             <SimpleData name="Nombres y">ELIZA KANIUKA VERA</SimpleData>
             <SimpleData name="Sexo">Mujer</SimpleData>
             <SimpleData name="Cambio de">NO</SimpleData>
@@ -477,7 +477,7 @@
           <SchemaData schemaUrl="#Distrito_ALTO_VERA.schema">
             <SimpleData name="Cédula">6745283.00000000000</SimpleData>
             <SimpleData name="cedula">6745283</SimpleData>
-            <SimpleData name="N°">36</SimpleData>
+            <SimpleData name="N">36</SimpleData>
             <SimpleData name="Nombres y">ZULMA  VERA DUARTE</SimpleData>
             <SimpleData name="Sexo">Mujer</SimpleData>
             <SimpleData name="Cambio de">NO</SimpleData>
@@ -542,7 +542,7 @@
           <SchemaData schemaUrl="#Distrito_ALTO_VERA.schema">
             <SimpleData name="Cédula">1448656.00000000000</SimpleData>
             <SimpleData name="cedula">1448656</SimpleData>
-            <SimpleData name="N°">39</SimpleData>
+            <SimpleData name="N">39</SimpleData>
             <SimpleData name="Nombres y">ANASTASIO FERNANDEZ BOGADO</SimpleData>
             <SimpleData name="Sexo">Hombre</SimpleData>
             <SimpleData name="Cambio de">NO</SimpleData>
@@ -610,7 +610,7 @@
           <SchemaData schemaUrl="#Distrito_ALTO_VERA.schema">
             <SimpleData name="Cédula">6373818.00000000000</SimpleData>
             <SimpleData name="cedula">6373818</SimpleData>
-            <SimpleData name="N°">8</SimpleData>
+            <SimpleData name="N">8</SimpleData>
             <SimpleData name="Nombres y">DAMIANA ULIAMBRE ORTIZ</SimpleData>
             <SimpleData name="Sexo">Mujer</SimpleData>
             <SimpleData name="Cambio de">NO</SimpleData>
@@ -674,7 +674,7 @@
           <SchemaData schemaUrl="#Distrito_ALTO_VERA.schema">
             <SimpleData name="Cédula">6231798.00000000000</SimpleData>
             <SimpleData name="cedula">6231798</SimpleData>
-            <SimpleData name="N°">10</SimpleData>
+            <SimpleData name="N">10</SimpleData>
             <SimpleData name="Nombres y">NATALIA SOLEDAD ALVARENGA ACOSTA</SimpleData>
             <SimpleData name="Sexo">Mujer</SimpleData>
             <SimpleData name="Cambio de">NO</SimpleData>
@@ -738,7 +738,7 @@
           <SchemaData schemaUrl="#Distrito_ALTO_VERA.schema">
             <SimpleData name="Cédula">6376706.00000000000</SimpleData>
             <SimpleData name="cedula">6376706</SimpleData>
-            <SimpleData name="N°">19</SimpleData>
+            <SimpleData name="N">19</SimpleData>
             <SimpleData name="Nombres y">MARIELA CUELLA LUJAN</SimpleData>
             <SimpleData name="Sexo">Mujer</SimpleData>
             <SimpleData name="Cambio de">NO</SimpleData>
@@ -800,7 +800,7 @@
           <SchemaData schemaUrl="#Distrito_ALTO_VERA.schema">
             <SimpleData name="Cédula">6116567.00000000000</SimpleData>
             <SimpleData name="cedula">6116567</SimpleData>
-            <SimpleData name="N°">1</SimpleData>
+            <SimpleData name="N">1</SimpleData>
             <SimpleData name="Nombres y">EMILCE CABRAL BARRIOS</SimpleData>
             <SimpleData name="Sexo">Mujer</SimpleData>
             <SimpleData name="Cambio de">NO</SimpleData>
@@ -865,7 +865,7 @@
           <SchemaData schemaUrl="#Distrito_ALTO_VERA.schema">
             <SimpleData name="Cédula">6205273.00000000000</SimpleData>
             <SimpleData name="cedula">6205273</SimpleData>
-            <SimpleData name="N°">7</SimpleData>
+            <SimpleData name="N">7</SimpleData>
             <SimpleData name="Nombres y">SONIA LOPEZ MARECO</SimpleData>
             <SimpleData name="Sexo">Mujer</SimpleData>
             <SimpleData name="Cambio de">NO</SimpleData>
@@ -930,7 +930,7 @@
           <SchemaData schemaUrl="#Distrito_ALTO_VERA.schema">
             <SimpleData name="Cédula">7687650.00000000000</SimpleData>
             <SimpleData name="cedula">7687650</SimpleData>
-            <SimpleData name="N°">35</SimpleData>
+            <SimpleData name="N">35</SimpleData>
             <SimpleData name="Nombres y">GLORIA MABEL  RIVAS OLMEDO</SimpleData>
             <SimpleData name="Sexo">Mujer</SimpleData>
             <SimpleData name="Cambio de">NO</SimpleData>
@@ -1000,7 +1000,7 @@
           <SchemaData schemaUrl="#Distrito_ALTO_VERA.schema">
             <SimpleData name="Cédula">4162259.00000000000</SimpleData>
             <SimpleData name="cedula">4162259</SimpleData>
-            <SimpleData name="N°">11</SimpleData>
+            <SimpleData name="N">11</SimpleData>
             <SimpleData name="Nombres y">ANTONIA ESTER MUÑOZ</SimpleData>
             <SimpleData name="Sexo">Mujer</SimpleData>
             <SimpleData name="Cambio de">NO</SimpleData>
@@ -1062,7 +1062,7 @@
           <SchemaData schemaUrl="#Distrito_ALTO_VERA.schema">
             <SimpleData name="Cédula">4760845.00000000000</SimpleData>
             <SimpleData name="cedula">4760845</SimpleData>
-            <SimpleData name="N°">2</SimpleData>
+            <SimpleData name="N">2</SimpleData>
             <SimpleData name="Nombres y">EVER VENIALGO LEDEZMA</SimpleData>
             <SimpleData name="Sexo">Hombre</SimpleData>
             <SimpleData name="Cambio de">NO</SimpleData>
@@ -1124,7 +1124,7 @@
           <SchemaData schemaUrl="#Distrito_ALTO_VERA.schema">
             <SimpleData name="Cédula">5395092.00000000000</SimpleData>
             <SimpleData name="cedula">5395092</SimpleData>
-            <SimpleData name="N°">14</SimpleData>
+            <SimpleData name="N">14</SimpleData>
             <SimpleData name="Nombres y">OLGA BARRETO VERA</SimpleData>
             <SimpleData name="Sexo">Mujer</SimpleData>
             <SimpleData name="Cambio de">NO</SimpleData>
@@ -1186,7 +1186,7 @@
           <SchemaData schemaUrl="#Distrito_ALTO_VERA.schema">
             <SimpleData name="Cédula">2668268.00000000000</SimpleData>
             <SimpleData name="cedula">2668268</SimpleData>
-            <SimpleData name="N°">38</SimpleData>
+            <SimpleData name="N">38</SimpleData>
             <SimpleData name="Nombres y">CARMEN SANCHEZ DE DIAZ</SimpleData>
             <SimpleData name="Sexo">Mujer</SimpleData>
             <SimpleData name="Cambio de">NO</SimpleData>
@@ -1255,7 +1255,7 @@
           <SchemaData schemaUrl="#Distrito_ALTO_VERA.schema">
             <SimpleData name="Cédula">4162216.00000000000</SimpleData>
             <SimpleData name="cedula">4162216</SimpleData>
-            <SimpleData name="N°">37</SimpleData>
+            <SimpleData name="N">37</SimpleData>
             <SimpleData name="Nombres y">ESTELVINA RAQUEL BENITEZ MOREL</SimpleData>
             <SimpleData name="Sexo">Mujer</SimpleData>
             <SimpleData name="Cambio de">NO</SimpleData>
@@ -1319,7 +1319,7 @@
           <SchemaData schemaUrl="#Distrito_ALTO_VERA.schema">
             <SimpleData name="Cédula">4162225.00000000000</SimpleData>
             <SimpleData name="cedula">4162225</SimpleData>
-            <SimpleData name="N°">5</SimpleData>
+            <SimpleData name="N">5</SimpleData>
             <SimpleData name="Nombres y">GRACIELA SERVIN AMARILLA</SimpleData>
             <SimpleData name="Sexo">Mujer</SimpleData>
             <SimpleData name="Cambio de">NO</SimpleData>
@@ -1384,7 +1384,7 @@
           <SchemaData schemaUrl="#Distrito_ALTO_VERA.schema">
             <SimpleData name="Cédula">5141211.00000000000</SimpleData>
             <SimpleData name="cedula">5141211</SimpleData>
-            <SimpleData name="N°">17</SimpleData>
+            <SimpleData name="N">17</SimpleData>
             <SimpleData name="Nombres y">MIRNA ESTELA CHAMORRO SANCHEZ</SimpleData>
             <SimpleData name="Sexo">Mujer</SimpleData>
             <SimpleData name="Cambio de">NO</SimpleData>
@@ -1447,7 +1447,7 @@
           <SchemaData schemaUrl="#Distrito_ALTO_VERA.schema">
             <SimpleData name="Cédula">5887042.00000000000</SimpleData>
             <SimpleData name="cedula">5887042</SimpleData>
-            <SimpleData name="N°">9</SimpleData>
+            <SimpleData name="N">9</SimpleData>
             <SimpleData name="Nombres y">ESTELA LUJAN DE OCAMPO</SimpleData>
             <SimpleData name="Sexo">Mujer</SimpleData>
             <SimpleData name="Cambio de">NO</SimpleData>
@@ -1512,7 +1512,7 @@
           <SchemaData schemaUrl="#Distrito_ALTO_VERA.schema">
             <SimpleData name="Cédula">6106928.00000000000</SimpleData>
             <SimpleData name="cedula">6106928</SimpleData>
-            <SimpleData name="N°">13</SimpleData>
+            <SimpleData name="N">13</SimpleData>
             <SimpleData name="Nombres y">MONICA ANTONIA AVALOS ARGUELLO</SimpleData>
             <SimpleData name="Sexo">Mujer</SimpleData>
             <SimpleData name="Cambio de">NO</SimpleData>
@@ -1576,7 +1576,7 @@
           <SchemaData schemaUrl="#Distrito_ALTO_VERA.schema">
             <SimpleData name="Cédula">3310559.00000000000</SimpleData>
             <SimpleData name="cedula">3310559</SimpleData>
-            <SimpleData name="N°">6</SimpleData>
+            <SimpleData name="N">6</SimpleData>
             <SimpleData name="Nombres y">ANA MARIA DOMINGUEZ DE MOLINAS</SimpleData>
             <SimpleData name="Sexo">Mujer</SimpleData>
             <SimpleData name="Cambio de">NO</SimpleData>
@@ -1638,7 +1638,7 @@
           <SchemaData schemaUrl="#Distrito_ALTO_VERA.schema">
             <SimpleData name="Cédula">4077894.00000000000</SimpleData>
             <SimpleData name="cedula">4077894</SimpleData>
-            <SimpleData name="N°">4</SimpleData>
+            <SimpleData name="N">4</SimpleData>
             <SimpleData name="Nombres y">MARIA ESTELA ARCE</SimpleData>
             <SimpleData name="Sexo">Mujer</SimpleData>
             <SimpleData name="Cambio de">NO</SimpleData>
@@ -1700,7 +1700,7 @@
           <SchemaData schemaUrl="#Distrito_ALTO_VERA.schema">
             <SimpleData name="Cédula">6607020.00000000000</SimpleData>
             <SimpleData name="cedula">6607020</SimpleData>
-            <SimpleData name="N°">12</SimpleData>
+            <SimpleData name="N">12</SimpleData>
             <SimpleData name="Nombres y">NINFA RAQUEL DELVALLE</SimpleData>
             <SimpleData name="Sexo">Mujer</SimpleData>
             <SimpleData name="Cambio de">NO</SimpleData>
@@ -1780,7 +1780,7 @@
           <SchemaData schemaUrl="#Distrito_ALTO_VERA.schema">
             <SimpleData name="Cédula">6663795.00000000000</SimpleData>
             <SimpleData name="cedula">6663795</SimpleData>
-            <SimpleData name="N°">27</SimpleData>
+            <SimpleData name="N">27</SimpleData>
             <SimpleData name="Nombres y">MARTA FATIMA VERA DUARTE</SimpleData>
             <SimpleData name="Sexo">Mujer</SimpleData>
             <SimpleData name="Cambio de">NO</SimpleData>
@@ -1845,7 +1845,7 @@
           <SchemaData schemaUrl="#Distrito_ALTO_VERA.schema">
             <SimpleData name="Cédula">6852736.00000000000</SimpleData>
             <SimpleData name="cedula">6852736</SimpleData>
-            <SimpleData name="N°">29</SimpleData>
+            <SimpleData name="N">29</SimpleData>
             <SimpleData name="Nombres y">ALCIDES CESAR DUARTE SANGER</SimpleData>
             <SimpleData name="Sexo">Hombre</SimpleData>
             <SimpleData name="Cambio de">NO</SimpleData>

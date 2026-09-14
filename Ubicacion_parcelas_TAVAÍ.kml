@@ -4,7 +4,7 @@
     <Schema id="Distrito_TAVA__.schema">
       <SimpleField name="Cédula" type="float"/>
       <SimpleField name="cedula" type="string"/>
-      <SimpleField name="N°" type="float"/>
+      <SimpleField name="N" type="float"/>
       <SimpleField name="Nombres y" type="string"/>
       <SimpleField name="Sexo" type="string"/>
       <SimpleField name="Cambio de" type="string"/>
@@ -54,7 +54,7 @@
           <SchemaData schemaUrl="#Distrito_TAVA__.schema">
             <SimpleData name="Cédula">6297590.00000000000</SimpleData>
             <SimpleData name="cedula">6297590</SimpleData>
-            <SimpleData name="N°">167</SimpleData>
+            <SimpleData name="N">167</SimpleData>
             <SimpleData name="Nombres y">ARACELIA  SANABRIA RUIZ DIAZ</SimpleData>
             <SimpleData name="Sexo">Mujer</SimpleData>
             <SimpleData name="Cambio de">NO</SimpleData>
@@ -108,7 +108,7 @@
           <SchemaData schemaUrl="#Distrito_TAVA__.schema">
             <SimpleData name="Cédula">8397959.00000000000</SimpleData>
             <SimpleData name="cedula">8397959</SimpleData>
-            <SimpleData name="N°">163</SimpleData>
+            <SimpleData name="N">163</SimpleData>
             <SimpleData name="Nombres y">EDUARDO LOPEZ BENITEZ</SimpleData>
             <SimpleData name="Sexo">Hombre</SimpleData>
             <SimpleData name="Cambio de">NO</SimpleData>
@@ -162,7 +162,7 @@
           <SchemaData schemaUrl="#Distrito_TAVA__.schema">
             <SimpleData name="Cédula">9115513.00000000000</SimpleData>
             <SimpleData name="cedula">9115513</SimpleData>
-            <SimpleData name="N°">170</SimpleData>
+            <SimpleData name="N">170</SimpleData>
             <SimpleData name="Nombres y">BRUNO DANIEL MENDIETA SARATE</SimpleData>
             <SimpleData name="Sexo">Hombre</SimpleData>
             <SimpleData name="Cambio de">NO</SimpleData>
@@ -223,7 +223,7 @@
           <SchemaData schemaUrl="#Distrito_TAVA__.schema">
             <SimpleData name="Cédula">6585410.00000000000</SimpleData>
             <SimpleData name="cedula">6585410</SimpleData>
-            <SimpleData name="N°">168</SimpleData>
+            <SimpleData name="N">168</SimpleData>
             <SimpleData name="Nombres y">SONIA  LOMBARDO AREVALOS</SimpleData>
             <SimpleData name="Sexo">Mujer</SimpleData>
             <SimpleData name="Cambio de">NO</SimpleData>
@@ -277,7 +277,7 @@
           <SchemaData schemaUrl="#Distrito_TAVA__.schema">
             <SimpleData name="Cédula">8068699.00000000000</SimpleData>
             <SimpleData name="cedula">8068699</SimpleData>
-            <SimpleData name="N°">164</SimpleData>
+            <SimpleData name="N">164</SimpleData>
             <SimpleData name="Nombres y">CLAUDIA FERNANDEZ FRANCO</SimpleData>
             <SimpleData name="Sexo">Mujer</SimpleData>
             <SimpleData name="Cambio de">NO</SimpleData>
@@ -331,7 +331,7 @@
           <SchemaData schemaUrl="#Distrito_TAVA__.schema">
             <SimpleData name="Cédula">7847696.00000000000</SimpleData>
             <SimpleData name="cedula">7847696</SimpleData>
-            <SimpleData name="N°">173</SimpleData>
+            <SimpleData name="N">173</SimpleData>
             <SimpleData name="Nombres y">MARIA LILIANA  CENA BENITEZ</SimpleData>
             <SimpleData name="Sexo">Mujer</SimpleData>
             <SimpleData name="Cambio de">NO</SimpleData>
@@ -385,7 +385,7 @@
           <SchemaData schemaUrl="#Distrito_TAVA__.schema">
             <SimpleData name="Cédula">5452923.00000000000</SimpleData>
             <SimpleData name="cedula">5452923</SimpleData>
-            <SimpleData name="N°">162</SimpleData>
+            <SimpleData name="N">162</SimpleData>
             <SimpleData name="Nombres y">CLAUDIO BENITEZ GARAY</SimpleData>
             <SimpleData name="Sexo">Hombre</SimpleData>
             <SimpleData name="Cambio de">NO</SimpleData>
@@ -439,7 +439,7 @@
           <SchemaData schemaUrl="#Distrito_TAVA__.schema">
             <SimpleData name="Cédula">6776884.00000000000</SimpleData>
             <SimpleData name="cedula">6776884</SimpleData>
-            <SimpleData name="N°">161</SimpleData>
+            <SimpleData name="N">161</SimpleData>
             <SimpleData name="Nombres y">SERGIO CABRAL OCAMPOS</SimpleData>
             <SimpleData name="Sexo">Hombre</SimpleData>
             <SimpleData name="Cambio de">NO</SimpleData>
@@ -493,7 +493,7 @@
           <SchemaData schemaUrl="#Distrito_TAVA__.schema">
             <SimpleData name="Cédula">5027967.00000000000</SimpleData>
             <SimpleData name="cedula">5027967</SimpleData>
-            <SimpleData name="N°">171</SimpleData>
+            <SimpleData name="N">171</SimpleData>
             <SimpleData name="Nombres y">WALTER  SANCHEZ BENITEZ</SimpleData>
             <SimpleData name="Sexo">Mujer</SimpleData>
             <SimpleData name="Cambio de">SI</SimpleData>
@@ -555,7 +555,7 @@
           <SchemaData schemaUrl="#Distrito_TAVA__.schema">
             <SimpleData name="Cédula">6013301.00000000000</SimpleData>
             <SimpleData name="cedula">6013301</SimpleData>
-            <SimpleData name="N°">169</SimpleData>
+            <SimpleData name="N">169</SimpleData>
             <SimpleData name="Nombres y">WILSON  LOMBARDO MOREL</SimpleData>
             <SimpleData name="Sexo">Hombre</SimpleData>
             <SimpleData name="Cambio de">NO</SimpleData>
@@ -609,7 +609,7 @@
           <SchemaData schemaUrl="#Distrito_TAVA__.schema">
             <SimpleData name="Cédula">6773669.00000000000</SimpleData>
             <SimpleData name="cedula">6773669</SimpleData>
-            <SimpleData name="N°">174</SimpleData>
+            <SimpleData name="N">174</SimpleData>
             <SimpleData name="Nombres y">ANTONIA  GIMENEZ MEDINA</SimpleData>
             <SimpleData name="Sexo">Mujer</SimpleData>
             <SimpleData name="Cambio de">NO</SimpleData>
@@ -662,7 +662,7 @@
           <SchemaData schemaUrl="#Distrito_TAVA__.schema">
             <SimpleData name="Cédula">7011500.00000000000</SimpleData>
             <SimpleData name="cedula">7011500</SimpleData>
-            <SimpleData name="N°">172</SimpleData>
+            <SimpleData name="N">172</SimpleData>
             <SimpleData name="Nombres y">SONIA ELIZABETH  FLORES ROTELA</SimpleData>
             <SimpleData name="Sexo">Mujer</SimpleData>
             <SimpleData name="Cambio de">NO</SimpleData>
@@ -716,7 +716,7 @@
           <SchemaData schemaUrl="#Distrito_TAVA__.schema">
             <SimpleData name="Cédula">6580474.00000000000</SimpleData>
             <SimpleData name="cedula">6580474</SimpleData>
-            <SimpleData name="N°">160</SimpleData>
+            <SimpleData name="N">160</SimpleData>
             <SimpleData name="Nombres y">YONI CESAR FERNANDEZ DIAZ</SimpleData>
             <SimpleData name="Sexo">Hombre</SimpleData>
             <SimpleData name="Cambio de">NO</SimpleData>
@@ -770,7 +770,7 @@
           <SchemaData schemaUrl="#Distrito_TAVA__.schema">
             <SimpleData name="Cédula">8055385.00000000000</SimpleData>
             <SimpleData name="cedula">8055385</SimpleData>
-            <SimpleData name="N°">165</SimpleData>
+            <SimpleData name="N">165</SimpleData>
             <SimpleData name="Nombres y">NILDA BEATRIZ MEDINA MARTINEZ</SimpleData>
             <SimpleData name="Sexo">Mujer</SimpleData>
             <SimpleData name="Cambio de">NO</SimpleData>
@@ -824,7 +824,7 @@
           <SchemaData schemaUrl="#Distrito_TAVA__.schema">
             <SimpleData name="Cédula">7495240.00000000000</SimpleData>
             <SimpleData name="cedula">7495240</SimpleData>
-            <SimpleData name="N°">159</SimpleData>
+            <SimpleData name="N">159</SimpleData>
             <SimpleData name="Nombres y">MIRIAN FERNANDEZ VERA</SimpleData>
             <SimpleData name="Sexo">Mujer</SimpleData>
             <SimpleData name="Cambio de">NO</SimpleData>
@@ -878,7 +878,7 @@
           <SchemaData schemaUrl="#Distrito_TAVA__.schema">
             <SimpleData name="Cédula">6511846.00000000000</SimpleData>
             <SimpleData name="cedula">6511846</SimpleData>
-            <SimpleData name="N°">166</SimpleData>
+            <SimpleData name="N">166</SimpleData>
             <SimpleData name="Nombres y">ANTOLIN DIEGO FERNANDEZ GONZALEZ</SimpleData>
             <SimpleData name="Sexo">Hombre</SimpleData>
             <SimpleData name="Cambio de">NO</SimpleData>

@@ -4,7 +4,7 @@
     <Schema id="Distrito_GUAYAIBI.schema">
       <SimpleField name="Cédula" type="float"/>
       <SimpleField name="cedula" type="string"/>
-      <SimpleField name="N°" type="float"/>
+      <SimpleField name="N" type="float"/>
       <SimpleField name="Nombres y" type="string"/>
       <SimpleField name="Sexo" type="string"/>
       <SimpleField name="Cambio de" type="string"/>
@@ -54,7 +54,7 @@
           <SchemaData schemaUrl="#Distrito_GUAYAIBI.schema">
             <SimpleData name="Cédula">5635213.00000000000</SimpleData>
             <SimpleData name="cedula">5635213</SimpleData>
-            <SimpleData name="N°">341</SimpleData>
+            <SimpleData name="N">341</SimpleData>
             <SimpleData name="Nombres y">LILIANA MEZA ROMERO</SimpleData>
             <SimpleData name="Sexo">Mujer</SimpleData>
             <SimpleData name="Cambio de">NO</SimpleData>
@@ -106,7 +106,7 @@
           <SchemaData schemaUrl="#Distrito_GUAYAIBI.schema">
             <SimpleData name="Cédula">4367056.00000000000</SimpleData>
             <SimpleData name="cedula">4367056</SimpleData>
-            <SimpleData name="N°">319</SimpleData>
+            <SimpleData name="N">319</SimpleData>
             <SimpleData name="Nombres y">ZULMA BEATRIZ AVALOS ORTIZ</SimpleData>
             <SimpleData name="Sexo">Mujer</SimpleData>
             <SimpleData name="Cambio de">NO</SimpleData>
@@ -159,7 +159,7 @@
           <SchemaData schemaUrl="#Distrito_GUAYAIBI.schema">
             <SimpleData name="Cédula">3401110.00000000000</SimpleData>
             <SimpleData name="cedula">3401110</SimpleData>
-            <SimpleData name="N°">318</SimpleData>
+            <SimpleData name="N">318</SimpleData>
             <SimpleData name="Nombres y">ROSALINA PERALTA JARA</SimpleData>
             <SimpleData name="Sexo">Mujer</SimpleData>
             <SimpleData name="Cambio de">NO</SimpleData>
@@ -211,7 +211,7 @@
           <SchemaData schemaUrl="#Distrito_GUAYAIBI.schema">
             <SimpleData name="Cédula">4785599.00000000000</SimpleData>
             <SimpleData name="cedula">4785599</SimpleData>
-            <SimpleData name="N°">335</SimpleData>
+            <SimpleData name="N">335</SimpleData>
             <SimpleData name="Nombres y">GILDA COLMAN SOSA</SimpleData>
             <SimpleData name="Sexo">Mujer</SimpleData>
             <SimpleData name="Cambio de">NO</SimpleData>
@@ -263,7 +263,7 @@
           <SchemaData schemaUrl="#Distrito_GUAYAIBI.schema">
             <SimpleData name="Cédula">2487456.00000000000</SimpleData>
             <SimpleData name="cedula">2487456</SimpleData>
-            <SimpleData name="N°">323</SimpleData>
+            <SimpleData name="N">323</SimpleData>
             <SimpleData name="Nombres y">CELSO ENCINA AGUILERA</SimpleData>
             <SimpleData name="Sexo">Hombre</SimpleData>
             <SimpleData name="Cambio de">NO</SimpleData>
@@ -315,7 +315,7 @@
           <SchemaData schemaUrl="#Distrito_GUAYAIBI.schema">
             <SimpleData name="Cédula">5371206.00000000000</SimpleData>
             <SimpleData name="cedula">5371206</SimpleData>
-            <SimpleData name="N°">320</SimpleData>
+            <SimpleData name="N">320</SimpleData>
             <SimpleData name="Nombres y">DIONISIA VERA OJEDA</SimpleData>
             <SimpleData name="Sexo">Mujer</SimpleData>
             <SimpleData name="Cambio de">NO</SimpleData>
@@ -374,7 +374,7 @@
           <SchemaData schemaUrl="#Distrito_GUAYAIBI.schema">
             <SimpleData name="Cédula">5237725.00000000000</SimpleData>
             <SimpleData name="cedula">5237725</SimpleData>
-            <SimpleData name="N°">313</SimpleData>
+            <SimpleData name="N">313</SimpleData>
             <SimpleData name="Nombres y">FATIMA CAROLINA GARCETE</SimpleData>
             <SimpleData name="Sexo">Mujer</SimpleData>
             <SimpleData name="Cambio de">NO</SimpleData>
@@ -426,7 +426,7 @@
           <SchemaData schemaUrl="#Distrito_GUAYAIBI.schema">
             <SimpleData name="Cédula">5836644.00000000000</SimpleData>
             <SimpleData name="cedula">5836644</SimpleData>
-            <SimpleData name="N°">315</SimpleData>
+            <SimpleData name="N">315</SimpleData>
             <SimpleData name="Nombres y">MERCEDES CAJE ESCURRA</SimpleData>
             <SimpleData name="Sexo">Mujer</SimpleData>
             <SimpleData name="Cambio de">NO</SimpleData>
@@ -478,7 +478,7 @@
           <SchemaData schemaUrl="#Distrito_GUAYAIBI.schema">
             <SimpleData name="Cédula">5828449.00000000000</SimpleData>
             <SimpleData name="cedula">5828449</SimpleData>
-            <SimpleData name="N°">322</SimpleData>
+            <SimpleData name="N">322</SimpleData>
             <SimpleData name="Nombres y">GRACIELA AVALOS ORTIZ</SimpleData>
             <SimpleData name="Sexo">Mujer</SimpleData>
             <SimpleData name="Cambio de">NO</SimpleData>
@@ -530,7 +530,7 @@
           <SchemaData schemaUrl="#Distrito_GUAYAIBI.schema">
             <SimpleData name="Cédula">6547937.00000000000</SimpleData>
             <SimpleData name="cedula">6547937</SimpleData>
-            <SimpleData name="N°">329</SimpleData>
+            <SimpleData name="N">329</SimpleData>
             <SimpleData name="Nombres y">CLARA NATALIA BOGADO ZARATE</SimpleData>
             <SimpleData name="Sexo">Mujer</SimpleData>
             <SimpleData name="Cambio de">NO</SimpleData>
@@ -582,7 +582,7 @@
           <SchemaData schemaUrl="#Distrito_GUAYAIBI.schema">
             <SimpleData name="Cédula">6949534.00000000000</SimpleData>
             <SimpleData name="cedula">6949534</SimpleData>
-            <SimpleData name="N°">340</SimpleData>
+            <SimpleData name="N">340</SimpleData>
             <SimpleData name="Nombres y">NANCY BENITEZ MACIEL</SimpleData>
             <SimpleData name="Sexo">Mujer</SimpleData>
             <SimpleData name="Cambio de">NO</SimpleData>
@@ -634,7 +634,7 @@
           <SchemaData schemaUrl="#Distrito_GUAYAIBI.schema">
             <SimpleData name="Cédula">7960311.00000000000</SimpleData>
             <SimpleData name="cedula">7960311</SimpleData>
-            <SimpleData name="N°">328</SimpleData>
+            <SimpleData name="N">328</SimpleData>
             <SimpleData name="Nombres y">LIZ PAOLA IBAÑEZ CUBILLA</SimpleData>
             <SimpleData name="Sexo">Mujer</SimpleData>
             <SimpleData name="Cambio de">NO</SimpleData>
@@ -686,7 +686,7 @@
           <SchemaData schemaUrl="#Distrito_GUAYAIBI.schema">
             <SimpleData name="Cédula">4917900.00000000000</SimpleData>
             <SimpleData name="cedula">4917900</SimpleData>
-            <SimpleData name="N°">321</SimpleData>
+            <SimpleData name="N">321</SimpleData>
             <SimpleData name="Nombres y">MARGARITA ACOSTA GONZALEZ</SimpleData>
             <SimpleData name="Sexo">Mujer</SimpleData>
             <SimpleData name="Cambio de">NO</SimpleData>
@@ -738,7 +738,7 @@
           <SchemaData schemaUrl="#Distrito_GUAYAIBI.schema">
             <SimpleData name="Cédula">6581543.00000000000</SimpleData>
             <SimpleData name="cedula">6581543</SimpleData>
-            <SimpleData name="N°">339</SimpleData>
+            <SimpleData name="N">339</SimpleData>
             <SimpleData name="Nombres y">LAURA BEATRIZ LEON VILLAGRA</SimpleData>
             <SimpleData name="Sexo">Mujer</SimpleData>
             <SimpleData name="Cambio de">NO</SimpleData>
@@ -791,7 +791,7 @@
           <SchemaData schemaUrl="#Distrito_GUAYAIBI.schema">
             <SimpleData name="Cédula">6661009.00000000000</SimpleData>
             <SimpleData name="cedula">6661009</SimpleData>
-            <SimpleData name="N°">324</SimpleData>
+            <SimpleData name="N">324</SimpleData>
             <SimpleData name="Nombres y">CINTHIA MENDEZ PERRENS</SimpleData>
             <SimpleData name="Sexo">Mujer</SimpleData>
             <SimpleData name="Cambio de">NO</SimpleData>
@@ -844,7 +844,7 @@
           <SchemaData schemaUrl="#Distrito_GUAYAIBI.schema">
             <SimpleData name="Cédula">5656084.00000000000</SimpleData>
             <SimpleData name="cedula">5656084</SimpleData>
-            <SimpleData name="N°">317</SimpleData>
+            <SimpleData name="N">317</SimpleData>
             <SimpleData name="Nombres y">LILIANA FERNANDEZ AVEIRO</SimpleData>
             <SimpleData name="Sexo">Mujer</SimpleData>
             <SimpleData name="Cambio de">NO</SimpleData>
@@ -896,7 +896,7 @@
           <SchemaData schemaUrl="#Distrito_GUAYAIBI.schema">
             <SimpleData name="Cédula">3753005.00000000000</SimpleData>
             <SimpleData name="cedula">3753005</SimpleData>
-            <SimpleData name="N°">325</SimpleData>
+            <SimpleData name="N">325</SimpleData>
             <SimpleData name="Nombres y">NANCY RAQUEL IBARRA FRANCO</SimpleData>
             <SimpleData name="Sexo">Mujer</SimpleData>
             <SimpleData name="Cambio de">NO</SimpleData>
@@ -948,7 +948,7 @@
           <SchemaData schemaUrl="#Distrito_GUAYAIBI.schema">
             <SimpleData name="Cédula">4762133.00000000000</SimpleData>
             <SimpleData name="cedula">4762133</SimpleData>
-            <SimpleData name="N°">330</SimpleData>
+            <SimpleData name="N">330</SimpleData>
             <SimpleData name="Nombres y">ZULMA ROJAS SAMUDIO</SimpleData>
             <SimpleData name="Sexo">Mujer</SimpleData>
             <SimpleData name="Cambio de">NO</SimpleData>
@@ -1000,7 +1000,7 @@
           <SchemaData schemaUrl="#Distrito_GUAYAIBI.schema">
             <SimpleData name="Cédula">7400206.00000000000</SimpleData>
             <SimpleData name="cedula">7400206</SimpleData>
-            <SimpleData name="N°">331</SimpleData>
+            <SimpleData name="N">331</SimpleData>
             <SimpleData name="Nombres y">CRISTINA VILLORDO LOPEZ</SimpleData>
             <SimpleData name="Sexo">Mujer</SimpleData>
             <SimpleData name="Cambio de">NO</SimpleData>
@@ -1052,7 +1052,7 @@
           <SchemaData schemaUrl="#Distrito_GUAYAIBI.schema">
             <SimpleData name="Cédula">5637347.00000000000</SimpleData>
             <SimpleData name="cedula">5637347</SimpleData>
-            <SimpleData name="N°">343</SimpleData>
+            <SimpleData name="N">343</SimpleData>
             <SimpleData name="Nombres y">ISMAEL BRITEZ ZARACHO</SimpleData>
             <SimpleData name="Sexo">Hombre</SimpleData>
             <SimpleData name="Cambio de">NO</SimpleData>
@@ -1104,7 +1104,7 @@
           <SchemaData schemaUrl="#Distrito_GUAYAIBI.schema">
             <SimpleData name="Cédula">4015248.00000000000</SimpleData>
             <SimpleData name="cedula">4015248</SimpleData>
-            <SimpleData name="N°">334</SimpleData>
+            <SimpleData name="N">334</SimpleData>
             <SimpleData name="Nombres y">ROMINA LUCIA MORENO SANCHEZ</SimpleData>
             <SimpleData name="Sexo">Mujer</SimpleData>
             <SimpleData name="Cambio de">NO</SimpleData>
@@ -1156,7 +1156,7 @@
           <SchemaData schemaUrl="#Distrito_GUAYAIBI.schema">
             <SimpleData name="Cédula">7826874.00000000000</SimpleData>
             <SimpleData name="cedula">7826874</SimpleData>
-            <SimpleData name="N°">314</SimpleData>
+            <SimpleData name="N">314</SimpleData>
             <SimpleData name="Nombres y">CELINA MARTINEZ ESTIGARRIBIA</SimpleData>
             <SimpleData name="Sexo">Mujer</SimpleData>
             <SimpleData name="Cambio de">NO</SimpleData>
@@ -1209,7 +1209,7 @@
           <SchemaData schemaUrl="#Distrito_GUAYAIBI.schema">
             <SimpleData name="Cédula">7486899.00000000000</SimpleData>
             <SimpleData name="cedula">7486899</SimpleData>
-            <SimpleData name="N°">344</SimpleData>
+            <SimpleData name="N">344</SimpleData>
             <SimpleData name="Nombres y">LIVIA DILMAR PEREIRA</SimpleData>
             <SimpleData name="Sexo">Mujer</SimpleData>
             <SimpleData name="Cambio de">NO</SimpleData>
@@ -1268,7 +1268,7 @@
           <SchemaData schemaUrl="#Distrito_GUAYAIBI.schema">
             <SimpleData name="Cédula">2550880.00000000000</SimpleData>
             <SimpleData name="cedula">2550880</SimpleData>
-            <SimpleData name="N°">332</SimpleData>
+            <SimpleData name="N">332</SimpleData>
             <SimpleData name="Nombres y">TOMASA MANCUELLO PINTOS</SimpleData>
             <SimpleData name="Sexo">Mujer</SimpleData>
             <SimpleData name="Cambio de">NO</SimpleData>
@@ -1320,7 +1320,7 @@
           <SchemaData schemaUrl="#Distrito_GUAYAIBI.schema">
             <SimpleData name="Cédula">4593295.00000000000</SimpleData>
             <SimpleData name="cedula">4593295</SimpleData>
-            <SimpleData name="N°">342</SimpleData>
+            <SimpleData name="N">342</SimpleData>
             <SimpleData name="Nombres y">MAXIMO CHAVEZ MARTINEZ</SimpleData>
             <SimpleData name="Sexo">Hombre</SimpleData>
             <SimpleData name="Cambio de">NO</SimpleData>
@@ -1372,7 +1372,7 @@
           <SchemaData schemaUrl="#Distrito_GUAYAIBI.schema">
             <SimpleData name="Cédula">3765391.00000000000</SimpleData>
             <SimpleData name="cedula">3765391</SimpleData>
-            <SimpleData name="N°">338</SimpleData>
+            <SimpleData name="N">338</SimpleData>
             <SimpleData name="Nombres y">MABEL FERREIRA</SimpleData>
             <SimpleData name="Sexo">Mujer</SimpleData>
             <SimpleData name="Cambio de">NO</SimpleData>
@@ -1432,7 +1432,7 @@
           <SchemaData schemaUrl="#Distrito_GUAYAIBI.schema">
             <SimpleData name="Cédula">4808048.00000000000</SimpleData>
             <SimpleData name="cedula">4808048</SimpleData>
-            <SimpleData name="N°">333</SimpleData>
+            <SimpleData name="N">333</SimpleData>
             <SimpleData name="Nombres y">VIRGILIA VAZQUEZ FRETES</SimpleData>
             <SimpleData name="Sexo">Mujer</SimpleData>
             <SimpleData name="Cambio de">NO</SimpleData>
@@ -1491,7 +1491,7 @@
           <SchemaData schemaUrl="#Distrito_GUAYAIBI.schema">
             <SimpleData name="Cédula">6864453.00000000000</SimpleData>
             <SimpleData name="cedula">6864453</SimpleData>
-            <SimpleData name="N°">326</SimpleData>
+            <SimpleData name="N">326</SimpleData>
             <SimpleData name="Nombres y">WILFRIDO BOGADO ORTELLADO</SimpleData>
             <SimpleData name="Sexo">Hombre</SimpleData>
             <SimpleData name="Cambio de">NO</SimpleData>
@@ -1543,7 +1543,7 @@
           <SchemaData schemaUrl="#Distrito_GUAYAIBI.schema">
             <SimpleData name="Cédula">5996131.00000000000</SimpleData>
             <SimpleData name="cedula">5996131</SimpleData>
-            <SimpleData name="N°">327</SimpleData>
+            <SimpleData name="N">327</SimpleData>
             <SimpleData name="Nombres y">DIOSNEL MOREIRA RIVAROLA</SimpleData>
             <SimpleData name="Sexo">Hombre</SimpleData>
             <SimpleData name="Cambio de">NO</SimpleData>
@@ -1595,7 +1595,7 @@
           <SchemaData schemaUrl="#Distrito_GUAYAIBI.schema">
             <SimpleData name="Cédula">4598352.00000000000</SimpleData>
             <SimpleData name="cedula">4598352</SimpleData>
-            <SimpleData name="N°">316</SimpleData>
+            <SimpleData name="N">316</SimpleData>
             <SimpleData name="Nombres y">SUSANA MARTINEZ LOPEZ</SimpleData>
             <SimpleData name="Sexo">Mujer</SimpleData>
             <SimpleData name="Cambio de">NO</SimpleData>
@@ -1647,7 +1647,7 @@
           <SchemaData schemaUrl="#Distrito_GUAYAIBI.schema">
             <SimpleData name="Cédula">7013665.00000000000</SimpleData>
             <SimpleData name="cedula">7013665</SimpleData>
-            <SimpleData name="N°">336</SimpleData>
+            <SimpleData name="N">336</SimpleData>
             <SimpleData name="Nombres y">LIZ FERNANDA BARRIOS ARGUELLO</SimpleData>
             <SimpleData name="Sexo">Mujer</SimpleData>
             <SimpleData name="Cambio de">NO</SimpleData>
@@ -1699,7 +1699,7 @@
           <SchemaData schemaUrl="#Distrito_GUAYAIBI.schema">
             <SimpleData name="Cédula">5798957.00000000000</SimpleData>
             <SimpleData name="cedula">5798957</SimpleData>
-            <SimpleData name="N°">337</SimpleData>
+            <SimpleData name="N">337</SimpleData>
             <SimpleData name="Nombres y">TOMASA VENIALGO ALFONZO</SimpleData>
             <SimpleData name="Sexo">Mujer</SimpleData>
             <SimpleData name="Cambio de">NO</SimpleData>
